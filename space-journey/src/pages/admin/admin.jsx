@@ -25,7 +25,7 @@ const Admin = () => {
     useEffect(() => {
       const fetchAllUsers = async () => {
         try {
-          const response = await axios.get("http://127.0.0.1:4040/api/user/all");
+          const response = await axios.get("http://localhost:4040/api/user/all");
           if (response.data) {
             setUsers(Array.isArray(response.data) ? response.data : response.data[0]);
             console.log(response);
