@@ -11,7 +11,10 @@ const initialState = {
     name: "users",
     initialState,
     reducers: {
-      
+      fetchingUsers: (state) => {
+        state.loading = true;
+      },
+     
     },
   });
   
