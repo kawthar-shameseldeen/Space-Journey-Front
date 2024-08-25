@@ -9,3 +9,8 @@ body {
     max-width: 320px !important;
     margin: 100px auto !important;
 }
+h1 {
+    font-size: 2em !important;
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+}
