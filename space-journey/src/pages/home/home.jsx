@@ -129,7 +129,7 @@ const HomePage = () => {
             <Features />
           </div>
         </div>
-       
+        <Footer />
       </div>
     );
   };
