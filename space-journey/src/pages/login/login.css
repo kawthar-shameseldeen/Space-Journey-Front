@@ -65,3 +65,9 @@ input::placeholder {
     width: 100% !important;
     margin-top: -10px !important; 
 }
+
+.signup-text a {
+    color: #61dbfb !important;
+    font-family: "Inter", sans-serif !important;
+    text-decoration: none !important;
+}
