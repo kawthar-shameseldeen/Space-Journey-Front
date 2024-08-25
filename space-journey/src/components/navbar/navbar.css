@@ -50,3 +50,7 @@
     border-radius: 20px; 
     padding: 5px 15px; 
 }
+
+.btn-login a, .btn-logout a {
+    color: white; 
+}
