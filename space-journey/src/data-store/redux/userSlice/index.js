@@ -6,3 +6,7 @@ const initialState = {
     error: null,
     user: null,
   };
+
+  const usersSlice = createSlice({
+  });
+  
