@@ -83,3 +83,9 @@
     margin-left: 10px;
     font-size: 14px;
 }
+
+.btn-login:hover {
+    background-color: #61dbfb;
+    color: black;
+    border: 1px solid #61dbfb;
+}
