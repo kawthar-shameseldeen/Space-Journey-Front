@@ -5,3 +5,4 @@ import axios from "axios";
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
 import FileUploadPopup from '../../compnents/fileuploader/fileuploader.jsx';
+import Navbar from "../../compnents/navbar/navbar.jsx";
