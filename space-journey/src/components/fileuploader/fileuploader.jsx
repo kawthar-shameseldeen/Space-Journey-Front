@@ -60,7 +60,15 @@ const FileUploadPopup = ({ onFileImport }) => {
         setFile(null);
         setParsedData([]);
       };
-    
+      return (
+        <div className="file-upload-popup">
+          <input type="file" onChange={handleFileChange} />
+          <button className="btn" onClick={handleConfirmImport} disabled={!file}>
+            Confirm Import
+          </button>
+          
+        </div>
+      );
   
   };
   
