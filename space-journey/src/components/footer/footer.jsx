@@ -17,7 +17,15 @@ const Footer = () => {
                     <a href="#terms">Terms of Use</a>
                 </div>
             </div>
-           
+            <div className="footer-bottom">
+                <div className="social-icons">
+                    <a href="#facebook"><i className="fab fa-facebook"></i></a>
+                    <a href="#instagram"><i className="fab fa-instagram"></i></a>
+                    <a href="#twitter"><i className="fab fa-twitter"></i></a>
+                    <a href="#whatsapp"><i className="fab fa-whatsapp"></i></a>
+                </div>
+                <p>&copy; SpaceJourney, Inc. 2024. We love our users!</p>
+            </div>
         </footer>
     );
     
