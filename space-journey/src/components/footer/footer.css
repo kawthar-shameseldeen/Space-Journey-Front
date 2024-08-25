@@ -32,3 +32,8 @@
 .footer-links a:hover {
     text-decoration: underline;
 }
+
+.footer-bottom {
+    border-top: 1px solid #61dbfb;
+    padding-top: 20px;
+}
