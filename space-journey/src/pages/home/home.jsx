@@ -116,7 +116,12 @@ const HomePage = () => {
           }}
         />
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-      
+        <section className="hero-section">
+          <div className="content">
+            <h1>Hello Universe</h1>
+          </div>
+        </section>
+       
       </div>
     );
   };
