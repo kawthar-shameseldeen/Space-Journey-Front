@@ -58,7 +58,18 @@ import {
           required
         />
       </div>
-    
+      <div className="input-group">
+        <FaLock className="icon" />
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          placeholder="Password"
+          autoComplete="off" 
+          required
+        />
+      </div>
+      
     </form>
   </div>
   );
