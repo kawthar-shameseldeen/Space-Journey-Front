@@ -27,6 +27,11 @@ const HomePage = () => {
       navigate("/login");
   
     };
+    return (
+      <div className="home-container">
+      
+      </div>
+    );
   };
   
   export default HomePage;
