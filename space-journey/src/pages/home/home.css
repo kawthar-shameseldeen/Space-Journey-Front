@@ -40,3 +40,8 @@
     z-index: 1000; 
     position: relative; 
 }
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
