@@ -24,6 +24,10 @@ const initialState = {
         state.loading = false;
         state.error = payload;
       },
+      registerUserSuccess: (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+      },
     
     },
   });
