@@ -4,8 +4,8 @@ import "./admin.css";
 import axios from "axios";
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
-import FileUploadPopup from '../../compnents/fileuploader/fileuploader.jsx';
-import Navbar from "../../compnents/navbar/navbar.jsx";
+import FileUploadPopup from '../../components/fileuploader/fileuploader.jsx';
+import Navbar from "../../components/navbar/navbar.jsx";
 
 const Admin = () => {
     const [users, setUsers] = useState([]);
