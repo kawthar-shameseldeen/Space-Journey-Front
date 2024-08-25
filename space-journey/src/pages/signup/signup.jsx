@@ -49,7 +49,13 @@ const Signup = () => {
                 <h1 className="signup-title">Register</h1>
                 <p className="signup-subtitle">Please Enter your Account details</p>
 
-
+                <div className="input-groupB">
+                    <FaUser />
+                    <input type="text" 
+                    value={username} onChange={(e) => setUsername(e.target.value)}  autoComplete="off" 
+                    placeholder="Name" />
+                </div>
+               
               
             </form>
         </div>
