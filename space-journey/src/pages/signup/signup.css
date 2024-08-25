@@ -67,3 +67,10 @@
     color: #000000 !important;
   }
   
+  .login-textB {
+    display: flex !important;
+    justify-content: flex-end !important;
+    width: 100% !important;
+    margin-bottom: 5px !important; 
+  }
+  
