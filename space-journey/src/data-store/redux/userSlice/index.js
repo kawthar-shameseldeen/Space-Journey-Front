@@ -32,7 +32,10 @@ const initialState = {
         state.loading = true;
         state.error = null;
       },
-   
+      registerUserFail: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      },
     },
   });
   
