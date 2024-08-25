@@ -6,3 +6,13 @@ import { format } from 'date-fns';
 import { toast } from 'react-toastify';
 import FileUploadPopup from '../../compnents/fileuploader/fileuploader.jsx';
 import Navbar from "../../compnents/navbar/navbar.jsx";
+
+const Admin = () => {
+    const [users, setUsers] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
+  };
+  
+  export default Admin;
+  
