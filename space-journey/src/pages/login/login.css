@@ -41,3 +41,15 @@ input[type="email"], input[type="password"] {
 input::placeholder {
     color: #61dbfb !important;
 }
+
+.login-button {
+    width: 40% !important;
+    padding: 10px !important;
+    margin: 20px auto 0 auto !important; 
+    border: 2px solid #61dbfb !important;
+    background: transparent !important;
+    color: #61dbfb !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+}
