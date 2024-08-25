@@ -48,3 +48,4 @@ export const {
     registerUserFail,
   } = usersSlice.actions;
   export const usersSliceSelector = (state) => state.users;
+  export const usersReducer = usersSlice.reducer;
