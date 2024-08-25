@@ -47,4 +47,4 @@ export const {
     registerUserStart,
     registerUserFail,
   } = usersSlice.actions;
-  
+  export const usersSliceSelector = (state) => state.users;
