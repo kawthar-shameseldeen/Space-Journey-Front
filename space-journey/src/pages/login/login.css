@@ -71,3 +71,7 @@ input::placeholder {
     font-family: "Inter", sans-serif !important;
     text-decoration: none !important;
 }
+
+.signup-text a:hover {
+    text-decoration: underline !important;
+}
