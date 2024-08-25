@@ -69,7 +69,12 @@ import {
           required
         />
       </div>
-      
+      <p className="signup-text">
+        Don't Have Account? <Link to="/">SignUp</Link>
+      </p>
+      <button type="submit" className="login-button">
+      Login
+      </button>
     </form>
   </div>
   );
