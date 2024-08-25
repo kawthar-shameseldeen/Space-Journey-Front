@@ -60,6 +60,11 @@ const Signup = () => {
                     <input type="email"
                     value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"  autoComplete="off"  />
                 </div>
+                <div className="input-groupB">
+                    <FaLock />
+                    <input type="password" 
+                    value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"   autoComplete="off" />
+                </div>
                
 
               
