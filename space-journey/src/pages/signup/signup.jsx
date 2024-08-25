@@ -65,7 +65,11 @@ const Signup = () => {
                     <input type="password" 
                     value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"   autoComplete="off" />
                 </div>
-               
+                <div className="login-textB">
+                    <p>Already Have Account?<Link to="/login">Login</Link> </p>
+                </div>
+
+       
 
               
             </form>
