@@ -28,7 +28,11 @@ const initialState = {
         state.loading = false;
         state.user = action.payload;
       },
-    
+      registerUserStart: (state) => {
+        state.loading = true;
+        state.error = null;
+      },
+   
     },
   });
   
