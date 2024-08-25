@@ -14,7 +14,12 @@ const initialState = {
       fetchingUsers: (state) => {
         state.loading = true;
       },
-     
+      loadUsers: (state, action) => {
+        const { payload } = action;
+        state.loading = false;
+        state.list = payload;
+      },
+    
     },
   });
   
