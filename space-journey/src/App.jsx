@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
+import HomePage from "./pages/home/home.jsx";
 
 function App() {
   return (
