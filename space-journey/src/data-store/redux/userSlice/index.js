@@ -39,3 +39,12 @@ const initialState = {
     },
   });
   
+export const {
+    loadUsers,
+    fetchingUsers,
+    errorOccured,
+    registerUserSuccess,
+    registerUserStart,
+    registerUserFail,
+  } = usersSlice.actions;
+  
