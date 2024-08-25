@@ -54,3 +54,10 @@
 .btn-login a, .btn-logout a {
     color: white; 
 }
+
+
+.btn-login:hover, .btn-logout:hover {
+    background-color: #61dbfb;
+    color: black; 
+    border: 1px solid #61dbfb;
+}
