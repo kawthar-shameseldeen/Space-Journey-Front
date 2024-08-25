@@ -47,7 +47,18 @@ import {
     <form className="login" onSubmit={handleSubmit}>
       <h3>Login</h3>
       <p>Please Enter your Account details</p>
-     
+      <div className="input-group">
+        <FaEnvelope className="icon" />
+        <input
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="Email"
+          autoComplete="off" 
+          required
+        />
+      </div>
+    
     </form>
   </div>
   );
