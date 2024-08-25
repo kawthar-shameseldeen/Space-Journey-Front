@@ -38,3 +38,6 @@ input[type="email"], input[type="password"] {
     background: transparent !important;
     color: #61dbfb !important;
 }
+input::placeholder {
+    color: #61dbfb !important;
+}
