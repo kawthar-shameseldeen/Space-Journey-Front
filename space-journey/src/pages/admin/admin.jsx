@@ -11,7 +11,13 @@ const Admin = () => {
     const [users, setUsers] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-  
+    useEffect(() => {
+    
+      const token = localStorage.getItem("token");
+      if (token) {
+        setIsAuthenticated(true);
+      }
+    }, []);
   };
   
   export default Admin;
