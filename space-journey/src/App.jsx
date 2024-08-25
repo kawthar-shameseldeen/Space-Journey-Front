@@ -6,6 +6,7 @@ import HomePage from "./pages/home/home.jsx";
 import { Provider } from "react-redux";
 import store from "./data_store/redux/store.js";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
