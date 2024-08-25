@@ -115,6 +115,7 @@ const HomePage = () => {
             },
           }}
         />
+        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       
       </div>
     );
