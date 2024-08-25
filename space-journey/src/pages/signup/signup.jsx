@@ -43,6 +43,11 @@ const Signup = () => {
         }
       }, [user, loading, error]);
     
+    return (
+        <div className="signup-container" >
+            
+        </div>
+    );
 }
 
 export default Signup;
