@@ -23,3 +23,10 @@ p {
     margin-bottom: 20px !important;
     background-color: #121212 !important;
 }
+.input-group .icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+    color: #61dbfb !important;
+}
