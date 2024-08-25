@@ -45,3 +45,7 @@
     display: flex;
     align-items: center;
 }
+.logo-image {
+    width: 40px; 
+    height: auto; 
+}
