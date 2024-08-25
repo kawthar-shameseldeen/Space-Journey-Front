@@ -49,3 +49,22 @@
     width: 40px; 
     height: auto; 
 }
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: smaller;
+}
+
+.navbar-links li {
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
