@@ -13,3 +13,9 @@
     height: 100vh; 
     text-align: center;
 }
+.cards-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
