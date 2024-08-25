@@ -121,6 +121,14 @@ const HomePage = () => {
             <h1>Hello Universe</h1>
           </div>
         </section>
+        <div className="cards-section">
+          <div className="card-container">
+            <AboutUs />
+          </div>
+          <div className="card-container">
+            <Features />
+          </div>
+        </div>
        
       </div>
     );
