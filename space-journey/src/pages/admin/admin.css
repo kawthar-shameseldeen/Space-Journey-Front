@@ -14,3 +14,7 @@
     font-size: 14px;
     transition: background-color 0.3s, color 0.3s; 
 }
+.btn:hover {
+    background-color: #61dbfb;
+    color: black;
+}
