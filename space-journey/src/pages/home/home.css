@@ -1,0 +1,8 @@
+.home-container {
+    position: relative;
+    width: 100%;
+    min-height: 200vh; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: white;
+}
