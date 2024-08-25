@@ -51,7 +51,16 @@ const FileUploadPopup = ({ onFileImport }) => {
         }
       };
     
-     
+      const handleConfirmImport = () => {
+        if (parsedData.length === 0) {
+          toast.error("No data to import");
+          return;
+        }
+        onFileImport(parsedData);
+        setFile(null);
+        setParsedData([]);
+      };
+    
   
   };
   
