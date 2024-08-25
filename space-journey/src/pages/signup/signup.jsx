@@ -34,7 +34,15 @@ const Signup = () => {
         }
       };
     
-     
+      useEffect(() => {
+        if (user && !loading && !error) {
+          navigate("/home");
+          toast.success("Signup successful");
+        } else if (error) {
+          toast.error("Error signing up");
+        }
+      }, [user, loading, error]);
+    
 }
 
 export default Signup;
