@@ -11,7 +11,14 @@ import {
     errorOccured,
   } from "../../data_store/redux/userSlice/index.js";
   const Login = () => {
- 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+  
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
+  
   };
   
   export default Login;
