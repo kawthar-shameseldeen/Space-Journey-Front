@@ -10,4 +10,9 @@ import {
     loadUsers,
     errorOccured,
   } from "../../data_store/redux/userSlice/index.js";
+  const Login = () => {
+ 
+  };
+  
+  export default Login;
   
