@@ -8,5 +8,8 @@ const initialState = {
   };
 
   const usersSlice = createSlice({
+    name: "users",
+    initialState,
+   
   });
   
