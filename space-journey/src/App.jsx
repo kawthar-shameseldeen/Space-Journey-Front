@@ -16,6 +16,19 @@ import {
 } from "react-router-dom";
 import Admin from "./pages/admin/admin.jsx";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/features" element={<Features />} />
+      <Route path="/admin" element={<Admin />} />
+     
+    </>
+  )
+);
+
 function App() {
   return (
     <div className="App">
