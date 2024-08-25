@@ -68,3 +68,18 @@
     font-size: 14px;
 }
 
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.btn-login, .btn-signup {
+    padding: 5px 15px;
+    border: 1px solid #61dbfb;
+    background: transparent;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
