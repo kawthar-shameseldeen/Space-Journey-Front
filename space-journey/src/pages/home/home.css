@@ -6,3 +6,10 @@
     overflow-y: auto;
     color: white;
 }
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    text-align: center;
+}
