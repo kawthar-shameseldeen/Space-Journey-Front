@@ -44,3 +44,9 @@
     line-height: 1.5 !important;
    
   }
+  .input-groupB svg {
+    min-width: 24px !important;
+    margin-right: 10px !important;
+    color: #61dbfb !important;
+  }
+  
