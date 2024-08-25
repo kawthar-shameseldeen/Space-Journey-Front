@@ -53,3 +53,8 @@ input::placeholder {
     cursor: pointer !important;
     text-align: center !important;
 }
+
+.login-button:hover {
+    background-color: #61dbfb !important;
+    color: #000000 !important;
+}
