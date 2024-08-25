@@ -33,3 +33,7 @@
     color: white;
     font-size: 14px;
 }
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+}
