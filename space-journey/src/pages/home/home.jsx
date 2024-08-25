@@ -21,7 +21,12 @@ const HomePage = () => {
         setIsAuthenticated(true);
       }
     }, []);
- 
+    const handleLogout = () => {
+      localStorage.removeItem("token");
+      setIsAuthenticated(false);
+      navigate("/login");
+  
+    };
   };
   
   export default HomePage;
