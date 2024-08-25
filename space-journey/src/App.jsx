@@ -8,7 +8,12 @@ import store from "./data_store/redux/store.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Features from "../src/compnents/features/features.jsx";
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
 function App() {
   return (
     <div className="App">
