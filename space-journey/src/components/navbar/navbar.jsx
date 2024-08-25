@@ -27,3 +27,4 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
     );
     
 };
+export default Navbar;
