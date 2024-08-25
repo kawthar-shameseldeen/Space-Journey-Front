@@ -31,3 +31,16 @@
     color: #ffffff !important;
   
   }
+  .input-groupB input {
+    flex-grow: 1 !important;
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+    color: #ffffff !important;
+    font-family: "Inter", sans-serif !important;
+    margin-left: 10px !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+   
+  }
