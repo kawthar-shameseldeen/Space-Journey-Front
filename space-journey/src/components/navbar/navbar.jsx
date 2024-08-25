@@ -8,6 +8,11 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
             <div className="navbar-logo">
             <img src={logo} alt="Logo" className="logo-image" />
             </div>
+            <ul className="navbar-links">
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/tour">Tour</Link></li>
+                <li><Link to="/space">Space</Link></li>
+            </ul>
            
         </nav>
     );
