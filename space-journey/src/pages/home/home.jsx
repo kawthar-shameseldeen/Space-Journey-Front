@@ -14,7 +14,14 @@ const HomePage = () => {
     };
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate=useNavigate();
+    useEffect(() => {
     
+      const token = localStorage.getItem("token");
+      if (token) {
+        setIsAuthenticated(true);
+      }
+    }, []);
+ 
   };
   
   export default HomePage;
