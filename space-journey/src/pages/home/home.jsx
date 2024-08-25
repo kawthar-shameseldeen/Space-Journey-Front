@@ -9,7 +9,12 @@ import Footer from "../../compnents/footer/footer.jsx";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  
+    const particlesInit = async (main) => {
+      await loadFull(main);
+    };
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate=useNavigate();
+    
   };
   
   export default HomePage;
