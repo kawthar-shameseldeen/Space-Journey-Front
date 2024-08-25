@@ -18,3 +18,8 @@ p {
     margin-bottom: 20px !important;
     color: #b0b0b0 !important;
 }
+.input-group {
+    position: relative !important;
+    margin-bottom: 20px !important;
+    background-color: #121212 !important;
+}
