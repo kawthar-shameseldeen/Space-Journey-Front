@@ -13,7 +13,16 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
                 <li><Link to="/tour">Tour</Link></li>
                 <li><Link to="/space">Space</Link></li>
             </ul>
-           
+            <div className="navbar-buttons">
+                {isAuthenticated ? (
+                    <button className="btn-logout" onClick={onLogout}>Logout</button>
+                ) : (
+                    <>
+                        <button className="btn-login"><Link to="/login">Login</Link></button>
+                        <button className="btn-signup"><Link to="/">Sign Up</Link></button>
+                    </>
+                )}
+            </div>
         </nav>
     );
     
