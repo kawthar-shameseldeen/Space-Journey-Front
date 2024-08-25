@@ -7,10 +7,16 @@ const FileUploadPopup = ({ onFileImport }) => {
     const [file, setFile] = useState(null);
     const [parsedData, setParsedData] = useState([]);
     const handleFileChange = (event) => {
-       
+        const selectedFile = event.target.files[0];
+        setFile(selectedFile);
+        if (!selectedFile) {
+          toast.error("Please select a file to import");
+          return;
+        }
+    
       };
     
-      
+     
   
   };
   
