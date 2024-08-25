@@ -14,6 +14,10 @@ const FileUploadPopup = ({ onFileImport }) => {
           return;
         }
     
+        const fileReader = new FileReader();
+        const fileType = selectedFile.name.split('.').pop().toLowerCase();
+    
+       
       };
     
      
