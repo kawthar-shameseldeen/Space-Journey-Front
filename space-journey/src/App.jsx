@@ -3,6 +3,7 @@ import './App.css';
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import HomePage from "./pages/home/home.jsx";
+import { Provider } from "react-redux";
 
 function App() {
   return (
