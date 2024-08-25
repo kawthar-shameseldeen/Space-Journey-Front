@@ -43,3 +43,10 @@
 .btn-logout a {
   text-decoration: none;
 }
+.btn-login, .btn-logout {
+    background: transparent;
+    color: white; 
+    border: 1px solid #61dbfb;
+    border-radius: 20px; 
+    padding: 5px 15px; 
+}
