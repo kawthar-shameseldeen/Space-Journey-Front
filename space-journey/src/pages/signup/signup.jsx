@@ -19,7 +19,22 @@ const Signup = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { loading, error, user } = useSelector(usersSliceSelector);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        dispatch(registerUserStart());
+        try {
+          const response = await axios.post("http://localhost:4040/api/register", {
+            username: username,
+            email,
+            password,
+          });
+          dispatch(registerUserSuccess(response.data));
+        } catch (error) {
+          dispatch(registerUserFail(error.response.data));
+        }
+      };
     
+     
 }
 
 export default Signup;
