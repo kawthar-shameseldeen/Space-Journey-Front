@@ -44,7 +44,11 @@ const FileUploadPopup = ({ onFileImport }) => {
           }
         };
     
-      
+        if (fileType === 'csv') {
+          fileReader.readAsText(selectedFile);
+        } else if (fileType === 'xlsx') {
+          fileReader.readAsBinaryString(selectedFile);
+        }
       };
     
      
