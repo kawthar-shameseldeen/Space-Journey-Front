@@ -4,3 +4,8 @@ body {
     background-color: #121212 !important;
     color: #ffffff !important;
 }
+.login-container {
+    text-align: left !important;
+    max-width: 320px !important;
+    margin: 100px auto !important;
+}
