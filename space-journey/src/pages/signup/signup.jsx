@@ -13,7 +13,13 @@ import {
   import React, { useState, useEffect } from "react";
   
 const Signup = () => {
-   
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { loading, error, user } = useSelector(usersSliceSelector);
+    
 }
 
 export default Signup;
