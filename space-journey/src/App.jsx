@@ -4,6 +4,7 @@ import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import HomePage from "./pages/home/home.jsx";
 import { Provider } from "react-redux";
+import store from "./data_store/redux/store.js";
 
 function App() {
   return (
