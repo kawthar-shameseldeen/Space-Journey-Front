@@ -6,11 +6,12 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 import {
-    fetchingUsers,
-    loadUsers,
-    errorOccured,
-  } from "../../data_store/redux/userSlice/index.js";
-  const Login = () => {
+  fetchingUsers,
+  loadUsers,
+  errorOccured,
+} from "../../data_store/redux/userSlice/index.js";
+
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
