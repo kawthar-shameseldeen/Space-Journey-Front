@@ -1,0 +1,11 @@
+.featurs-card {
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 2px solid #61dbfb; 
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
