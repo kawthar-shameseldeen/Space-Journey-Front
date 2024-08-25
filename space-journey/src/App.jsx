@@ -14,6 +14,8 @@ import {
   Route,
   createRoutesFromElements,
 } from "react-router-dom";
+import Admin from "./pages/admin/admin.jsx";
+
 function App() {
   return (
     <div className="App">
