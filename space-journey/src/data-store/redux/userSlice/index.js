@@ -19,6 +19,11 @@ const initialState = {
         state.loading = false;
         state.list = payload;
       },
+      errorOccured: (state, action) => {
+        const { payload } = action;
+        state.loading = false;
+        state.error = payload;
+      },
     
     },
   });
