@@ -113,6 +113,25 @@ const Admin = () => {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
     };
+  
+    const columns = [
+      { field: "id", headerName: "ID", flex: 1 },
+      { field: "name", headerName: "Name", flex: 1 },
+      { field: "email", headerName: "Email", flex: 1 },
+      { field: "created_at", headerName: "Registered At", flex: 1,
+        renderCell: (params)=> {
+          const date = new Date(params.row.created_at);
+          return isNaN(date) ? '' : format(date, 'yyyy-MM-dd');
+        }
+      },
+    ];
+  
+    const rows = Array.isArray(users) ? users.map((user) => ({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      created_at: user.created_at,
+    })) : [];
 
   };
   
