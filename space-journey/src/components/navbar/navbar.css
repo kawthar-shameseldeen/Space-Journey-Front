@@ -6,3 +6,8 @@
     padding: 10px 20px;
     color: white;
 }
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
