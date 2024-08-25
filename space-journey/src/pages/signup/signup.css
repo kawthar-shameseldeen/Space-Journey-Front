@@ -5,3 +5,8 @@
     align-items: center !important;
     height: 100vh !important;
   }
+  form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 300px !important;
+  }
