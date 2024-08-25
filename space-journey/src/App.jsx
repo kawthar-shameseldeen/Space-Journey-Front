@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import store from "./data_store/redux/store.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Features from "../src/compnents/features/features.jsx";
+import Features from "../src/components/features/features.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,7 +15,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Admin from "./pages/admin/admin.jsx";
-
+import AboutUs from './components/aboutus/aboutus.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -24,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="/home" element={<HomePage />} />
       <Route path="/features" element={<Features />} />
       <Route path="/admin" element={<Admin />} />
+      
      
     </>
   )
