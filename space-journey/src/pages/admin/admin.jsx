@@ -132,7 +132,100 @@ const Admin = () => {
       email: user.email,
       created_at: user.created_at,
     })) : [];
-
+  
+    return (
+      <div style={{ padding: "20px" }}>
+         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+        <div className="container">
+          
+          <h1
+            style={{
+              marginBottom: "20px",
+              color: "#fff",
+              fontSize: "36px",
+              fontWeight: "bold",
+            }}
+          >
+            All Users
+          </h1>
+          <button className="btn" onClick={() => setShowPopup(true)}>Import</button>
+          {showPopup && (
+            <div className="popup-overlay">
+              <div className="popup-content">
+                <h2>Import Users</h2>
+                <FileUploadPopup onFileImport={handleFileImport} />
+                <button className="btn" onClick={() => setShowPopup(false)}>Close</button>
+              </div>
+            </div>
+          )}
+        </div>
+        <div
+          style={{
+            height: "70vh",
+            width: "70vw",
+            margin: "0 auto",
+            padding: "20px",
+            backgroundColor: "#ffffff",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          {users && (
+            <DataGrid
+              columns={columns}
+              rows={rows}
+              slots={{ toolbar: GridToolbar }}
+              sx={{
+                "& .MuiDataGrid-root": {
+                  border: "none",
+                  fontFamily: "Arial, sans-serif",
+                },
+                "& .MuiDataGrid-cell": {
+                  borderBottom: "none",
+                },
+                "& .MuiDataGrid-columnHeaders": {
+                  backgroundColor: "#1a73e8",
+                  color: "#204E45",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                },
+                "& .MuiDataGrid-columnHeaderTitle": {
+                  fontWeight: "bold",
+                },
+                "& .MuiDataGrid-row:nth-of-type(odd)": {
+                  backgroundColor: "#f9f9f9",
+                },
+                "& .MuiDataGrid-row:hover": {
+                  backgroundColor: "#e0f7fa",
+                },
+                "& .MuiDataGrid-toolbarContainer": {
+                  justifyContent: "flex-end",
+                  padding: "10px",
+                },
+                "& .MuiDataGrid-footerContainer": {
+                  backgroundColor: "#f1f1f1",
+                },
+                "& .MuiDataGrid-virtualScroller": {
+                  scrollbarWidth: "thin",
+                  "&::-webkit-scrollbar": {
+                    width: "8px",
+                    height: "8px",
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "#888",
+                    borderRadius: "8px",
+                  },
+                  "&::-webkit-scrollbar-thumb:hover": {
+                    backgroundColor: "#555",
+                  },
+                },
+              }}
+            />
+          )}
+        </div>
+       
+      </div>
+    );
   };
   
   export default Admin;
