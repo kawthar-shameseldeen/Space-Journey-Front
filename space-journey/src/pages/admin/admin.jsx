@@ -136,7 +136,7 @@ const Admin = () => {
     return (
       <div style={{ padding: "20px" }}>
          <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-        <div className="container">
+        <div className="containerA">
           
           <h1
             style={{
