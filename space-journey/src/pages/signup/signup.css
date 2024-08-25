@@ -77,3 +77,9 @@
     color: #ffffff !important;
     font-family: "Inter", sans-serif !important;
   }
+  .login-textB a {
+    color: #61dbfb !important;
+    font-family: "Inter", sans-serif !important;
+    text-decoration: none !important;
+  }
+  
