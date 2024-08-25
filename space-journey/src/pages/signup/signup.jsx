@@ -55,7 +55,13 @@ const Signup = () => {
                     value={username} onChange={(e) => setUsername(e.target.value)}  autoComplete="off" 
                     placeholder="Name" />
                 </div>
+                <div className="input-groupB">
+                    <FaEnvelope />
+                    <input type="email"
+                    value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"  autoComplete="off"  />
+                </div>
                
+
               
             </form>
         </div>
