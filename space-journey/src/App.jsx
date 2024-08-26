@@ -27,10 +27,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+           <Route
+          path="/iot"
+          element={
+            <ProtectedRoute>
+              <IoTPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Signup />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/iot" element={<IoTPage/>} />
+       
 
       </>
     )
