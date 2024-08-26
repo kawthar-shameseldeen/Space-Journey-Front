@@ -7,6 +7,14 @@ import Navbar from '../../components/navbar/navbar.jsx';
 const IoTPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate=useNavigate();
+  useEffect(() => {
+  
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
     return (
       <div>
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
