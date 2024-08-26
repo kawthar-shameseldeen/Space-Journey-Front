@@ -10,7 +10,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-
+import Navbar from "../../components/navbar/navbar.jsx";
 import React, { useState, useEffect } from "react";
 
 const Signup = () => {
@@ -45,10 +45,13 @@ const Signup = () => {
   }, [user, loading, error]);
 
   return (
-    <div className="signup-container">
+   <div>
+    <Navbar/>
+     <div className="signup-container">
+      
       <form onSubmit={handleSubmit}>
-        <h1 className="signup-title">Register</h1>
-        <p className="signup-subtitle">Please Enter your Account details</p>
+        <h1 className="signup-titleB">Register</h1>
+        <p className="signup-subtitleB">Please Enter your Account details</p>
 
         <div className="input-groupB">
           <FaUser />
@@ -91,6 +94,7 @@ const Signup = () => {
         </button>
       </form>
     </div>
+   </div>
   );
 };
 
