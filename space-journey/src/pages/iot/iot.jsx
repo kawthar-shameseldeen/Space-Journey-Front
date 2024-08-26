@@ -5,6 +5,7 @@ import Navbar from '../../components/navbar/navbar.jsx';
 const IoTPage = () => {
     return (
       <div>
+        <Navbar/>
           <div className="iot-page">
             <div className="iot-content">
                 <h2>Connect your IoT devices</h2>
