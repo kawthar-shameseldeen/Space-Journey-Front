@@ -23,7 +23,7 @@ const Admin = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
-   
+    navigate("/login");
 
   };
   useEffect(() => {
