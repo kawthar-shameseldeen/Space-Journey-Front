@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import Admin from "./pages/admin/admin.jsx";
 import AboutUs from './components/aboutus/aboutus.jsx';
+import IoTPage from './pages/iot/iot.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/home" element={<HomePage />} />
       <Route path="/features" element={<Features />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/iot" element={<IoTPage />} />
       
      
     </>
