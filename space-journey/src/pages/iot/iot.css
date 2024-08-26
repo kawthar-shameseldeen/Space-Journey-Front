@@ -10,3 +10,7 @@
 .iot-content {
     max-width: 50%;
 }
+.iot-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
