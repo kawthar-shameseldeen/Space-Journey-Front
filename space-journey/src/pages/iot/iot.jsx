@@ -4,7 +4,8 @@ import deviceImage from '../../assets/iotImage.png';
 import Navbar from '../../components/navbar/navbar.jsx';
 const IoTPage = () => {
     return (
-        <div className="iot-page">
+      <div>
+          <div className="iot-page">
             <div className="iot-content">
                 <h2>Connect your IoT devices</h2>
                 <p>
@@ -17,6 +18,7 @@ const IoTPage = () => {
                 <img src={deviceImage} alt="IoT Device" />
             </div>
         </div>
+      </div>
     );
 };
 
