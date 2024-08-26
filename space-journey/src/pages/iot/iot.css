@@ -29,3 +29,7 @@
     cursor: pointer;
     font-size: 1rem;
 }
+.connect-button:hover {
+    background-color: #61dbfb;
+    color: black;
+}
