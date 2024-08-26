@@ -16,6 +16,7 @@ import {
   createRoutesFromElements,
   Outlet,
 } from "react-router-dom";
+import ProtectedRoute from './components/protectedRoutes/protect.jsx';
 import Navbar from "./components/navbar/navbar.jsx";
 import Admin from "./pages/admin/admin.jsx";
 import AboutUs from './components/aboutus/aboutus.jsx';
