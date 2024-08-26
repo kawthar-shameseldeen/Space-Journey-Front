@@ -16,6 +16,7 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/tour">Tour</Link></li>
                 <li><Link to="/space">Space</Link></li>
+                <li><Link to="/iot">Iot</Link></li>
             </ul>
             <div className="navbar-buttonsB">
             {!isAuthenticated && !isAuthPage && (
