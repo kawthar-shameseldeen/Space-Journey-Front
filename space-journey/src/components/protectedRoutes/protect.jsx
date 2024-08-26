@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 
 const ProtectedRoute = ({ children }) => {
   const [isTokenChecked, setIsTokenChecked] = useState(false);
- 
+  const token = localStorage.getItem('token');
+
 };
 
 export default ProtectedRoute;
