@@ -16,9 +16,11 @@ import {
   createRoutesFromElements,
   Outlet,
 } from "react-router-dom";
+import Navbar from "./components/navbar/navbar.jsx";
 import Admin from "./pages/admin/admin.jsx";
 import AboutUs from './components/aboutus/aboutus.jsx';
 import IoTPage from './pages/iot/iot.jsx';
+import Navbar from './components/navbar/navbar.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
