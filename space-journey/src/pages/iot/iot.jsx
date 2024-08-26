@@ -14,7 +14,12 @@ const IoTPage = () => {
       setIsAuthenticated(true);
     }
   }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    navigate("/login");
 
+  };
     return (
       <div>
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
