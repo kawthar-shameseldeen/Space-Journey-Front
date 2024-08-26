@@ -14,6 +14,7 @@ import {
   RouterProvider,
   Route,
   createRoutesFromElements,
+  Outlet,
 } from "react-router-dom";
 import Admin from "./pages/admin/admin.jsx";
 import AboutUs from './components/aboutus/aboutus.jsx';
