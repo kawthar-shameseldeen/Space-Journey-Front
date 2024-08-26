@@ -8,7 +8,7 @@ const IoTPage = () => {
   
     return (
       <div>
-   
+        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
         <div className="iot-page">
             <div className="iot-container">
                 <div className="iot-content">
