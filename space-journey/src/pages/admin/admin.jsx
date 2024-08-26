@@ -4,7 +4,7 @@ import "./admin.css";
 import axios from "axios";
 import { format } from "date-fns";
 import { toast } from "react-toastify"
-import { Navigate } from "react-router-dom";
+import { Navigate,useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 
