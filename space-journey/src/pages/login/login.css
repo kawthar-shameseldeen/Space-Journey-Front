@@ -3,11 +3,16 @@ body {
     font-family: 'Inter', sans-serif !important;
     background-color: #121212 !important;
     color: #ffffff !important;
+    
+    
 }
 .login-container {
     text-align: left !important;
     max-width: 320px !important;
     margin: 100px auto !important;
+    padding:40px;
+    border: 1px solid #61dbfb !important;
+    border-radius: 10px;
 }
 h1 {
     font-size: 2em !important;
