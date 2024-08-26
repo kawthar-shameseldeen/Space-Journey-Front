@@ -11,6 +11,7 @@ import {
   errorOccured,
 } from "../../data_store/redux/userSlice/index.js";
 import Navbar from "../../components/navbar/navbar.jsx";
+import jwtDecode from "jwt-decode";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +37,7 @@ const Login = () => {
       const token = data.token;
       localStorage.setItem("token", token);
       toast.success("Login successful");
+
       navigate("/home");
     } catch (error) {
       dispatch(errorOccured(error?.message));
