@@ -44,7 +44,9 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div>
+      <Navbar/>
+      <div className="login-container">
     <form className="login" onSubmit={handleSubmit}>
       <h3>Login</h3>
       <p>Please Enter your Account details</p>
@@ -78,6 +80,7 @@ const Login = () => {
       </button>
     </form>
   </div>
+    </div>
   );
 };
 
