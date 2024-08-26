@@ -126,8 +126,8 @@ const Admin = () => {
       },
     ];
   
-    const rows = Array.isArray(users) ? users.map((user) => ({
-      id: user.id,
+    const rows = Array.isArray(users) ? users.map((user, index) => ({
+      id: user.id || index,
       name: user.name,
       email: user.email,
       created_at: user.created_at,
