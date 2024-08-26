@@ -6,6 +6,14 @@ const ProtectedRoute = ({ children }) => {
   const [isTokenChecked, setIsTokenChecked] = useState(false);
   const token = localStorage.getItem('token');
 
+  useEffect(() => {
+    if (!token && !isTokenChecked) {
+      localStorage.clear();
+      toast.warning("An error has occurred");
+      setIsTokenChecked(true);
+    }
+  }, [token, isTokenChecked]);
+
 };
 
 export default ProtectedRoute;
