@@ -33,9 +33,11 @@ const Login = () => {
         email,
         password,
       });
+
       dispatch(loadUsers(data));
       const token = data.token;
       localStorage.setItem("token", token);
+
       toast.success("Login successful");
 
       navigate("/home");
@@ -47,41 +49,41 @@ const Login = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="login-container">
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Login</h3>
-      <p>Please Enter your Account details</p>
-      <div className="input-group">
-        <FaEnvelope className="icon" />
-        <input
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-          autoComplete="off" 
-          required
-        />
+        <form className="login" onSubmit={handleSubmit}>
+          <h3>Login</h3>
+          <p>Please Enter your Account details</p>
+          <div className="input-group">
+            <FaEnvelope className="icon" />
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              placeholder="Email"
+              autoComplete="off"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <FaLock className="icon" />
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              placeholder="Password"
+              autoComplete="off"
+              required
+            />
+          </div>
+          <p className="signup-text">
+            Don't Have Account? <Link to="/">SignUp</Link>
+          </p>
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
       </div>
-      <div className="input-group">
-        <FaLock className="icon" />
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Password"
-          autoComplete="off" 
-          required
-        />
-      </div>
-      <p className="signup-text">
-        Don't Have Account? <Link to="/">SignUp</Link>
-      </p>
-      <button type="submit" className="login-button">
-      Login
-      </button>
-    </form>
-  </div>
     </div>
   );
 };
