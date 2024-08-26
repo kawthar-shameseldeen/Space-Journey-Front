@@ -42,6 +42,13 @@ const Login = () => {
 
       const decodedToken = jwtDecode(token);
       console.log(decodedToken);
+      if (decodedToken.role === 'admin') {
+        navigate("/admin");
+      } else if (decodedToken.role === 'user') {
+        navigate("/home");
+      } else {
+        toast.error("Unknown role");
+      }
     } catch (error) {
       dispatch(errorOccured(error?.message));
       toast.error("Error logging in");
