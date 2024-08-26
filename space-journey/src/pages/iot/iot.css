@@ -7,3 +7,6 @@
     color: white;
     height: 100vh;
 }
+.iot-content {
+    max-width: 50%;
+}
