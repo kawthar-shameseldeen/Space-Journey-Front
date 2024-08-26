@@ -3,7 +3,11 @@
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  height: 100vh !important;
+  max-width: 320px;
+  margin: 50px auto;
+  border: 1px solid #61dbfb !important;
+  border-radius: 10px;
+  padding: 4px;
 }
 form {
   display: flex !important;
@@ -11,8 +15,8 @@ form {
   width: 300px !important;
 }
 
-.signup-title,
-.signup-subtitle {
+.signup-titleB,
+.signup-subtitleB {
   text-align: left !important;
   font-family: "Inter", sans-serif !important;
   color: #ffffff !important;
