@@ -15,10 +15,10 @@ const ProtectedRoute = ({ children }) => {
   }, [token, isTokenChecked]);
 
   if (!token) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/" />;
   }
 
-
+  return children;
 };
 
 export default ProtectedRoute;
