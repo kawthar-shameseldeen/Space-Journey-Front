@@ -1,12 +1,14 @@
-import React from 'react';
+import {useState,useEffect} from 'react';
+
 import './iot.css'; 
 import deviceImage from '../../assets/iotImage.png';
 import Navbar from '../../components/navbar/navbar.jsx';
 
 const IoTPage = () => {
+  
     return (
       <div>
-        <Navbar />
+        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
         <div className="iot-page">
             <div className="iot-container">
                 <div className="iot-content">
