@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import HomePage from "./pages/home/home.jsx";
