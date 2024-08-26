@@ -1,4 +1,4 @@
-.navbar {
+.navbarB {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,43 +7,44 @@
   color: white;
 }
 
-.navbar-logo {
+.navbar-logoB {
   display: flex;
   align-items: center;
 }
 
-.logo-image {
+.logo-imageB {
   width: 60px;
   height: auto;
   border-radius: 30px;
 }
 
-.navbar-links {
+.navbar-linksB {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   font-size: smaller;
 }
-.navbar-links li {
+.navbar-linksB li {
   margin: 0 15px;
 }
-.navbar-links a {
+.navbar-linksB a {
   text-decoration: none;
   color: white;
   font-size: 14px;
 }
-.navbar-buttons {
+.navbar-buttonsB {
   display: flex;
   align-items: center;
+  gap:10px;
 }
 
-.btn-login a,
-.btn-signup a,
-.btn-logout a {
+.btn-loginB a,
+.btn-signupB a,
+.btn-logoutB a {
   text-decoration: none;
 }
-.btn-login, .btn-logout {
+.btn-loginB, .btn-logoutB {
     background: transparent;
     color: white; 
     border: 1px solid #61dbfb;
@@ -51,21 +52,21 @@
     padding: 5px 15px; 
 }
 
-.btn-login a, .btn-logout a {
+.btn-loginB a, .btn-logoutB a {
     color: white; 
 }
 
 
-.btn-login:hover, .btn-logout:hover {
+.btn-loginB:hover, .btn-logoutB:hover {
     background-color: #61dbfb;
     color: black; 
     border: 1px solid #61dbfb;
 }
 
-.btn-login:hover a, .btn-logout:hover a {
+.btn-loginB:hover a, .btn-logoutB:hover a {
     color: black;
 }
-.btn-signup {
+.btn-signupB {
     background-color: #61dbfb;
     color: black; 
     border: 1px solid #61dbfb;
@@ -74,16 +75,16 @@
 }
 
 
-.btn-signup a {
+.btn-signupB a {
     color: black;
 }
 
-.btn-signup:hover {
+.btn-signupB:hover {
     background: transparent;
     color: white;
     border: 1px solid #61dbfb;
 }
 
-.btn-signup:hover a {
+.btn-signupB:hover a {
     color: white; 
 }
