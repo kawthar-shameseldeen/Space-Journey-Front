@@ -13,7 +13,9 @@ const IoTPage = () => {
                 </p>
                 
             </div>
-           
+            <div className="iot-image">
+                <img src={deviceImage} alt="IoT Device" />
+            </div>
         </div>
     );
 };
