@@ -5,7 +5,8 @@ import deviceImage from '../../assets/iotImage.png';
 import Navbar from '../../components/navbar/navbar.jsx';
 
 const IoTPage = () => {
-  
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate=useNavigate();
     return (
       <div>
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
