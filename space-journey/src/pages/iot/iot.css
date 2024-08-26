@@ -33,3 +33,7 @@
     background-color: #61dbfb;
     color: black;
 }
+.iot-image img {
+    max-width: 100%;
+    height: auto;
+}
