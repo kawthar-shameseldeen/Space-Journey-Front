@@ -3,7 +3,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import "./admin.css";
 import axios from "axios";
 import { format } from "date-fns";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
+import { Navigate, useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 
@@ -11,6 +12,7 @@ const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -20,6 +22,8 @@ const Admin = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
+ 
+
   };
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -156,7 +160,7 @@ const Admin = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       <div className="containerA">
         <h1
           style={{
