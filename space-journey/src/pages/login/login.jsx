@@ -11,7 +11,7 @@ import {
   errorOccured,
 } from "../../data_store/redux/userSlice/index.js";
 import Navbar from "../../components/navbar/navbar.jsx";
-import jwtDecode from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
