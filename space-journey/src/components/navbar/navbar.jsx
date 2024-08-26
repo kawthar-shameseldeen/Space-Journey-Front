@@ -3,6 +3,7 @@ import { Link ,useLocation} from 'react-router-dom';
 import './navbar.css'; 
 import logo from '../../assets/logo.png';
 const Navbar = ({ isAuthenticated, onLogout }) => {
+    
     const location=useLocation();
     const isAuthPage =location.pathname ==='/login' || location.pathname==='/';
 
