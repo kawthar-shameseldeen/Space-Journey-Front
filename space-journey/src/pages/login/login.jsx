@@ -40,7 +40,8 @@ const Login = () => {
 
       toast.success("Login successful");
 
-      navigate("/home");
+      const decodedToken = jwtDecode(token);
+      console.log(decodedToken);
     } catch (error) {
       dispatch(errorOccured(error?.message));
       toast.error("Error logging in");
