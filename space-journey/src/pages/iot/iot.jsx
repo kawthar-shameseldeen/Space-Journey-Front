@@ -1,7 +1,7 @@
 import React from 'react';
 import './iot.css'; 
 import deviceImage from '../../assets/iotImage.png';
-
+import Navbar from '../../components/navbar/navbar.jsx';
 const IoTPage = () => {
     return (
         <div className="iot-page">
