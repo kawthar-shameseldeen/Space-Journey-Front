@@ -28,6 +28,12 @@ const IoTPage = () => {
     const socket = new WebSocket('ws://localhost:4040');
     setWs(socket);
 
+    socket.onopen = () => {
+      console.log('WebSocket connection established');
+      setConnected(true);
+      socket.send("Client connected to IoT");
+    };
+
   };
 
 
