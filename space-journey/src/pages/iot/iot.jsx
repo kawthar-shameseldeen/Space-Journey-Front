@@ -49,6 +49,9 @@ const IoTPage = () => {
     };
   };
 
+  const handleDisconnect = () => {
+  
+  };
 
   return (
     <div>
