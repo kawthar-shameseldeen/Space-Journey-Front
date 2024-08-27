@@ -3,60 +3,80 @@ body {
     font-family: 'Inter', sans-serif !important;
     background-color: #121212 !important;
     color: #ffffff !important;
-    
-    
 }
+
 .login-container {
-    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
     max-width: 320px !important;
     margin: 100px auto !important;
-    padding:40px;
     border: 1px solid #61dbfb !important;
-    border-radius: 10px;
+    border-radius: 10px !important;
+    padding: 20px !important;
 }
+
+form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 300px !important;
+}
+
 h1 {
     font-size: 2em !important;
     margin-bottom: 10px !important;
     color: #ffffff !important;
+    text-align: left !important;
 }
+
 p {
     margin-bottom: 20px !important;
     color: #b0b0b0 !important;
+    text-align: left !important;
 }
+
 .input-group {
-    position: relative !important;
-    margin-bottom: 20px !important;
-    background-color: #121212 !important;
-}
-.input-group .icon {
-    position: absolute !important;
-    top: 50% !important;
-    left: 10px !important;
-    transform: translateY(-50%) !important;
-    color: #61dbfb !important;
-}
-input[type="email"], input[type="password"] {
-    width: 100% !important;
-    padding: 10px 10px 10px 40px !important;
-    border: 2px solid #61dbfb !important;
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid #61dbfb !important;
+    padding: 10px !important;
     border-radius: 5px !important;
-    background: transparent !important;
-    color: #61dbfb !important;
+    margin-bottom: 10px !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
 }
-input::placeholder {
+
+.input-group input {
+    flex-grow: 1 !important;
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+    color: #ffffff !important;
+    font-family: "Inter", sans-serif !important;
+    margin-left: 10px !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+.input-group .icon {
+    min-width: 24px !important;
+    margin-right: 10px !important;
     color: #61dbfb !important;
 }
 
 .login-button {
     width: 40% !important;
     padding: 10px !important;
-    margin: 20px auto 0 auto !important; 
-    border: 2px solid #61dbfb !important;
-    background: transparent !important;
+    margin: 20px auto 0 auto !important;
+    border: 1px solid #61dbfb !important;
+    background: none !important;
     color: #61dbfb !important;
     border-radius: 5px !important;
     cursor: pointer !important;
     text-align: center !important;
+    font-family: "Inter", sans-serif !important;
 }
 
 .login-button:hover {
@@ -68,12 +88,14 @@ input::placeholder {
     display: flex !important;
     justify-content: flex-end !important;
     width: 100% !important;
-    margin-top: -10px !important; 
+    margin-top: -10px !important;
+    color: #ffffff !important;
+    font-family: "Inter", sans-serif !important;
+    padding: 10px;
 }
 
 .signup-text a {
     color: #61dbfb !important;
-    font-family: "Inter", sans-serif !important;
     text-decoration: none !important;
 }
 
