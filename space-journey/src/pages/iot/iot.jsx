@@ -7,7 +7,8 @@ import Navbar from '../../components/navbar/navbar.jsx';
 
 const IoTPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const [ws, setWs] = useState(null);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
