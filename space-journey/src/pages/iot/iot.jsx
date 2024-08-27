@@ -50,7 +50,9 @@ const IoTPage = () => {
   };
 
   const handleDisconnect = () => {
-  
+    if (ws) {
+      ws.close(); 
+    }
   };
 
   return (
