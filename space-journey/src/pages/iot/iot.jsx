@@ -38,6 +38,11 @@ const IoTPage = () => {
       console.log('Message from server:', event.data);
     };
 
+    socket.onclose = () => {
+      console.log('WebSocket connection closed');
+      setConnected(false);
+    };
+
   };
 
 
