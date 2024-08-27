@@ -14,7 +14,6 @@ form {
   flex-direction: column !important;
   width: 300px !important;
 }
-
 .signup-titleB,
 .signup-subtitleB {
   text-align: left !important;
@@ -23,7 +22,9 @@ form {
   margin-bottom: 10px !important;
   width: 100% !important;
 }
-
+.signup-subtitleB{
+  color: #b0b0b0 !important;
+}
 .input-groupB {
   display: flex !important;
   align-items: center !important;
@@ -60,7 +61,7 @@ form {
   border-radius: 5px !important;
   cursor: pointer !important;
   font-family: "Inter", sans-serif !important;
-  margin: 15px auto !important;
+  margin: 1px auto !important;
   text-align: center !important;
 }
 
