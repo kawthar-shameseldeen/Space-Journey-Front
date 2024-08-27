@@ -43,6 +43,10 @@ const IoTPage = () => {
       setConnected(false);
     };
 
+    socket.onerror = (error) => {
+      console.error('WebSocket error:', error);
+      setConnected(false);
+    };
   };
 
 
