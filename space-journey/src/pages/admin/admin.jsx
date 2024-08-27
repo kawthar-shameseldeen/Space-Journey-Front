@@ -29,7 +29,12 @@ const Admin = () => {
   useEffect(() => {
    
       const fetchAllUsers = async () => {
-       
+        const token = localStorage.getItem("token");
+        if (!token) {
+          navigate("/login"); 
+          return;
+        }
+  
   
         if (response.data) {
           setUsers(
