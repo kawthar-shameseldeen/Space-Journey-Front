@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 import { Navigate,useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
-
+import {jwtDecode} from "jwt-decode";
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -27,9 +27,10 @@ const Admin = () => {
 
   };
   useEffect(() => {
-    const fetchAllUsers = async () => {
-      try {
-        const response = await axios.get("http://localhost:4040/api/user/all");
+   
+      const fetchAllUsers = async () => {
+       
+  
         if (response.data) {
           setUsers(
             Array.isArray(response.data) ? response.data : response.data[0]
