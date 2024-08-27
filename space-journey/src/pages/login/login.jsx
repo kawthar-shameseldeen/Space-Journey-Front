@@ -60,7 +60,7 @@ const Login = () => {
       <Navbar />
       <div className="login-container">
         <form className="login" onSubmit={handleSubmit}>
-          <h3>Login</h3>
+          <h1>Login</h1>
           <p>Please Enter your Account details</p>
           <div className="input-group">
             <FaEnvelope className="icon" />
