@@ -35,6 +35,15 @@ const Admin = () => {
           return;
         }
   
+        try {
+          const decodedToken = jwtDecode(token);
+          if (decodedToken.role !== "admin") {
+            alert("You do not have access to this resource.");
+            navigate("/home"); 
+            return;
+          }
+  
+          
   
         if (response.data) {
           setUsers(
