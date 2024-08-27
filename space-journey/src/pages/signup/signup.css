@@ -4,10 +4,10 @@
   justify-content: center !important;
   align-items: center !important;
   max-width: 320px;
-  margin: 50px auto;
+  margin: 100px auto;
   border: 1px solid #61dbfb !important;
   border-radius: 10px;
-  padding: 4px;
+  padding: 20px;
 }
 form {
   display: flex !important;
