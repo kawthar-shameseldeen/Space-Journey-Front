@@ -43,7 +43,11 @@ const Admin = () => {
             return;
           }
   
-          
+          const response = await axios.get("http://localhost:4040/api/user/all", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
   
         if (response.data) {
           setUsers(
