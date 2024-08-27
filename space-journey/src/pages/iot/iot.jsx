@@ -24,6 +24,13 @@ const IoTPage = () => {
     navigate("/login");
   };
 
+  const handleConnect = () => {
+    const socket = new WebSocket('ws://localhost:4040');
+    setWs(socket);
+
+  };
+
+
   return (
     <div>
       <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
