@@ -34,6 +34,10 @@ const IoTPage = () => {
       socket.send("Client connected to IoT");
     };
 
+    socket.onmessage = (event) => {
+      console.log('Message from server:', event.data);
+    };
+
   };
 
 
