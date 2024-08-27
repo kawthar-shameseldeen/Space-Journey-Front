@@ -31,9 +31,10 @@ h1 {
 }
 
 p {
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
     color: #b0b0b0 !important;
     text-align: left !important;
+  
 }
 
 .input-group {
