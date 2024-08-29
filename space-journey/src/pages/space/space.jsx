@@ -171,6 +171,7 @@ const SpaceTour = () => {
             break;
       }
     };
+    animate();
   });
 };
 export default SpaceTour;
