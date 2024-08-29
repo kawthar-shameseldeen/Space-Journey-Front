@@ -58,6 +58,8 @@ const SpaceTour = () => {
       if (currentScene === "solarSystem") {
         const ambientLight = new THREE.AmbientLight(0x404040, 5);
         solarSystemScene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
       }
   
 
