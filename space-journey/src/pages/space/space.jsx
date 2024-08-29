@@ -144,7 +144,12 @@ const SpaceTour = () => {
     const animate = () => {
         requestAnimationFrame(animate);
         switch (currentScene) {
-          
+            case "milkyWay":
+                if (camera.position.z > 100) {
+                  camera.position.z -= 5;
+                }
+                renderer.render(milkyWayScene, camera);
+                break;
           }
 
       };
