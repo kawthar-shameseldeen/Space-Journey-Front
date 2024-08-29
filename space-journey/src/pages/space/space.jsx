@@ -16,6 +16,9 @@ const SpaceTour = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
+    const camera = new THREE.PerspectiveCamera(
+       
+      );
     
   });
 };
