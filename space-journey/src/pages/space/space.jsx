@@ -61,6 +61,7 @@ const SpaceTour = () => {
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
         directionalLight.position.set(20, 20, 50);
+        solarSystemScene.add(directionalLight);
       }
   
 
