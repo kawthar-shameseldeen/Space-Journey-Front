@@ -160,6 +160,12 @@ const SpaceTour = () => {
           }
           renderer.render(solarSystemScene, camera);
           break;
+        case "blackhole":
+          if (blackhole) {
+            blackhole.rotation.y += 0.01;
+          }
+          renderer.render(blackholeScene, camera);
+          break;
       }
     };
   });
