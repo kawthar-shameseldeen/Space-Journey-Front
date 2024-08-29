@@ -38,7 +38,7 @@ const SpaceTour = () => {
 
     let blackhole = null;
     if (currentScene === "milkyWay") {
-      loader.load("/milky-way/scene.gltf", (gltf) => {
+      loader.load("../../assets/milky-way/scene.gltf", (gltf) => {
         const milkyWay = gltf.scene;
         milkyWay.scale.set(100, 100, 100);
         milkyWayScene.add(milkyWay);
