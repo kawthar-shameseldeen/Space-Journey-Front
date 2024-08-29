@@ -11,7 +11,10 @@ const SpaceTour = () => {
     const [planetInfo, setPlanetInfo] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [planetData, setPlanetData] = useState({});
-
+    useEffect(() => {
+    
+      })
+    
 
 
 
