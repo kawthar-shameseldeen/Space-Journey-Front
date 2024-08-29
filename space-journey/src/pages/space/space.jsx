@@ -28,6 +28,7 @@ const SpaceTour = () => {
       controls.zoomSpeed = 1.5;
 
       const milkyWayScene = new THREE.Scene();
+      const solarSystemScene = new THREE.Scene();
     
   });
 };
