@@ -45,6 +45,9 @@ const SpaceTour = () => {
       });
       camera.position.z = 1000;
     }
+    if (currentScene === "blackhole") {
+     
+      }
 
     
   });
