@@ -6,6 +6,8 @@ import axios from "axios";
 const SpaceTour = () => {
     const mountRef = useRef(null);
     const [currentScene, setCurrentScene] = useState("milkyWay");
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
+
 
 
 }
