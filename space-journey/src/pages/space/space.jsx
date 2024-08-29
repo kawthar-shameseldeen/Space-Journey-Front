@@ -102,7 +102,8 @@ const SpaceTour = () => {
           });
           const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
           const angle = Math.random() * 2 * Math.PI;
-          const radius = innerRadius + Math.random() * (outerRadius - innerRadius);
+          const radius =
+            innerRadius + Math.random() * (outerRadius - innerRadius);
           asteroid.position.x = Math.cos(angle) * radius;
           asteroid.position.z = Math.sin(angle) * radius;
           asteroid.position.y = Math.random() * 2 - 1;
@@ -113,17 +114,16 @@ const SpaceTour = () => {
       };
       const createStars = (count = 1000) => {
         for (let i = 0; i < count; i++) {
-            const starGeometry = new THREE.SphereGeometry(0.5, 24, 24);
-            const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-            const star = new THREE.Mesh(starGeometry, starMaterial);
-            star.position.set(
-                (Math.random() - 0.5) * 4000,
-                (Math.random() - 0.5) * 4000,
-                (Math.random() - 0.5) * 4000
-              );
-              solarSystemScene.add(star);
-          }
-       
+          const starGeometry = new THREE.SphereGeometry(0.5, 24, 24);
+          const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+          const star = new THREE.Mesh(starGeometry, starMaterial);
+          star.position.set(
+            (Math.random() - 0.5) * 4000,
+            (Math.random() - 0.5) * 4000,
+            (Math.random() - 0.5) * 4000
+          );
+          solarSystemScene.add(star);
+        }
       };
       planets = [
         createPlanet(1, 10, "/textures/mercury.jpg", "mercury"),
@@ -139,22 +139,29 @@ const SpaceTour = () => {
       createAsteroidBelt(40, 50, 200);
       createStars(10000);
       camera.position.z = 50;
-
     }
     const animate = () => {
-        requestAnimationFrame(animate);
-        switch (currentScene) {
-            case "milkyWay":
-                if (camera.position.z > 100) {
-                  camera.position.z -= 5;
-                }
-                renderer.render(milkyWayScene, camera);
-                break;
+      requestAnimationFrame(animate);
+      switch (currentScene) {
+        case "milkyWay":
+          if (camera.position.z > 100) {
+            camera.position.z -= 5;
           }
-
-      };
-
+          renderer.render(milkyWayScene, camera);
+          break;
+        case "solarSystem":
+          if (isAnimating) {
+            planets.forEach((planet, index) => {
+              planet.position.x =
+                Math.cos(Date.now() * 0.001 + index) * (10 * (index + 1));
+              planet.position.z =
+                Math.sin(Date.now() * 0.001 + index) * (10 * (index + 1));
+            });
+          }
+          renderer.render(solarSystemScene, camera);
+          break;
+      }
+    };
   });
-
 };
 export default SpaceTour;
