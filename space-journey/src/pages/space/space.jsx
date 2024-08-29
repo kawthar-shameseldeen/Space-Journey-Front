@@ -117,7 +117,9 @@ const SpaceTour = () => {
             const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
             const star = new THREE.Mesh(starGeometry, starMaterial);
             star.position.set(
-                
+                (Math.random() - 0.5) * 4000,
+                (Math.random() - 0.5) * 4000,
+                (Math.random() - 0.5) * 4000
               );
 
       
