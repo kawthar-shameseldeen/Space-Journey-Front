@@ -34,7 +34,7 @@ const SpaceTour = () => {
       const loader = new GLTFLoader();
       const textureLoader = new THREE.TextureLoader();
       const raycaster = new THREE.Raycaster();
-    
+      const mouse = new THREE.Vector2();
   });
 };
 export default SpaceTour;
