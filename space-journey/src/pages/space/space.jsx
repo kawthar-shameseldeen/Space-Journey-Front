@@ -9,6 +9,7 @@ const SpaceTour = () => {
     const [selectedPlanet, setSelectedPlanet] = useState(null);
     const [isAnimating, setIsAnimating] = useState(true);
     const [planetInfo, setPlanetInfo] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
