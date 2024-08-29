@@ -84,6 +84,7 @@ const SpaceTour = () => {
             side: THREE.DoubleSide,
           });
           const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
+          orbit.rotation.x = Math.PI / 2;
           
           };
     
