@@ -67,6 +67,10 @@ const SpaceTour = () => {
         const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
         const sun = new THREE.Mesh(sunGeometry, sunMaterial);
         solarSystemScene.add(sun);
+        const createPlanet = (size, distance, texturePath, name) => {
+          
+          };
+    
       }
   
 
