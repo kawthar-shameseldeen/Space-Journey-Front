@@ -85,6 +85,7 @@ const SpaceTour = () => {
           });
           const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
           orbit.rotation.x = Math.PI / 2;
+          planet.position.x = distance;
           
           };
     
