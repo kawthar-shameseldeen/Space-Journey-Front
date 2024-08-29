@@ -26,6 +26,8 @@ const SpaceTour = () => {
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableZoom = true;
       controls.zoomSpeed = 1.5;
+
+      const milkyWayScene = new THREE.Scene();
     
   });
 };
