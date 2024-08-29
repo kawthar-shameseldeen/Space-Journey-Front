@@ -104,6 +104,7 @@ const SpaceTour = () => {
           const angle = Math.random() * 2 * Math.PI;
           const radius = innerRadius + Math.random() * (outerRadius - innerRadius);
           asteroid.position.x = Math.cos(angle) * radius;
+          asteroid.position.z = Math.sin(angle) * radius;
         }
       };
     }
