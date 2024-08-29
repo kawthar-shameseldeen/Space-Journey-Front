@@ -179,6 +179,7 @@ const SpaceTour = () => {
   
   return (
     <div>
+      <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       
     </div>
   );
