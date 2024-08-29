@@ -143,6 +143,9 @@ const SpaceTour = () => {
     }
     const animate = () => {
         requestAnimationFrame(animate);
+        switch (currentScene) {
+          
+          }
 
       };
 
