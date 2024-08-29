@@ -4,5 +4,6 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 const SpaceTour = () => {
-    
+
 }
+export default SpaceTour;
