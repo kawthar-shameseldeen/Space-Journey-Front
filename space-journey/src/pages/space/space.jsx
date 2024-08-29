@@ -74,7 +74,9 @@ const SpaceTour = () => {
             const planet = new THREE.Mesh(geometry, material);
             planet.name = name;
             const orbitGeometry = new THREE.RingGeometry(
-              
+                distance - 0.1,
+                distance + 0.1,
+                64
               );
           
           };
