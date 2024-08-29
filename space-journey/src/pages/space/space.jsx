@@ -64,6 +64,7 @@ const SpaceTour = () => {
         solarSystemScene.add(directionalLight);
 
         const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
+        const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
       }
   
 
