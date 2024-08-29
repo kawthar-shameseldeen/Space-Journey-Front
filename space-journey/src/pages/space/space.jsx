@@ -166,6 +166,8 @@ const SpaceTour = () => {
           }
           renderer.render(blackholeScene, camera);
           break;
+          default:
+            renderer.render(milkyWayScene, camera);
       }
     };
   });
