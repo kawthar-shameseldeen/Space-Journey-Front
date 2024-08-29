@@ -22,6 +22,7 @@ const SpaceTour = () => {
       0.1,
       1000
       );
+      camera.position.set(0, 0, 1000);
     
   });
 };
