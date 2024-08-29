@@ -168,6 +168,7 @@ const SpaceTour = () => {
           break;
           default:
             renderer.render(milkyWayScene, camera);
+            break;
       }
     };
   });
