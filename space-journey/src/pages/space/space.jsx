@@ -180,7 +180,28 @@ const SpaceTour = () => {
   return (
     <div>
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
-      
+      <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+        <button onClick={() => setCurrentScene("milkyWay")}>Milky Way</button>
+        <button onClick={() => setCurrentScene("solarSystem")}>
+          Solar System
+        </button>
+        <button onClick={() => setCurrentScene("blackhole")}>Black Hole</button>
+      </div>
+      <button
+        onClick={() => setIsAnimating(!isAnimating)}
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "10px",
+          padding: "10px 20px",
+          backgroundColor: "#61dbfb",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        {isAnimating ? "Stop Animation" : "Start Animation"}
+      </button>
     </div>
   );
 };
