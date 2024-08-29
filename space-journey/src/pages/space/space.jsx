@@ -138,6 +138,7 @@ const SpaceTour = () => {
       ];
       createAsteroidBelt(40, 50, 200);
       createStars(10000);
+      camera.position.z = 50;
 
     }
 
