@@ -172,6 +172,9 @@ const SpaceTour = () => {
       }
     };
     animate();
+    return () => {
+        mountRef.current.removeChild(renderer.domElement);
+      };
   });
 };
 export default SpaceTour;
