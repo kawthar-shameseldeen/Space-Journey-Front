@@ -80,7 +80,8 @@ const SpaceTour = () => {
               );
               
         const orbitMaterial = new THREE.MeshBasicMaterial({
-           
+            color: 0x888888,
+            side: THREE.DoubleSide,
           });
           
           };
