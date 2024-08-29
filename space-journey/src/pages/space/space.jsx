@@ -141,6 +141,9 @@ const SpaceTour = () => {
       camera.position.z = 50;
 
     }
+    const animate = () => {
+      
+      };
 
   });
 
