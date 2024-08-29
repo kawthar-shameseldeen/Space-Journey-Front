@@ -69,6 +69,7 @@ const SpaceTour = () => {
         solarSystemScene.add(sun);
         const createPlanet = (size, distance, texturePath, name) => {
             const geometry = new THREE.SphereGeometry(size, 32, 32);
+            const texture = textureLoader.load(texturePath);
           
           };
     
