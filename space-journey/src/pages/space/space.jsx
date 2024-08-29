@@ -78,6 +78,10 @@ const SpaceTour = () => {
                 distance + 0.1,
                 64
               );
+              
+        const orbitMaterial = new THREE.MeshBasicMaterial({
+           
+          });
           
           };
     
