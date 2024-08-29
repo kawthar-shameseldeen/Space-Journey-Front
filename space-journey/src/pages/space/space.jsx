@@ -47,9 +47,10 @@ const SpaceTour = () => {
     }
     if (currentScene === "blackhole") {
         loader.load("/blackhole/scene.gltf", (gltf) => {
-         
+          blackhole = gltf.scene;
+      
         });
-       
+        
       }
 
     
