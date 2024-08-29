@@ -8,7 +8,8 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
     const isAuthPage =location.pathname ==='/login' || location.pathname==='/';
 
     return (
-        <nav className="navbarB">
+      <div className='navbarContainer'>
+          <nav className="navbarB">
             <div className="navbar-logoB">
             <img src={logo} alt="Logo" className="logo-imageB" />
             </div>
@@ -30,6 +31,7 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
                 )}
             </div>
         </nav>
+      </div>
     );
     
 };
