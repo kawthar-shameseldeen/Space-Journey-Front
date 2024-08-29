@@ -32,6 +32,7 @@ const SpaceTour = () => {
       const blackholeScene = new THREE.Scene();
 
       const loader = new GLTFLoader();
+      const textureLoader = new THREE.TextureLoader();
     
   });
 };
