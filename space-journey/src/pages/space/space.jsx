@@ -136,6 +136,7 @@ const SpaceTour = () => {
         createPlanet(5, 80, "/textures/neptune.jpg", "neptune"),
         createPlanet(5.5, 90, "/textures/pluto.jpg", "pluto"),
       ];
+      createAsteroidBelt(40, 50, 200);
 
     }
 
