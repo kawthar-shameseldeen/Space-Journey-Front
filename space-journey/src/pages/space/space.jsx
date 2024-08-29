@@ -35,6 +35,8 @@ const SpaceTour = () => {
       const textureLoader = new THREE.TextureLoader();
       const raycaster = new THREE.Raycaster();
       const mouse = new THREE.Vector2();
+
+      let blackhole = null;
   });
 };
 export default SpaceTour;
