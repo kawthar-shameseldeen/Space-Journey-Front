@@ -107,6 +107,7 @@ const SpaceTour = () => {
           asteroid.position.z = Math.sin(angle) * radius;
           asteroid.position.y = Math.random() * 2 - 1;
           solarSystemScene.add(asteroid);
+          asteroids.push(asteroid);
         }
       };
     }
