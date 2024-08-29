@@ -72,6 +72,7 @@ const SpaceTour = () => {
             const texture = textureLoader.load(texturePath);
             const material = new THREE.MeshStandardMaterial({ map: texture });
             const planet = new THREE.Mesh(geometry, material);
+            planet.name = name;
           
           };
     
