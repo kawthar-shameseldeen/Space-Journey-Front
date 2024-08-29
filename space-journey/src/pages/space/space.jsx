@@ -54,6 +54,8 @@ const SpaceTour = () => {
         camera.position.z = 1000;
       }
 
+      let planets = [];
+
     
   });
 };
