@@ -175,6 +175,6 @@ const SpaceTour = () => {
     return () => {
         mountRef.current.removeChild(renderer.domElement);
       };
-  });
+  }, [currentScene, isAnimating]);
 };
 export default SpaceTour;
