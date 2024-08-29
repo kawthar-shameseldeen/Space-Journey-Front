@@ -122,8 +122,6 @@ const SpaceTour = () => {
                 (Math.random() - 0.5) * 4000
               );
               solarSystemScene.add(star);
-
-      
           }
        
       };
