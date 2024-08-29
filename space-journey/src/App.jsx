@@ -15,7 +15,7 @@ import Admin from './pages/admin/admin.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './pages/home/home.jsx';
 import IoTPage from './pages/iot/iot.jsx'
-
+import SpaceJourney from './pages/spaceJourney/spaceJourney.jsx';
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
