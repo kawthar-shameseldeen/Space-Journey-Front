@@ -109,6 +109,7 @@ const SpaceTour = () => {
           solarSystemScene.add(asteroid);
           asteroids.push(asteroid);
         }
+        return asteroids;
       };
     }
 
