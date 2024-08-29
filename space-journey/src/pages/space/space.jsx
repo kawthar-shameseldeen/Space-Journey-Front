@@ -88,6 +88,7 @@ const SpaceTour = () => {
           planet.position.x = distance;
           
           solarSystemScene.add(orbit);
+          solarSystemScene.add(planet);
           };
     
       }
