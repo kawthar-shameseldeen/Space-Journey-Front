@@ -95,7 +95,8 @@ const SpaceTour = () => {
           const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
             const asteroids = [];
             for (let i = 0; i < numAsteroids; i++) {
-                
+                const size = Math.random() * 0.5 + 0.1;
+
             }
           };
     
