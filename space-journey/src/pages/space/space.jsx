@@ -17,26 +17,31 @@ const SpaceTour = () => {
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
     const camera = new THREE.PerspectiveCamera(
-        75,
+      75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
-      );
-      camera.position.set(0, 0, 1000);
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableZoom = true;
-      controls.zoomSpeed = 1.5;
+    );
+    camera.position.set(0, 0, 1000);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = true;
+    controls.zoomSpeed = 1.5;
 
-      const milkyWayScene = new THREE.Scene();
-      const solarSystemScene = new THREE.Scene();
-      const blackholeScene = new THREE.Scene();
+    const milkyWayScene = new THREE.Scene();
+    const solarSystemScene = new THREE.Scene();
+    const blackholeScene = new THREE.Scene();
 
-      const loader = new GLTFLoader();
-      const textureLoader = new THREE.TextureLoader();
-      const raycaster = new THREE.Raycaster();
-      const mouse = new THREE.Vector2();
+    const loader = new GLTFLoader();
+    const textureLoader = new THREE.TextureLoader();
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
 
-      let blackhole = null;
+    let blackhole = null;
+    if (currentScene === "milkyWay") {
+      
+    }
+
+
   });
 };
 export default SpaceTour;
