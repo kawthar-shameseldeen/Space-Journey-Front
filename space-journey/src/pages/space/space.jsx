@@ -13,6 +13,7 @@ const SpaceTour = () => {
   const [planetData, setPlanetData] = useState({});
   useEffect(() => {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
   });
 };
 export default SpaceTour;
