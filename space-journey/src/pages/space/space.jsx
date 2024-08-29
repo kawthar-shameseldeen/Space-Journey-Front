@@ -51,7 +51,7 @@ const SpaceTour = () => {
           blackhole.scale.set(100, 100, 100);
           blackholeScene.add(blackhole);
         });
-        
+        camera.position.z = 1000;
       }
 
     
