@@ -114,6 +114,8 @@ const SpaceTour = () => {
       const createStars = (count = 1000) => {
         for (let i = 0; i < count; i++) {
             const starGeometry = new THREE.SphereGeometry(0.5, 24, 24);
+            const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
       
           }
        
