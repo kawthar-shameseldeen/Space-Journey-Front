@@ -100,6 +100,7 @@ const SpaceTour = () => {
           const asteroidMaterial = new THREE.MeshStandardMaterial({
             color: 0x888888,
           });
+          const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
         }
       };
     }
