@@ -38,10 +38,13 @@ const SpaceTour = () => {
 
     let blackhole = null;
     if (currentScene === "milkyWay") {
-      
+      loader.load("/milky-way/scene.gltf", (gltf) => {
+       
+      });
+      camera.position.z = 1000;
     }
 
-
+    
   });
 };
 export default SpaceTour;
