@@ -101,6 +101,7 @@ const SpaceTour = () => {
             color: 0x888888,
           });
           const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
+          const angle = Math.random() * 2 * Math.PI;
         }
       };
     }
