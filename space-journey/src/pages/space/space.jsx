@@ -25,6 +25,7 @@ const SpaceTour = () => {
       camera.position.set(0, 0, 1000);
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableZoom = true;
+      controls.zoomSpeed = 1.5;
     
   });
 };
