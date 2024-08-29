@@ -39,7 +39,8 @@ const SpaceTour = () => {
     let blackhole = null;
     if (currentScene === "milkyWay") {
       loader.load("/milky-way/scene.gltf", (gltf) => {
-       
+        const milkyWay = gltf.scene;
+      
       });
       camera.position.z = 1000;
     }
