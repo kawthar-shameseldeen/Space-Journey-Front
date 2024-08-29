@@ -111,9 +111,12 @@ const SpaceTour = () => {
         }
         return asteroids;
       };
+      const createStars = (count = 1000) => {
+       
+      };
     }
 
   });
-  
+
 };
 export default SpaceTour;
