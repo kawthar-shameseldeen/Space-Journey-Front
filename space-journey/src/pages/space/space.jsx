@@ -89,6 +89,8 @@ const SpaceTour = () => {
           
           solarSystemScene.add(orbit);
           solarSystemScene.add(planet);
+
+          return planet;
           };
     
       }
