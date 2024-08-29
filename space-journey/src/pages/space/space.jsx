@@ -57,6 +57,7 @@ const SpaceTour = () => {
       let planets = [];
       if (currentScene === "solarSystem") {
         const ambientLight = new THREE.AmbientLight(0x404040, 5);
+        solarSystemScene.add(ambientLight);
       }
   
 
