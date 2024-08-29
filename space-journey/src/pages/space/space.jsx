@@ -142,7 +142,8 @@ const SpaceTour = () => {
 
     }
     const animate = () => {
-      
+        requestAnimationFrame(animate);
+
       };
 
   });
