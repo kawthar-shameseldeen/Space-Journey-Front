@@ -8,6 +8,7 @@ const SpaceTour = () => {
     const [currentScene, setCurrentScene] = useState("milkyWay");
     const [selectedPlanet, setSelectedPlanet] = useState(null);
     const [isAnimating, setIsAnimating] = useState(true);
+    const [planetInfo, setPlanetInfo] = useState(null);
 
 
 
