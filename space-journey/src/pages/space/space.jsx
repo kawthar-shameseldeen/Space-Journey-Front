@@ -41,7 +41,7 @@ const SpaceTour = () => {
       loader.load("/milky-way/scene.gltf", (gltf) => {
         const milkyWay = gltf.scene;
         milkyWay.scale.set(100, 100, 100);
-        
+        milkyWayScene.add(milkyWay);
       });
       camera.position.z = 1000;
     }
