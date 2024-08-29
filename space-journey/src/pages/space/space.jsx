@@ -55,8 +55,13 @@ const SpaceTour = () => {
       }
 
       let planets = [];
+      if (currentScene === "solarSystem") {
+      
+      }
+  
 
-    
+
+  ///////////////////////////////////////  
   });
 };
 export default SpaceTour;
