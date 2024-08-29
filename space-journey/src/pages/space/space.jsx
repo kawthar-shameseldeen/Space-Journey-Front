@@ -93,7 +93,7 @@ const SpaceTour = () => {
           return planet;
           };
           const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
-          
+            const asteroids = [];
           };
     
       }
