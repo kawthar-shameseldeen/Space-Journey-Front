@@ -46,69 +46,65 @@ const SpaceTour = () => {
       camera.position.z = 1000;
     }
     if (currentScene === "blackhole") {
-        loader.load("/blackhole/scene.gltf", (gltf) => {
-          blackhole = gltf.scene;
-          blackhole.scale.set(100, 100, 100);
-          blackholeScene.add(blackhole);
-        });
-        camera.position.z = 1000;
-      }
+      loader.load("/blackhole/scene.gltf", (gltf) => {
+        blackhole = gltf.scene;
+        blackhole.scale.set(100, 100, 100);
+        blackholeScene.add(blackhole);
+      });
+      camera.position.z = 1000;
+    }
 
-      let planets = [];
-      if (currentScene === "solarSystem") {
-        const ambientLight = new THREE.AmbientLight(0x404040, 5);
-        solarSystemScene.add(ambientLight);
+    let planets = [];
+    if (currentScene === "solarSystem") {
+      const ambientLight = new THREE.AmbientLight(0x404040, 5);
+      solarSystemScene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
-        directionalLight.position.set(20, 20, 50);
-        solarSystemScene.add(directionalLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+      directionalLight.position.set(20, 20, 50);
+      solarSystemScene.add(directionalLight);
 
-        const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
-        const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-        const sun = new THREE.Mesh(sunGeometry, sunMaterial);
-        solarSystemScene.add(sun);
-        const createPlanet = (size, distance, texturePath, name) => {
-            const geometry = new THREE.SphereGeometry(size, 32, 32);
-            const texture = textureLoader.load(texturePath);
-            const material = new THREE.MeshStandardMaterial({ map: texture });
-            const planet = new THREE.Mesh(geometry, material);
-            planet.name = name;
-            const orbitGeometry = new THREE.RingGeometry(
-                distance - 0.1,
-                distance + 0.1,
-                64
-              );
-              
+      const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
+      const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+      const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+      solarSystemScene.add(sun);
+      const createPlanet = (size, distance, texturePath, name) => {
+        const geometry = new THREE.SphereGeometry(size, 32, 32);
+        const texture = textureLoader.load(texturePath);
+        const material = new THREE.MeshStandardMaterial({ map: texture });
+        const planet = new THREE.Mesh(geometry, material);
+        planet.name = name;
+        const orbitGeometry = new THREE.RingGeometry(
+          distance - 0.1,
+          distance + 0.1,
+          64
+        );
+
         const orbitMaterial = new THREE.MeshBasicMaterial({
+          color: 0x888888,
+          side: THREE.DoubleSide,
+        });
+        const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
+        orbit.rotation.x = Math.PI / 2;
+        planet.position.x = distance;
+
+        solarSystemScene.add(orbit);
+        solarSystemScene.add(planet);
+
+        return planet;
+      };
+      const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
+        const asteroids = [];
+        for (let i = 0; i < numAsteroids; i++) {
+          const size = Math.random() * 0.5 + 0.1;
+          const asteroidGeometry = new THREE.SphereGeometry(size, 16, 16);
+          const asteroidMaterial = new THREE.MeshStandardMaterial({
             color: 0x888888,
-            side: THREE.DoubleSide,
           });
-          const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
-          orbit.rotation.x = Math.PI / 2;
-          planet.position.x = distance;
-          
-          solarSystemScene.add(orbit);
-          solarSystemScene.add(planet);
+        }
+      };
+    }
 
-          return planet;
-          };
-          const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
-            const asteroids = [];
-            for (let i = 0; i < numAsteroids; i++) {
-                const size = Math.random() * 0.5 + 0.1;
-                const asteroidGeometry = new THREE.SphereGeometry(size, 16, 16);
-                const asteroidMaterial = new THREE.MeshStandardMaterial({
-                    
-                  });
-
-            }
-          };
-    
-      }
-  
-
-
-  ///////////////////////////////////////  
+    ///////////////////////////////////////
   });
 };
 export default SpaceTour;
