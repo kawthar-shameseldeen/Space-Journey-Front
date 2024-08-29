@@ -178,7 +178,9 @@ const SpaceTour = () => {
   }, [currentScene, isAnimating]);
   
   return (
-   
+    <div>
+      
+    </div>
   );
 };
 export default SpaceTour;
