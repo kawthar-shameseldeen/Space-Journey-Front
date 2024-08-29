@@ -3,10 +3,18 @@
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  padding: 10px 20px;
-  color: white;
-}
+  
+  
 
+  border-radius: 20px;
+  margin: auto;
+  color: white;
+  width: 40%;
+  background-color: #61dbfb;
+}
+.navbarContainer{
+  margin-top: 10px;
+}
 .navbar-logoB {
   display: flex;
   align-items: center;
@@ -16,6 +24,7 @@
   width: 40px;
   height: auto;
   border-radius: 30px;
+  padding: 10px;
 }
 
 .navbar-linksB {
@@ -30,7 +39,7 @@
 }
 .navbar-linksB a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 14px;
 }
 .navbar-buttonsB {
