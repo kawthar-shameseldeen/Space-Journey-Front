@@ -112,6 +112,9 @@ const SpaceTour = () => {
         return asteroids;
       };
       const createStars = (count = 1000) => {
+        for (let i = 0; i < count; i++) {
+      
+          }
        
       };
     }
