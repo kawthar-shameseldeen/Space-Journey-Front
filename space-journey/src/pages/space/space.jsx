@@ -113,7 +113,7 @@ const SpaceTour = () => {
       };
     }
 
-    ///////////////////////////////////////
   });
+  
 };
 export default SpaceTour;
