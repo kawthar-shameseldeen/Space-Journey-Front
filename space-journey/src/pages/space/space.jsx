@@ -103,6 +103,7 @@ const SpaceTour = () => {
           const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
           const angle = Math.random() * 2 * Math.PI;
           const radius = innerRadius + Math.random() * (outerRadius - innerRadius);
+          asteroid.position.x = Math.cos(angle) * radius;
         }
       };
     }
