@@ -125,6 +125,18 @@ const SpaceTour = () => {
           }
        
       };
+      planets = [
+        createPlanet(1, 10, "/textures/mercury.jpg", "mercury"),
+        createPlanet(1.5, 20, "/textures/venus.jpg", "venus"),
+        createPlanet(2, 30, "/textures/earth.jpg", "earth"),
+        createPlanet(2.5, 40, "/textures/mars.jpg", "mars"),
+        createPlanet(3, 50, "/textures/jupiter.jpg", "jupiter"),
+        createPlanet(3.5, 60, "/textures/saturn.jpg", "saturn"),
+        createPlanet(4.5, 70, "/textures/uranus.jpg", "uranus"),
+        createPlanet(5, 80, "/textures/neptune.jpg", "neptune"),
+        createPlanet(5.5, 90, "/textures/pluto.jpg", "pluto"),
+      ];
+
     }
 
   });
