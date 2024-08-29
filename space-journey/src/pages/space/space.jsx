@@ -23,6 +23,7 @@ const SpaceTour = () => {
       1000
       );
       camera.position.set(0, 0, 1000);
+      const controls = new OrbitControls(camera, renderer.domElement);
     
   });
 };
