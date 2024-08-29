@@ -70,6 +70,8 @@ const SpaceTour = () => {
         const createPlanet = (size, distance, texturePath, name) => {
             const geometry = new THREE.SphereGeometry(size, 32, 32);
             const texture = textureLoader.load(texturePath);
+            const material = new THREE.MeshStandardMaterial({ map: texture });
+            const planet = new THREE.Mesh(geometry, material);
           
           };
     
