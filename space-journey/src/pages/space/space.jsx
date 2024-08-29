@@ -116,7 +116,9 @@ const SpaceTour = () => {
             const starGeometry = new THREE.SphereGeometry(0.5, 24, 24);
             const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
             const star = new THREE.Mesh(starGeometry, starMaterial);
-
+            star.position.set(
+                
+              );
 
       
           }
