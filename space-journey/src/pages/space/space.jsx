@@ -29,6 +29,7 @@ const SpaceTour = () => {
 
       const milkyWayScene = new THREE.Scene();
       const solarSystemScene = new THREE.Scene();
+      const blackholeScene = new THREE.Scene();
     
   });
 };
