@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./home.css";
@@ -6,6 +6,9 @@ import Navbar from "../../components/navbar/navbar.jsx";
 import AboutUs from "../../components/aboutus/aboutus.jsx";
 import Features from "../../components/features/features.jsx";
 import Footer from "../../components/footer/footer.jsx";
+import Modal from "../../components/modal/modal.jsx";
+import Login from "../login/login.jsx";
+import Signup from "../signup/signup.jsx";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
@@ -14,20 +17,25 @@ const HomePage = () => {
   };
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const navigate=useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
-  
     const token = localStorage.getItem("token");
     if (token) {
       setIsAuthenticated(true);
     }
   }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
-    navigate("/login");
-
+    navigate("/home");
   };
+
+ 
+
   return (
     <div className="home-container">
       <Particles
@@ -112,11 +120,16 @@ const HomePage = () => {
           },
           fullScreen: {
             enable: true,
-            zIndex: -1, 
+            zIndex: -1,
           },
         }}
       />
-      <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+      <Navbar
+        isAuthenticated={isAuthenticated}
+        onLogout={handleLogout}
+        onLoginClick={() => openModal(<Login onLoginSuccess={handleAuthSuccess} />)}
+        onSignupClick={() => openModal(<Signup onSignupSuccess={handleAuthSuccess} />)}
+      />
       <section className="hero-section">
         <div className="content">
           <h1>Hello Universe</h1>
@@ -131,6 +144,10 @@ const HomePage = () => {
         </div>
       </div>
       <Footer />
+
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        {modalContent}
+      </Modal>
     </div>
   );
 };
