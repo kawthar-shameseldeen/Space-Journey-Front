@@ -167,14 +167,21 @@ const Admin = () => {
         return isNaN(date) ? "" : format(date, "yyyy-MM-dd");
       },
     },
+    {
+      field: "iotDevices",
+      headerName: "Devices",
+      flex:1,
+    }
   ];
 
   const rows = Array.isArray(users)
     ? users.map((user, index) => ({
-        id: user.id || index,
+        id: user._id || index,
         name: user.username,
         email: user.email,
         created_at: user.timeStamp,
+        iotDevices: user.iotDevices,
+        
       }))
     : [];
 
