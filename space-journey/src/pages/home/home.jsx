@@ -34,7 +34,11 @@ const HomePage = () => {
     navigate("/home");
   };
 
- 
+  const openModal = (content) => {
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
 
   return (
     <div className="home-container">
