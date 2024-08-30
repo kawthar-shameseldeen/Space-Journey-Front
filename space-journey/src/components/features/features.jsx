@@ -16,7 +16,10 @@ const featureData = [
 const Features = () => {
     return (
         <div className="features-section">
-          
+           
+            <div className="features-container">
+              
+            </div>
         </div>
     );
 };
