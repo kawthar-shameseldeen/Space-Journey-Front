@@ -18,7 +18,9 @@ const Features = () => {
         <div className="features-section">
            
             <div className="features-container">
-              
+                {featureData.map((feature, index) => (
+                 
+                ))}
             </div>
         </div>
     );
