@@ -240,7 +240,7 @@ const Admin = () => {
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#1a73e8",
-                color: "#204E45",
+                color: "#61dbfb",
                 fontSize: "16px",
                 fontWeight: "bold",
               },
@@ -258,13 +258,12 @@ const Admin = () => {
                 padding: "10px",
               },
               "& .MuiDataGrid-footerContainer": {
-                backgroundColor: "#f1f1f1",
+                backgroundColor: "#232323",
               },
               "& .MuiDataGrid-virtualScroller": {
-                scrollbarWidth: "thin",
+              
                 "&::-webkit-scrollbar": {
-                  width: "8px",
-                  height: "8px",
+                 display: "none",
                 },
                 "&::-webkit-scrollbar-thumb": {
                   backgroundColor: "#888",
