@@ -19,7 +19,10 @@ const Features = () => {
            
             <div className="features-container">
                 {featureData.map((feature, index) => (
-                 
+                    <div key={index} className="features-card">
+                        <h3>{feature.title}</h3>
+                        <p>{feature.description}</p>
+                    </div>
                 ))}
             </div>
         </div>
