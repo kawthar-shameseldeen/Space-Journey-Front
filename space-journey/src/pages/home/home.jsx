@@ -39,6 +39,11 @@ const HomePage = () => {
     setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent(null);
+  };
+
 
   return (
     <div className="home-container">
