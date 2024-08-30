@@ -13,4 +13,9 @@ const featureData = [
    
 ];
 
+const Features = () => {
+    
+};
+
+
 
