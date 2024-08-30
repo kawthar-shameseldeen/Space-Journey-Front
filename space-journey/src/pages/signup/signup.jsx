@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "./signup.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,25 +8,22 @@ import {
   registerUserFail,
   usersSliceSelector,
 } from "../../data_store/redux/userSlice/index.js";
-import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import Navbar from "../../components/navbar/navbar.jsx";
-import React, { useState, useEffect } from "react";
 
-const Signup = () => {
+const Signup = ({ onSignupSuccess }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, error, user } = useSelector(usersSliceSelector);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(registerUserStart());
     try {
       const response = await axios.post("http://localhost:4040/api/register", {
-        username: username,
+        username,
         email,
         password,
       });
@@ -37,18 +35,15 @@ const Signup = () => {
 
   useEffect(() => {
     if (user && !loading && !error) {
-      navigate("/home");
       toast.success("Signup successful");
+      onSignupSuccess();
     } else if (error) {
       toast.error("Error signing up");
     }
-  }, [user, loading, error]);
+  }, [user, loading, error, onSignupSuccess]);
 
   return (
-   <div>
-    <Navbar/>
-     <div className="signup-container">
-      
+    <div className="signup-container">
       <form onSubmit={handleSubmit}>
         <h1 className="signup-titleB">Register</h1>
         <p className="signup-subtitleB">Please Enter your Account details</p>
@@ -83,18 +78,11 @@ const Signup = () => {
             autoComplete="off"
           />
         </div>
-        <div className="login-textB">
-          <p>
-            Already Have Account?<Link to="/login">Login</Link>{" "}
-          </p>
-        </div>
-
         <button type="submit" className="signup-btnB">
           Sign up
         </button>
       </form>
     </div>
-   </div>
   );
 };
 
