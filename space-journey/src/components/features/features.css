@@ -1,4 +1,4 @@
-.featurs-card {
+/* .featurs-card {
     background-color: rgba(255, 255, 255, 0.1); 
     border: 2px solid #61dbfb; 
     padding: 20px;
@@ -15,6 +15,49 @@
 }
 
 .featurs-card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+} */.features-section {
+    margin: 40px auto; /* Add some margin for spacing */
+    text-align: center; /* Center-align the title */
+    max-width: 1200px; /* Set a maximum width for the section */
+    padding: 10px;
+}
+
+.features-title {
+    font-size: 32px; /* Adjust the font size of the title */
+    margin-bottom: 20px; /* Space between the title and the cards */
+    color: #61dbfb; /* Match the theme color */
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.features-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #61dbfb;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    width: 30%;
+    min-width: 250px;
+    margin: 10px;
+    text-align: center;
+}
+
+.features-card h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.features-card p {
     margin: 0;
     font-size: 16px;
     line-height: 1.5;
