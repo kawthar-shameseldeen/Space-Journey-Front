@@ -44,8 +44,8 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Signup />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Signup />} /> */}
         <Route path="/home" element={<HomePage />} />
        
 
