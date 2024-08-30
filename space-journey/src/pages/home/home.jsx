@@ -44,6 +44,10 @@ const HomePage = () => {
     setModalContent(null);
   };
 
+  const handleAuthSuccess = () => {
+    setIsAuthenticated(true);
+    closeModal();
+  };
 
   return (
     <div className="home-container">
