@@ -23,7 +23,7 @@ const Admin = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
-    navigate("/login");
+    navigate("/home");
 
   };
   useEffect(() => {
@@ -31,7 +31,7 @@ const Admin = () => {
       const fetchAllUsers = async () => {
         const token = localStorage.getItem("token");
         if (!token) {
-          navigate("/login"); 
+          navigate("/home"); 
           return;
         }
   
