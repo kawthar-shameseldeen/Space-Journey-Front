@@ -191,10 +191,12 @@ const Admin = () => {
       <div className="containerA">
         <h1
           style={{
+            
             marginBottom: "20px",
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
+            
           }}
         >
           All Users
@@ -216,11 +218,12 @@ const Admin = () => {
       </div>
       <div
         style={{
+          
           height: "70vh",
           width: "70vw",
           margin: "0 auto",
           padding: "20px",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#232323",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
         }}
@@ -234,21 +237,24 @@ const Admin = () => {
               "& .MuiDataGrid-root": {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
+                
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
               },
               "& .MuiDataGrid-columnHeaders": {
-                backgroundColor: "#1a73e8",
+                backgroundColor: "#232323",
                 color: "#61dbfb",
                 fontSize: "16px",
                 fontWeight: "bold",
+                
               },
               "& .MuiDataGrid-columnHeaderTitle": {
                 fontWeight: "bold",
+                
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "#232323",
               },
               "& .MuiDataGrid-row:hover": {
                 backgroundColor: "#e0f7fa",
@@ -270,7 +276,7 @@ const Admin = () => {
                   borderRadius: "8px",
                 },
                 "&::-webkit-scrollbar-thumb:hover": {
-                  backgroundColor: "#555",
+                  backgroundColor: "#232323",
                 },
               },
             }}
