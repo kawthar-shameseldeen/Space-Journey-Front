@@ -39,6 +39,11 @@
   gap: 20px;
 }
 
+.content {
+  z-index: 10;
+  position: relative;
+  font-size: 25px;
+}
 
 .navbar {
   display: flex;
