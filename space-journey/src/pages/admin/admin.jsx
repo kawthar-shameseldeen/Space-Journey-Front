@@ -196,7 +196,7 @@ const Admin = () => {
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
-           paddingLeft: "190px",
+           paddingLeft: "175px",
             
           }}
         >
