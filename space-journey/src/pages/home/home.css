@@ -1,107 +1,100 @@
 .home-container {
-    position: relative;
-    width: 100%;
-    min-height: 200vh; 
-    overflow-x: hidden;
-    overflow-y: auto;
-    color: white;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: white;
+}
+
+.full-page-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
 }
-.cards-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.parallax-section {
+  height: auto; 
 }
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    width: 100%;
-}
-.content {
-    z-index: 10;
-    position: relative;
-    font-size: 25px;
-}
+
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000000;
-    padding: 10px 20px;
-    color: white;
-    z-index: 1000; 
-    position: relative; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  color: white;
+  z-index: 10000; 
+  position: fixed; 
 }
 
 .navbar-logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
+
 .logo-image {
-    width: 40px; 
-    height: auto; 
+  width: 40px; 
+  height: auto; 
 }
 
 .navbar-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: smaller;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: smaller;
 }
 
 .navbar-links li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .navbar-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
 }
 
 .navbar-buttons {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .btn-login, .btn-signup {
-    padding: 5px 15px;
-    border: 1px solid #61dbfb;
-    background: transparent;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 14px;
+  padding: 5px 15px;
+  border: 1px solid #61dbfb;
+  background: transparent;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
 }
 
 .btn-login:hover {
-    background-color: #61dbfb;
-    color: black;
-    border: 1px solid #61dbfb;
+  background-color: #61dbfb;
+  color: black;
+  border: 1px solid #61dbfb;
 }
 
 .btn-signup {
-    background-color: #61dbfb;
-    color: black;
-    border: 1px solid #61dbfb;
+  background-color: #61dbfb;
+  color: black;
+  border: 1px solid #61dbfb;
 }
 .btn-signup:hover {
-    background: transparent;
-    color: white;
-    border: 1px solid #61dbfb;
+  background: transparent;
+  color: white;
+  border: 1px solid #61dbfb;
 }
-::-webkit-scrollbar{
-    display: none;
-  }
