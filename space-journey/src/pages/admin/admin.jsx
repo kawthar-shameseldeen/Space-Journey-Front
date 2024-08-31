@@ -238,10 +238,12 @@ const Admin = () => {
               "& .MuiDataGrid-root": {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
+                backgroundColor: "#232323",
                 
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
+                backgroundColor: "#232323",
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#232323",
@@ -250,8 +252,9 @@ const Admin = () => {
                 fontWeight: "bold",
                 
               },
-              "& .MuiDataGrid-columnHeaderTitle": {
+              "& .MuiDataGrid-columnHeader": {
                 fontWeight: "bold",
+                backgroundColor: "#232323",
                 
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
