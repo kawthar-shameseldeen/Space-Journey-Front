@@ -198,7 +198,19 @@ const HomePage = () => {
         >
           <div className="planet" id="earth"></div>
         </ParallaxLayer>
-       
+        <ParallaxLayer
+          offset={0.4}
+          speed={0.7}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            zIndex: 4,
+          }}
+        >
+          <div className="planet" id="mars"></div>
+        </ParallaxLayer>
+        
       </Parallax>
       <section className="about-us-section full-page-section">
         <div className="content">
