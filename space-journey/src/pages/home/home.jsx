@@ -155,7 +155,9 @@ const HomePage = () => {
           <h1>Hello Universe</h1>
         </div>
       </section>
-      
+      <Parallax pages={2} style={{ top: "100px", left: "0", position: "absolute", zIndex: 0 }}>
+       
+      </Parallax>
       <section className="about-us-section full-page-section">
         <div className="content">
           <AboutUs />
