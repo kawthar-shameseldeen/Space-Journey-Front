@@ -240,10 +240,12 @@ const Admin = () => {
                 fontFamily: "Arial, sans-serif",
                 backgroundColor: "#232323",
                 
+                
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
                 backgroundColor: "#232323",
+                color: "#fff",
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#232323",
