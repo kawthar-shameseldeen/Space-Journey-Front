@@ -10,6 +10,7 @@ import Modal from "../../components/modal/modal.jsx";
 import Login from "../login/login.jsx";
 import Signup from "../signup/signup.jsx";
 import { useNavigate } from "react-router-dom";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const HomePage = () => {
   const particlesInit = async (main) => {
@@ -51,6 +52,17 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
+      <Navbar
+        isAuthenticated={isAuthenticated}
+        onLogout={handleLogout}
+        onLoginClick={() =>
+          openModal(<Login onLoginSuccess={handleAuthSuccess} />)
+        }
+        onSignupClick={() =>
+          openModal(<Signup onSignupSuccess={handleAuthSuccess} />)
+        }
+        style={{ zIndex: 1000, position: "fixed", top: 0, width: "100%" }}
+      />
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -137,25 +149,26 @@ const HomePage = () => {
           },
         }}
       />
-      <Navbar
-        isAuthenticated={isAuthenticated}
-        onLogout={handleLogout}
-        onLoginClick={() => openModal(<Login onLoginSuccess={handleAuthSuccess} />)}
-        onSignupClick={() => openModal(<Signup onSignupSuccess={handleAuthSuccess} />)}
-      />
-      <section className="hero-section">
+
+      <section className="hero-section full-page-section">
         <div className="content">
           <h1>Hello Universe</h1>
         </div>
       </section>
-      <div className="cards-section">
-        <div className="card-container">
+      
+      <section className="about-us-section full-page-section">
+        <div className="content">
           <AboutUs />
         </div>
-        <div className="card-container">
+      </section>
+
+     
+      <section className="features-section full-page-section">
+        <div className="content">
           <Features />
         </div>
-      </div>
+      </section>
+
       <Footer />
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
