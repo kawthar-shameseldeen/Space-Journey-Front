@@ -9,8 +9,6 @@ import {
 } from 'react-router-dom';
 import store from './data_store/redux/store.js';
 import ProtectedRoute from './components/protectedRoutes/protect.jsx';
-
-
 import Admin from './pages/admin/admin.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './pages/home/home.jsx';
