@@ -35,7 +35,8 @@ const Signup = ({ onSignupSuccess }) => {
 
       const decodedToken = jwtDecode(token);
       console.log(decodedToken);
-      
+      toast.success("Signup successful");
+    
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
       toast.error("Error signing up");
