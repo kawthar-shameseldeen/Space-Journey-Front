@@ -33,6 +33,8 @@ const Signup = ({ onSignupSuccess }) => {
       const token = response.data.token;
       localStorage.setItem("token", token);
 
+      const decodedToken = jwtDecode(token);
+       
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
       toast.error("Error signing up");
