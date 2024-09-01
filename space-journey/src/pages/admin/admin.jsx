@@ -8,7 +8,7 @@ import { Navigate,useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import {jwtDecode} from "jwt-decode";
-
+import Modal from "../../components/modal/modal.jsx";
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
