@@ -16,7 +16,6 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
             </div>
             <ul className="navbar-linksB">
                 <li><a href="/home">Home</a></li>
-                <li><a href="/tour">Tour</a></li>
                 <li><a href="/space">Space</a></li>
                 <li><a href="/iot">IoT</a></li>
             </ul>
