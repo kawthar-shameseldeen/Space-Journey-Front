@@ -10,6 +10,7 @@ import {
 } from "../../data_store/redux/userSlice/index.js";
 import { toast } from "react-toastify";
 import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 const Signup = ({ onSignupSuccess }) => {
   const [username, setUsername] = useState("");
@@ -30,12 +31,12 @@ const Signup = ({ onSignupSuccess }) => {
       dispatch(registerUserSuccess(response.data));
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
+      toast.error("Error signing up");
     }
   };
 
   useEffect(() => {
     if (user && !loading && !error) {
-      toast.success("Signup successful");
       onSignupSuccess();
     } else if (error) {
       toast.error("Error signing up");
@@ -56,6 +57,7 @@ const Signup = ({ onSignupSuccess }) => {
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="off"
             placeholder="Name"
+            required
           />
         </div>
         <div className="input-groupB">
@@ -87,3 +89,4 @@ const Signup = ({ onSignupSuccess }) => {
 };
 
 export default Signup;
+
