@@ -210,7 +210,9 @@ const Admin = () => {
       <Modal isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
         <h2>Import Users</h2>
         <FileUploadPopup onFileImport={handleFileImport} />
-        
+        <button className="btn" onClick={() => setIsPopupOpen(false)}>
+          Close
+        </button>
       </Modal>
       
       </div>
