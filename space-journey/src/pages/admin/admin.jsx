@@ -207,7 +207,9 @@ const Admin = () => {
         <button className="btn" onClick={() => setIsPopupOpen(true)}>
         Import
       </button>
-   
+      <Modal isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
+        
+      </Modal>
       
       </div>
       <div
