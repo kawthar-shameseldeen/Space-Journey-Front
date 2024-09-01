@@ -208,7 +208,8 @@ const Admin = () => {
         Import
       </button>
       <Modal isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-        
+        <h2>Import Users</h2>
+       
       </Modal>
       
       </div>
