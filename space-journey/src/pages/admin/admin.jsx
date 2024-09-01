@@ -8,10 +8,12 @@ import { Navigate,useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import {jwtDecode} from "jwt-decode";
+
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const navigate=useNavigate();
   useEffect(() => {
   
@@ -202,20 +204,8 @@ const Admin = () => {
         >
           All Users
         </h1>
-        <button className="btn" onClick={() => setShowPopup(true)}>
-          Import
-        </button>
-        {showPopup && (
-          <div className="popup-overlay">
-            <div className="popup-content">
-              <h2>Import Users</h2>
-              <FileUploadPopup onFileImport={handleFileImport} />
-              <button className="btn" onClick={() => setShowPopup(false)}>
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+   
+      
       </div>
       <div
         style={{
