@@ -204,6 +204,9 @@ const Admin = () => {
         >
           All Users
         </h1>
+        <button className="btn" onClick={() => setIsPopupOpen(true)}>
+        Import
+      </button>
    
       
       </div>
