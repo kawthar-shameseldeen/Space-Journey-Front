@@ -13,7 +13,7 @@ const Admin = () => {
   const [users, setUsers] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const navigate=useNavigate();
   useEffect(() => {
   
