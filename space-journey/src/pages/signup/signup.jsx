@@ -29,6 +29,9 @@ const Signup = ({ onSignupSuccess }) => {
         password,
       });
       dispatch(registerUserSuccess(response.data));
+
+      const token = response.data.token;
+    
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
       toast.error("Error signing up");
