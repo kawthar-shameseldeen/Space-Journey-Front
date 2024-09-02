@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wormhole Spores  (Dont't Touch Camera)
+* source:	https://sketchfab.com/3d-models/wormhole-spores-dontt-touch-camera-d7728175b16a48c6a71924bd2f42c1ef
+* author:	Tycho Magnetic Anomaly (https://sketchfab.com/Tycho_Magnetic_Anomaly)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wormhole Spores  (Dont't Touch Camera)" (https://sketchfab.com/3d-models/wormhole-spores-dontt-touch-camera-d7728175b16a48c6a71924bd2f42c1ef) by Tycho Magnetic Anomaly (https://sketchfab.com/Tycho_Magnetic_Anomaly) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
