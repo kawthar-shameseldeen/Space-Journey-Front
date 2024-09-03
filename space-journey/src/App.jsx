@@ -34,17 +34,18 @@ function App() {
             </ProtectedRoute>
           }
         />
-               <Route
+               {/* <Route
           path="/space"
           element={
             <ProtectedRoute>
               <SpaceTour />
             </ProtectedRoute>
           }
-        />
+        /> */}
       
        
         <Route path="/home" element={<HomePage />} />
+        <Route path="/space" element={<SpaceTour />} />
        
 
 
