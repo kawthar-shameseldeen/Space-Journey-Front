@@ -3,59 +3,58 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import "./admin.css";
 import axios from "axios";
 import { format } from "date-fns";
-import { toast } from "react-toastify"
-import { Navigate,useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import Modal from "../../components/modal/modal.jsx";
+
 const Admin = () => {
   const [users, setUsers] = useState([]);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const navigate=useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
-  
     const token = localStorage.getItem("token");
     if (token) {
       setIsAuthenticated(true);
     }
   }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     navigate("/home");
-
   };
+
   useEffect(() => {
-   
-      const fetchAllUsers = async () => {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          navigate("/home"); 
+    const fetchAllUsers = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/home");
+        return;
+      }
+
+      try {
+        const decodedToken = jwtDecode(token);
+        if (decodedToken.role !== "admin") {
+          alert("You do not have access to this resource.");
+          navigate("/home");
           return;
         }
-  
-        try {
-          const decodedToken = jwtDecode(token);
-          if (decodedToken.role !== "admin") {
-            alert("You do not have access to this resource.");
-            navigate("/home"); 
-            return;
-          }
-  
-          const response = await axios.get("http://localhost:4040/api/user/all", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-  
+
+        const response = await axios.get("http://localhost:4040/api/user/all", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         if (response.data) {
           setUsers(
             Array.isArray(response.data) ? response.data : response.data[0]
           );
-          console.log(response);
         }
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -63,41 +62,18 @@ const Admin = () => {
     };
 
     fetchAllUsers();
-  }, []);
+  }, [navigate]);
 
   const handleFileImport = async (data) => {
     const validData = [];
     const emailSet = new Set();
     const errors = [];
 
-    console.log("Imported Data:", data);
-
     data.forEach((row, index) => {
       const { name, email, password } = row;
 
-      if (!name) {
-        errors.push(
-          `Row ${index + 1}: Name is required (Row content: ${JSON.stringify(
-            row
-          )})`
-        );
-      }
-      if (!email) {
-        errors.push(
-          `Row ${index + 1}: Email is required (Row content: ${JSON.stringify(
-            row
-          )})`
-        );
-      }
-      if (!password) {
-        errors.push(
-          `Row ${
-            index + 1
-          }: Password is required (Row content: ${JSON.stringify(row)})`
-        );
-      }
-
       if (!name || !email || !password) {
+        errors.push(`Row ${index + 1}: All fields are required`);
         return;
       }
 
@@ -129,7 +105,6 @@ const Admin = () => {
         toast.success("Users imported successfully");
         setUsers([...users, ...response.data.users]);
       } else {
-        console.error("Backend validation errors:", response.data.errors);
         response.data.errors.forEach((error, index) => {
           Object.values(error).forEach((msg) => {
             toast.error(`Row ${index + 1}: ${msg}`);
@@ -138,7 +113,6 @@ const Admin = () => {
       }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
-        console.error("Detailed error response:", error.response.data.errors);
         error.response.data.errors.forEach((error, index) => {
           Object.values(error).forEach((msg) => {
             toast.error(`Row ${index + 1}: ${msg}`);
@@ -146,7 +120,6 @@ const Admin = () => {
         });
       } else {
         toast.error("Error importing users");
-        console.error("Error importing users:", error);
       }
     }
   };
@@ -172,8 +145,8 @@ const Admin = () => {
     {
       field: "iotDevices",
       headerName: "Devices",
-      flex:1,
-    }
+      flex: 1,
+    },
   ];
 
   const rows = Array.isArray(users)
@@ -183,40 +156,46 @@ const Admin = () => {
         email: user.email,
         created_at: user.timeStamp,
         iotDevices: user.iotDevices,
-        
       }))
     : [];
 
   return (
     <div style={{ padding: "20px" }}>
-        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+      <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       <div className="containerA">
         <h1
           style={{
-            
             marginBottom: "20px",
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
-           paddingLeft: "175px",
-            
+            paddingLeft: "175px",
           }}
         >
           All Users
         </h1>
         <button className="btn" onClick={() => setIsPopupOpen(true)}>
-        Import
-      </button>
-      <Modal isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-        <h2>Import Users</h2>
-        <FileUploadPopup onFileImport={handleFileImport} />
-        
-      </Modal>
-      
+          Import
+        </button>
+        <Modal
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          style={{
+            content: {
+              
+              maxWidth: "500px", 
+              width: "100%", 
+              margin: "auto", 
+              padding: "20px",
+            },
+          }}
+        >
+          <h2>Import Users</h2>
+          <FileUploadPopup onFileImport={handleFileImport} />
+        </Modal>
       </div>
       <div
         style={{
-          
           height: "70vh",
           width: "70vw",
           margin: "0 auto",
@@ -236,8 +215,6 @@ const Admin = () => {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
                 backgroundColor: "#232323",
-                
-                
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
@@ -249,12 +226,10 @@ const Admin = () => {
                 color: "#61dbfb",
                 fontSize: "16px",
                 fontWeight: "bold",
-                
               },
               "& .MuiDataGrid-columnHeader": {
                 fontWeight: "bold",
                 backgroundColor: "#232323",
-                
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
                 backgroundColor: "#232323",
@@ -270,9 +245,8 @@ const Admin = () => {
                 backgroundColor: "#232323",
               },
               "& .MuiDataGrid-virtualScroller": {
-              
                 "&::-webkit-scrollbar": {
-                 display: "none",
+                  display: "none",
                 },
                 "&::-webkit-scrollbar-thumb": {
                   backgroundColor: "#888",
