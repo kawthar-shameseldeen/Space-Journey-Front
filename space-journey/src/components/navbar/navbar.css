@@ -2,17 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1); 
   
-  
-
   border-radius: 20px;
+  border: #61dbfb 1px solid;
   margin: auto;
   color: white;
-  width: 40%;
-  background-color: #61dbfb;
+  width: 60%;
+ 
 }
 .navbarContainer{
+  
+     
   margin-top: 10px;
 }
 .navbar-logoB {
@@ -81,6 +82,7 @@
     border: 1px solid #61dbfb;
     border-radius: 20px;
     padding: 5px 15px;
+
 }
 
 
