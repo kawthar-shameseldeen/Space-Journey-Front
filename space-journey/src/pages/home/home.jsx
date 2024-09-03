@@ -98,7 +98,7 @@ const HomePage = () => {
                 speed: 5,
                 size_min: 0.3,
                 sync: false,
-              }, 
+              },
             },
             move: {
               enable: true,
@@ -163,6 +163,8 @@ const HomePage = () => {
           style={{
             justifyContent: "flex-end",
             alignItems: "center",
+            paddingRight: "100px",
+            
             display: "flex",
             zIndex: -1,
             
@@ -179,8 +181,6 @@ const HomePage = () => {
             display: "flex",
             zIndex:2,
             position: "relative",
-        
-           
           }}
         >
           <div className="planet" id="venus"></div>
@@ -264,16 +264,12 @@ const HomePage = () => {
           <AboutUs />
         </div>
       </section>
-
-     
       <section className="features-section full-page-section">
         <div className="content">
           <Features />
         </div>
       </section>
-
       <Footer />
-
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         {modalContent}
       </Modal>
