@@ -98,7 +98,7 @@ const HomePage = () => {
                 speed: 5,
                 size_min: 0.3,
                 sync: false,
-              },
+              }, 
             },
             move: {
               enable: true,
