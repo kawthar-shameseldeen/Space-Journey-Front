@@ -1,6 +1,7 @@
 import React from 'react';
 import './aboutus.css'; 
 import { Player } from '@lottiefiles/react-lottie-player';
+import spaceLottie from '../../assets/aboutus.json'; 
 const AboutUs = () => {
     return (
         <div className="about-card">
