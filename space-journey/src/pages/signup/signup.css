@@ -56,9 +56,9 @@ form {
   width: 40% !important;
   padding: 10px !important;
   margin: 20px auto 0 auto !important;
-  border: 1px solid #61dbfb !important;
-  background: none !important;
-  color: #61dbfb !important;
+  
+  background: #61dbfb !important;
+  
   border-radius: 5px !important;
   cursor: pointer !important;
   text-align: center !important;
