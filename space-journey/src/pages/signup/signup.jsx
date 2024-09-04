@@ -38,8 +38,7 @@ const Signup = ({ onSignupSuccess }) => {
       localStorage.setItem("token", token);
       
       const decodedToken = jwtDecode(token);
-      localStorage.setItem("tourId", decodedToken.tourId);  
-      
+     
 
       toast.success("Signup successful");
       onSignupSuccess();  
