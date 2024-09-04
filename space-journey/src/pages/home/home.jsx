@@ -31,6 +31,7 @@ const HomePage = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("tourId");
     setIsAuthenticated(false);
     navigate("/home");
   };
