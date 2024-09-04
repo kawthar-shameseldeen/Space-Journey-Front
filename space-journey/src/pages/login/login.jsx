@@ -36,12 +36,6 @@ const Login = ({ onLoginSuccess }) => {
       console.log(decodedToken);
 
 
-      if (decodedToken.tourId) {
-        localStorage.setItem("tourId", decodedToken.tourId);
-        console.log("Tour ID stored:", decodedToken.tourId);
-      } else {
-        console.error("No tourId found in the token");
-      }
 
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
         toast.success("Login successful");
