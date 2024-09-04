@@ -156,8 +156,10 @@ const HomePage = () => {
           <h1>Hello Universe</h1>
         </div>
       </section>
-      <Parallax pages={2} style={{ top: "100px", left: "0", position: "absolute", zIndex: 0 }}>
-        
+      <Parallax
+        pages={2}
+        style={{ top: "100px", left: "0", position: "absolute", zIndex: 0 }}
+      >
         <ParallaxLayer
           offset={0.1}
           speed={0.5}
@@ -165,10 +167,9 @@ const HomePage = () => {
             justifyContent: "flex-end",
             alignItems: "center",
             paddingRight: "100px",
-            
+
             display: "flex",
             zIndex: -1,
-            
           }}
         >
           <div className="planet" id="mercury"></div>
@@ -180,7 +181,7 @@ const HomePage = () => {
             justifyContent: "center",
             alignItems: "flex-start",
             display: "flex",
-            zIndex:2,
+            zIndex: 2,
             position: "relative",
           }}
         >
@@ -194,7 +195,6 @@ const HomePage = () => {
             alignItems: "flex-end",
             display: "flex",
             zIndex: 3,
-            
           }}
         >
           <div className="planet" id="earth"></div>
