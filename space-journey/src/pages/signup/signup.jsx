@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "./signup.css";
@@ -10,7 +11,7 @@ import {
 } from "../../data_store/redux/userSlice/index.js";
 import { toast } from "react-toastify";
 import axios from "axios";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode"; 
 
 const Signup = ({ onSignupSuccess }) => {
   const [username, setUsername] = useState("");
@@ -22,21 +23,26 @@ const Signup = ({ onSignupSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(registerUserStart());
+
     try {
       const response = await axios.post("http://localhost:4040/api/register", {
         username,
         email,
         password,
       });
+      
+
       dispatch(registerUserSuccess(response.data));
 
       const token = response.data.token;
       localStorage.setItem("token", token);
-
+      
       const decodedToken = jwtDecode(token);
-      console.log(decodedToken);
+      localStorage.setItem("tourId", decodedToken.tourId);  
+      
+
       toast.success("Signup successful");
-      onSignupSuccess(); 
+      onSignupSuccess();  
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
       toast.error("Error signing up");
