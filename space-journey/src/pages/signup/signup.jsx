@@ -37,7 +37,7 @@ const Signup = ({ onSignupSuccess }) => {
       const token = response.data.token;
       localStorage.setItem("token", token);
       
-      const decodedToken = jwtDecode(token);
+      
      
 
       toast.success("Signup successful");
