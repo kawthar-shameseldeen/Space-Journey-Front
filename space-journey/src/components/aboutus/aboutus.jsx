@@ -8,8 +8,8 @@ const AboutUs = () => {
             <Player
                 autoplay
                 loop
-                src={spaceLottie}  // Path to your Lottie animation file
-                style={{ height: '150px', width: '150px', margin: '0 auto 20px' }}  // Adjust size and margin
+                src={spaceLottie} 
+                style={{ height: '200px', width: '200px', margin: '0 auto 20px' }} 
             />
             <h3>About Us</h3>
             <p>
