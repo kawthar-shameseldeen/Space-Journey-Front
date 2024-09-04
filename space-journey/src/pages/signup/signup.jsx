@@ -36,10 +36,6 @@ const Signup = ({ onSignupSuccess }) => {
 
       const token = response.data.token;
       localStorage.setItem("token", token);
-      
-      
-     
-
       toast.success("Signup successful");
       onSignupSuccess();  
     } catch (error) {
