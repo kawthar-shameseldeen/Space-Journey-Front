@@ -2,21 +2,46 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
-import axios from "axios";
 
 const SpaceTour = () => {
   const mountRef = useRef(null);
   const [currentScene, setCurrentScene] = useState("milkyWay");
   const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const [ws, setWs] = useState(null);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [planetData, setPlanetData] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const [planetSound, setPlanetSound] = useState(null);
-  const [blackholeSound, setBlackholeSound] = useState(null);
   const [isSoundPlaying, setIsSoundPlaying] = useState(false);
+  const [blackholeSound, setBlackholeSound] = useState(null);
+  useEffect(() => {
+    const ws = new WebSocket('ws://localhost:4040');
+  
+    ws.onopen = () => {
+      console.log("WebSocket connection established");
+      setWs(ws); 
+    };
+  
+    ws.onmessage = (event) => {
+      console.log("Message from server:", event.data);
+    };
+  
+    ws.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+  
+    ws.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+  
+    return () => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.close();
+      }
+    };
+  }, []);
+
 
   useEffect(() => {
- 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -49,10 +74,12 @@ const SpaceTour = () => {
     const WormHoleScene = new THREE.Scene();
 
     let blackhole = null;
+    let milkyWay=null;
     let nebula = null;
     let wormhole = null;
     let planets = [];
 
+    
     if (currentScene === "milkyWay") {
       loader.load("/milky-way/scene.gltf", (gltf) => {
         const milkyWay = gltf.scene;
@@ -72,28 +99,7 @@ const SpaceTour = () => {
 
       loader.load("/models/space_sun/scene.gltf", (gltf) => {
         const sun = gltf.scene;
-
         sun.scale.set(10, 10, 10);
-
-        sun.position.set(0, 0, 0);
-
-        const textureLoader = new THREE.TextureLoader();
-        const sunTexture = textureLoader.load(
-          "/models/space_sun/textures/material_diffuse.png"
-        );
-        sun.traverse((child) => {
-          if (child.isMesh) {
-            child.material.map = sunTexture;
-            child.material.needsUpdate = true;
-          }
-        });
-        const pointLight = new THREE.PointLight(0xffffff, 2, 100);
-        pointLight.position.set(10, 10, 10);
-        solarSystemScene.add(pointLight);
-
-        const ambientLight = new THREE.AmbientLight(0x404040, 1);
-        solarSystemScene.add(ambientLight);
-
         solarSystemScene.add(sun);
       });
 
@@ -105,15 +111,8 @@ const SpaceTour = () => {
         planet.name = name;
         planet.userData = { soundPath };
 
-        const orbitGeometry = new THREE.RingGeometry(
-          distance - 0.1,
-          distance + 0.1,
-          64
-        );
-        const orbitMaterial = new THREE.MeshBasicMaterial({
-          color: 0x888888,
-          side: THREE.DoubleSide,
-        });
+        const orbitGeometry = new THREE.RingGeometry(distance - 0.1, distance + 0.1, 64);
+        const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x888888, side: THREE.DoubleSide });
         const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
         orbit.rotation.x = Math.PI / 2;
 
@@ -124,6 +123,18 @@ const SpaceTour = () => {
 
         return planet;
       };
+
+      planets = [
+        createPlanet(1, 10, "/textures/mercury.jpg", "mercury", "/sounds/mercurySound.mpeg.wav"),
+        createPlanet(1.5, 20, "/textures/venus.jpg", "venus", "/sounds/venusSound.mpeg.wav"),
+        createPlanet(2, 30, "/textures/earth.jpg", "earth", "/sounds/earth.mp3"),
+        createPlanet(2.5, 40, "/textures/mars.jpg", "mars", "/sounds/marsSound.mpeg.wav"),
+        createPlanet(3, 50, "/models/jupiter/textures/Material_baseColor.jpg", "jupiter", "/sounds/jupiterSound.mpeg.wav"),
+        createPlanet(3.5, 60, "/textures/saturn.jpg", "saturn", "/sounds/saturnSound.mpeg.wav"),
+        createPlanet(4.5, 70, "/textures/uranus.jpg", "uranus", "/sounds/uranusSound.mpeg.wav"),
+        createPlanet(5, 80, "/textures/neptune.jpg", "neptune", "/sounds/neptuneSound.mpeg.wav"),
+        createPlanet(5.5, 90, "/textures/pluto.jpg", "pluto", "/sounds/plutoSound.mpeg.wav"),
+      ];
 
       const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
         const asteroids = [];
@@ -148,6 +159,8 @@ const SpaceTour = () => {
         return asteroids;
       };
 
+      createAsteroidBelt(40, 50, 500);
+
       const createStars = (count = 1000) => {
         for (let i = 0; i < count; i++) {
           const starGeometry = new THREE.SphereGeometry(0.5, 24, 24);
@@ -162,74 +175,6 @@ const SpaceTour = () => {
         }
       };
 
-      planets = [
-        createPlanet(
-          1,
-          10,
-          "/textures/mercury.jpg",
-          "mercury",
-          "/sounds/mercurySound.mpeg.wav"
-        ),
-
-        createPlanet(
-          1.5,
-          20,
-          "/textures/venus.jpg",
-          "venus",
-          "/sounds/venusSound.mpeg.wav"
-        ),
-        createPlanet(
-          2,
-          30,
-          "/textures/earth.jpg",
-          "earth",
-          "/sounds/earth.mp3"
-        ),
-        createPlanet(
-          2.5,
-          40,
-          "/textures/mars.jpg",
-          "mars",
-          "/sounds/marsSound.mpeg.wav"
-        ),
-        createPlanet(
-          3,
-          50,
-          "/models/jupiter/textures/Material_baseColor.jpg",
-          "jupiter",
-          "/sounds/jupiterSound.mpeg.wav"
-        ),
-        createPlanet(
-          3.5,
-          60,
-          "/textures/saturn.jpg",
-          "saturn",
-          "/sounds/saturnSound.mpeg.wav"
-        ),
-        createPlanet(
-          4.5,
-          70,
-          "/textures/uranus.jpg",
-          "uranus",
-          "/sounds/uranusSound.mpeg.wav"
-        ),
-        createPlanet(
-          5,
-          80,
-          "/textures/neptune.jpg",
-          "neptune",
-          "/sounds/neptuneSound.mpeg.wav"
-        ),
-        createPlanet(
-          5.5,
-          90,
-          "/textures/pluto.jpg",
-          "pluto",
-          "/sounds/plutoSound.mpeg.wav"
-        ),
-      ];
-
-      createAsteroidBelt(40, 50, 500);
       createStars(10000);
 
       camera.position.z = 50;
@@ -280,6 +225,9 @@ const SpaceTour = () => {
           if (camera.position.z > 100) {
             camera.position.z -= 5;
           }
+          if (milkyWay) {
+            milkyWay.rotation.y += 0.001; // Slow rotation animation for the Milky Way
+          }
           renderer.render(milkyWayScene, camera);
           break;
 
@@ -322,7 +270,7 @@ const SpaceTour = () => {
 
     animate();
 
-    const onDocumentMouseDown = (event) => {
+    const onDocumentMouseMove = (event) => {
       event.preventDefault();
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -333,24 +281,35 @@ const SpaceTour = () => {
 
       if (intersects.length > 0) {
         const selectedObject = intersects[0].object;
-        setSelectedPlanet(selectedObject);
-        setIsModalOpen(true);
+        if (selectedObject.name) {
+          setSelectedPlanet(selectedObject);
+
+  
+          if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ planetName: selectedObject.name }));
+            console.log(`Sent planet name: ${selectedObject.name}`);  
+          } else {
+            console.error("WebSocket is not open.");
+          }
+        }
       }
     };
 
-    document.addEventListener("mousedown", onDocumentMouseDown, false);
+    document.addEventListener("mousemove", onDocumentMouseMove, false);
 
     return () => {
+      document.removeEventListener("mousedown", onDocumentMouseMove, false);
       mountRef.current.removeChild(renderer.domElement);
-      document.removeEventListener("mousedown", onDocumentMouseDown, false);
     };
-  }, [currentScene, isAnimating]);
+  }, [currentScene, ws, isAnimating]);
 
   const playPlanetSound = () => {
-    const sound = new Audio(selectedPlanet.userData.soundPath);
-    setPlanetSound(sound);
-    sound.play();
-    setIsSoundPlaying(true);
+    if (selectedPlanet && selectedPlanet.userData.soundPath) {
+      const sound = new Audio(selectedPlanet.userData.soundPath);
+      setPlanetSound(sound);
+      sound.play();
+      setIsSoundPlaying(true);
+    }
   };
 
   const stopPlanetSound = () => {
@@ -377,9 +336,7 @@ const SpaceTour = () => {
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
         <button onClick={() => setCurrentScene("milkyWay")}>Milky Way</button>
-        <button onClick={() => setCurrentScene("solarSystem")}>
-          Solar System
-        </button>
+        <button onClick={() => setCurrentScene("solarSystem")}>Solar System</button>
         <button onClick={() => setCurrentScene("blackhole")}>Black Hole</button>
         <button onClick={() => setCurrentScene("nebula")}>Nebula</button>
         <button onClick={() => setCurrentScene("wormhole")}>Wormhole</button>
@@ -388,7 +345,6 @@ const SpaceTour = () => {
             {isSoundPlaying ? "Stop Sound" : "Play Sound"}
           </button>
         )}
-
       </div>
       <button
         onClick={() => setIsAnimating(!isAnimating)}
@@ -405,6 +361,7 @@ const SpaceTour = () => {
       >
         {isAnimating ? "Stop Animation" : "Start Animation"}
       </button>
+
       {isModalOpen && (
         <div
           style={{
