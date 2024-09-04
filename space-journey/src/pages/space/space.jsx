@@ -14,26 +14,9 @@ const SpaceTour = () => {
   const [planetSound, setPlanetSound] = useState(null);
   const [blackholeSound, setBlackholeSound] = useState(null);
   const [isSoundPlaying, setIsSoundPlaying] = useState(false);
- //////////////////////
- 
- ////////////////////
+
   useEffect(() => {
-    // const fetchPlanetData = async () => {
-    //   try {
-    //     const response = await axios.get("http://localhost:4040/api/planets");
-    //     const planetDataArray = response.data;
-    //     const planetDataObj = planetDataArray.reduce((acc, planet) => {
-    //       acc[planet.name.toLowerCase()] = planet;
-    //       return acc;
-    //     }, {});
-    //     setPlanetData(planetDataObj);
-    //   } catch (error) {
-    //     console.error("Error fetching planet data:", error);
-    //   }
-    // };
-
-    // fetchPlanetData();
-
+ 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
