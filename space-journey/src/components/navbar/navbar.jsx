@@ -22,12 +22,12 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
             <div className="navbar-buttonsB">
             {!isAuthenticated && !isAuthPage && (
                 <>
-                    <button className="btn-loginB" onClick={onLoginClick}>Login</button>
-                    <button className="btn-signupB" onClick={onSignupClick}>Sign Up</button>
+                    <button className="btn-linkB" onClick={onLoginClick}>Login</button>
+                    <button className="btn-linkB" onClick={onSignupClick}>Sign Up</button>
                 </>
             )}
             {isAuthenticated && (
-                <button className="btn-logoutB" onClick={onLogout}>Logout</button>
+                <button className="btn-linkB" onClick={onLogout}>Logout</button>
             )}
             </div>
         </nav>
