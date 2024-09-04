@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { fetchingUsers, loadUsers, errorOccured } from "../../data_store/redux/userSlice/index.js";
-import {jwtDecode} from "jwt-decode"; 
+import {jwtDecode} from "jwt-decode";
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -34,6 +34,15 @@ const Login = ({ onLoginSuccess }) => {
 
       const decodedToken = jwtDecode(token);
       console.log(decodedToken);
+
+
+      if (decodedToken.tourId) {
+        localStorage.setItem("tourId", decodedToken.tourId);
+        console.log("Tour ID stored:", decodedToken.tourId);
+      } else {
+        console.error("No tourId found in the token");
+      }
+
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
         toast.success("Login successful");
         onLoginSuccess();
