@@ -199,7 +199,7 @@ const Admin = () => {
           height: "70vh",
           width: "70vw",
           margin: "0 auto",
-          padding: "20px",
+          
           backgroundColor: "#232323",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -214,7 +214,7 @@ const Admin = () => {
               "& .MuiDataGrid-root": {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
-                backgroundColor: "#232323",
+                backgroundColor: "white",
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
