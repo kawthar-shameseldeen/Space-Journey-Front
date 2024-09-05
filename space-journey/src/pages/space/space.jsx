@@ -352,7 +352,16 @@ const SpaceTour = () => {
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
         <button
-        
+          style={{
+            backgroundColor: '#61dbfb',
+            color: '#fff',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '5px',
+            padding: '10px',
+          }}
+        >
+         
         </button>
       </div>
 
