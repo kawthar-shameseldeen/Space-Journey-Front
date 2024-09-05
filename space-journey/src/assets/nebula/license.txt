@@ -1,0 +1,11 @@
+Model Information:
+* title:	Nebula space HDRi background photosphere
+* source:	https://sketchfab.com/3d-models/nebula-space-hdri-background-photosphere-38e96b59f24345d9a757030eadc92bac
+* author:	Aliaksandr.melas (https://sketchfab.com/alexandr.melas)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Nebula space HDRi background photosphere" (https://sketchfab.com/3d-models/nebula-space-hdri-background-photosphere-38e96b59f24345d9a757030eadc92bac) by Aliaksandr.melas (https://sketchfab.com/alexandr.melas) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
