@@ -333,13 +333,28 @@ const SpaceTour = () => {
 
   return (
     <div>
+  
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-        <button onClick={() => setCurrentScene("milkyWay")}>Milky Way</button>
-        <button onClick={() => setCurrentScene("solarSystem")}>Solar System</button>
-        <button onClick={() => setCurrentScene("blackhole")}>Black Hole</button>
-        <button onClick={() => setCurrentScene("nebula")}>Nebula</button>
-        <button onClick={() => setCurrentScene("wormhole")}>Wormhole</button>
+        <label htmlFor="scene-select" style={{ marginRight: "10px", color: "#fff" }}>Select Scene:</label>
+        <select
+          id="scene-select"
+          value={currentScene}
+          onChange={(e) => setCurrentScene(e.target.value)}
+          style={{
+            padding: "10px",
+            backgroundColor: "#61dbfb",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          <option value="milkyWay">Milky Way</option>
+          <option value="solarSystem">Solar System</option>
+          <option value="blackhole">Black Hole</option>
+          <option value="nebula">Nebula</option>
+          <option value="wormhole">Wormhole</option>
+        </select>
         {currentScene === "blackhole" && (
           <button onClick={toggleBlackholeSound}>
             {isSoundPlaying ? "Stop Sound" : "Play Sound"}
