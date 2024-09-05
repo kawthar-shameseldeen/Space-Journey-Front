@@ -335,7 +335,7 @@ const SpaceTour = () => {
     <div>
   
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
-      <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+      <div style={{ position: "absolute", top: "10px", right: "10px", display: "flex", gap: "10px",flexDirection:"row" }}>
        
         <select
           id="scene-select"
@@ -361,11 +361,10 @@ const SpaceTour = () => {
             {isSoundPlaying ? "Stop Sound" : "Play Sound"}
           </button>
         )}
-      </div>
-      <button
+          <button
         onClick={() => setIsAnimating(!isAnimating)}
         style={{
-          position: "absolute",
+        
           top: "10px",
           left: "10px",
           padding: "10px 20px",
@@ -374,11 +373,14 @@ const SpaceTour = () => {
           border: "none",
           cursor: "pointer",
           borderRadius: "5px",
+          
         }}
       >
         {isAnimating ? "Stop Animation" : "Start Animation"}
       </button>
 
+      </div>
+    
       {isModalOpen && (
         <div
           style={{
