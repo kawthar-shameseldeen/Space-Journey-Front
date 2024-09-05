@@ -344,7 +344,7 @@ const SpaceTour = () => {
           style={{
             padding: "10px",
             backgroundColor: "#61dbfb",
-            color: "#fff",
+            color: "#232323",
             border: "none",
             cursor: "pointer",
             borderRadius:"5px",
@@ -369,7 +369,7 @@ const SpaceTour = () => {
           left: "10px",
           padding: "10px 20px",
           backgroundColor: "#61dbfb",
-          color: "#fff",
+          color: "#232323",
           border: "none",
           cursor: "pointer",
           borderRadius: "5px",
