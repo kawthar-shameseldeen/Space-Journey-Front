@@ -223,7 +223,7 @@ const Admin = () => {
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#232323",
-                color: "#61dbfb",
+                color: "white",
                 fontSize: "16px",
                 fontWeight: "bold",
               },
