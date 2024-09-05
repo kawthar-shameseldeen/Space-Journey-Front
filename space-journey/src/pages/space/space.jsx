@@ -226,7 +226,7 @@ const SpaceTour = () => {
             camera.position.z -= 5;
           }
           if (milkyWay) {
-            milkyWay.rotation.y += 0.001; // Slow rotation animation for the Milky Way
+            milkyWay.rotation.y += 0.001; 
           }
           renderer.render(milkyWayScene, camera);
           break;
@@ -335,59 +335,36 @@ const SpaceTour = () => {
     <div>
   
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
-      <div style={{ position: "absolute", top: "10px", right: "10px", display: "flex", gap: "10px",flexDirection:"row-reverse" }}>
-       
-        <select
-          id="scene-select"
-          value={currentScene}
-          onChange={(e) => setCurrentScene(e.target.value)}
-          style={{
-            padding: "10px",
-            backgroundColor: "#61dbfb",
-            color: "#232323",
-            border: "none",
-            cursor: "pointer",
-            borderRadius:"5px",
-          }}
-        >
-          <option value="milkyWay" >Milky Way</option>
-          <option value="solarSystem">Solar System</option>
-          <option value="blackhole">Black Hole</option>
-          <option value="nebula">Nebula</option>
-          <option value="wormhole">Wormhole</option>
-        </select>
-        {currentScene === "blackhole" && (
-          <button onClick={toggleBlackholeSound} style={{
-            padding: "10px 20px",
-            backgroundColor: "#61dbfb",
-            color: "#232323",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: "5px",
-          }}>
-            {isSoundPlaying ? "Stop Sound" : "Play Sound"}
-          </button>
-        )}
-          <button
-        onClick={() => setIsAnimating(!isAnimating)}
-        style={{
-        
-          top: "10px",
-          left: "10px",
-          padding: "10px 20px",
-          backgroundColor: "#61dbfb",
-          color: "#232323",
-          border: "none",
-          cursor: "pointer",
-          borderRadius: "5px",
-          
-        }}
-      >
-        {isAnimating ? "Stop Animation" : "Start Animation"}
-      </button>
+      <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '10px', flexDirection: 'row-reverse' }}>
+  <Select
+    value={currentScene}
+    onChange={(e) => setCurrentScene(e.target.value)}
+    style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px',  fontSize: '15px' }}
+  >
+    <MenuItem value="milkyWay">Milky Way</MenuItem>
+    <MenuItem value="solarSystem">Solar System</MenuItem>
+    <MenuItem value="blackhole">Black Hole</MenuItem>
+    <MenuItem value="nebula">Nebula</MenuItem>
+    <MenuItem value="wormhole">Wormhole</MenuItem>
+  </Select>
 
-      </div>
-    
+  {currentScene === 'blackhole' && (
+    <Button
+      onClick={toggleBlackholeSound}
+      style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '12px' }}
+    >
+      {isSoundPlaying ? 'Stop Sound' : 'Play Sound'}
+    </Button>
+  )}
+
+  <Button
+    onClick={() => setIsAnimating(!isAnimating)}
+    style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', padding: '5px 10px', fontSize: '12px' }}
+  >
+    {isAnimating ? 'Stop Animation' : 'Start Animation'}
+  </Button>
+</div>
+
       {isModalOpen && (
         <div
           style={{
