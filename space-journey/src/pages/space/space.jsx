@@ -357,7 +357,14 @@ const SpaceTour = () => {
           <option value="wormhole">Wormhole</option>
         </select>
         {currentScene === "blackhole" && (
-          <button onClick={toggleBlackholeSound}>
+          <button onClick={toggleBlackholeSound} style={{
+            padding: "10px 20px",
+            backgroundColor: "#61dbfb",
+            color: "#232323",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "5px",
+          }}>
             {isSoundPlaying ? "Stop Sound" : "Play Sound"}
           </button>
         )}
