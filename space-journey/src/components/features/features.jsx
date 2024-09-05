@@ -8,13 +8,13 @@ const featureData = [
   {
     title: "Immersive 3D Space Tours",
     description:
-      "Experience the universe like never before with our interactive 3D tours that let you explore planets, stars, and galaxies in stunning detail.",
+      "Explore the universe with our interactive 3D space tours. Navigate through detailed planets, stars, and galaxies. Perfect for space enthusiasts and learners, offering both education and visual wonders.",
     lottieSrc: spaceTourLottie, 
   },
   {
-    title: "Detailed Planetary Information",
+    title: "IoT-Powered Planet Lighting",
     description:
-      "Dive into comprehensive data and fascinating facts about each celestial body, including their composition, atmosphere, history, and more.",
+      "Experience a new level of interactivity as you explore the planets in real-time. Hover over each planet to activate IoT-driven lights, bringing them to life with a stunning visual display synced to your actions.",
     lottieSrc: planetInfoLottie,  
   },
 ];
