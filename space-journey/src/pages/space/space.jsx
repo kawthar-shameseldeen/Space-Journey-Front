@@ -379,68 +379,72 @@ const SpaceTour = () => {
           {isAnimating ? 'Stop Animation' : 'Start Animation'}
         </Button>
       </div>
-
       {isModalOpen && (
-        <div
-          style={{
-            position:"absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "#000",
-            color: "#fff",
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
-          <h2>{selectedPlanet?.name}</h2>
-          <p>Do you want to play the sound of this planet?</p>
-          <button
-            onClick={() => {
-              playPlanetSound();
-              setIsModalOpen(false);
-            }}
-            style={{
-              marginTop: "10px",
-              padding: "10px 20px",
-              backgroundColor: "#61dbfb",
-              color: "#fff",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Play Sound
-          </button>
-          {isSoundPlaying && (
-            <button
-              onClick={stopPlanetSound}
-              style={{
-                marginTop: "10px",
-                padding: "10px 20px",
-                backgroundColor: "#f00",
-                color: "#fff",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              Stop Sound
-            </button>
-          )}
-          <button
-            onClick={() => setIsModalOpen(false)}
-            style={{
-              marginTop: "10px",
-              padding: "10px 20px",
-              backgroundColor: "#f00",
-              color: "#fff",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      )}
+  <div
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "#232323", 
+      color: "#fff",
+      padding: "20px",
+      borderRadius: "10px",
+      width: "300px", 
+      textAlign: "center", 
+    }}
+  >
+    <h2>{selectedPlanet?.name}</h2>
+    <p>Do you want to play the sound of this planet?</p>
+
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between", 
+        marginTop: "20px",
+      }}
+    >
+      <button
+        onClick={() => setIsModalOpen(false)}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#f00", 
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+          flex: 1,
+          marginRight: "10px", 
+          borderRadius: "5px",
+        }}
+      >
+        Cancel
+      </button>
+
+      <button
+        onClick={() => {
+          if (isSoundPlaying) {
+            stopPlanetSound();
+          } else {
+            playPlanetSound(); 
+          }
+          setIsModalOpen(false);
+        }}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#61dbfb", 
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+          flex: 1, 
+          borderRadius: "5px",
+        }}
+      >
+        {isSoundPlaying ? "Stop Sound" : "Play Sound"}
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
