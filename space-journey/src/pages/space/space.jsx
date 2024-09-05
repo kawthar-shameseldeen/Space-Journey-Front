@@ -2,8 +2,8 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
-import { Select, MenuItem, Button } from '@mui/material';
-import { FaHome } from 'react-icons/fa';
+import { Select, MenuItem, Button } from "@mui/material";
+import { FaHome } from "react-icons/fa";
 const SpaceTour = () => {
   const mountRef = useRef(null);
   const [currentScene, setCurrentScene] = useState("milkyWay");
@@ -16,25 +16,25 @@ const SpaceTour = () => {
   const [blackholeSound, setBlackholeSound] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:4040');
-  
+    const ws = new WebSocket("ws://localhost:4040");
+
     ws.onopen = () => {
       console.log("WebSocket connection established");
-      setWs(ws); 
+      setWs(ws);
     };
-  
+
     ws.onmessage = (event) => {
       console.log("Message from server:", event.data);
     };
-  
+
     ws.onerror = (error) => {
       console.error("WebSocket error:", error);
     };
-  
+
     ws.onclose = () => {
       console.log("WebSocket connection closed");
     };
-  
+
     return () => {
       if (ws.readyState === WebSocket.OPEN) {
         ws.close();
@@ -111,8 +111,15 @@ const SpaceTour = () => {
         planet.name = name;
         planet.userData = { soundPath };
 
-        const orbitGeometry = new THREE.RingGeometry(distance - 0.1, distance + 0.1, 64);
-        const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x888888, side: THREE.DoubleSide });
+        const orbitGeometry = new THREE.RingGeometry(
+          distance - 0.1,
+          distance + 0.1,
+          64
+        );
+        const orbitMaterial = new THREE.MeshBasicMaterial({
+          color: 0x888888,
+          side: THREE.DoubleSide,
+        });
         const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
         orbit.rotation.x = Math.PI / 2;
 
@@ -125,15 +132,69 @@ const SpaceTour = () => {
       };
 
       planets = [
-        createPlanet(1, 10, "/textures/mercury.jpg", "Mercury", "/sounds/mercurySound.mpeg.wav"),
-        createPlanet(1.5, 20, "/textures/venus.jpg", "Venus", "/sounds/venusSound.mpeg.wav"),
-        createPlanet(2, 30, "/textures/earth.jpg", "Earth", "/sounds/earth.mp3"),
-        createPlanet(2.5, 40, "/textures/mars.jpg", "Mars", "/sounds/marsSound.mpeg.wav"),
-        createPlanet(3, 50, "/models/jupiter/textures/Material_baseColor.jpg", "Jupiter", "/sounds/jupiterSound.mpeg.wav"),
-        createPlanet(3.5, 60, "/textures/saturn.jpg", "Saturn", "/sounds/saturnSound.mpeg.wav"),
-        createPlanet(4.5, 70, "/textures/uranus.jpg", "Uranus", "/sounds/uranusSound.mpeg.wav"),
-        createPlanet(5, 80, "/textures/neptune.jpg", "Neptune", "/sounds/neptuneSound.mpeg.wav"),
-        createPlanet(5.5, 90, "/textures/pluto.jpg", "Pluto", "/sounds/plutoSound.mpeg.wav"),
+        createPlanet(
+          1,
+          10,
+          "/textures/mercury.jpg",
+          "Mercury",
+          "/sounds/mercurySound.mpeg.wav"
+        ),
+        createPlanet(
+          1.5,
+          20,
+          "/textures/venus.jpg",
+          "Venus",
+          "/sounds/venusSound.mpeg.wav"
+        ),
+        createPlanet(
+          2,
+          30,
+          "/textures/earth.jpg",
+          "Earth",
+          "/sounds/earth.mp3"
+        ),
+        createPlanet(
+          2.5,
+          40,
+          "/textures/mars.jpg",
+          "Mars",
+          "/sounds/marsSound.mpeg.wav"
+        ),
+        createPlanet(
+          3,
+          50,
+          "/models/jupiter/textures/Material_baseColor.jpg",
+          "Jupiter",
+          "/sounds/jupiterSound.mpeg.wav"
+        ),
+        createPlanet(
+          3.5,
+          60,
+          "/textures/saturn.jpg",
+          "Saturn",
+          "/sounds/saturnSound.mpeg.wav"
+        ),
+        createPlanet(
+          4.5,
+          70,
+          "/textures/uranus.jpg",
+          "Uranus",
+          "/sounds/uranusSound.mpeg.wav"
+        ),
+        createPlanet(
+          5,
+          80,
+          "/textures/neptune.jpg",
+          "Neptune",
+          "/sounds/neptuneSound.mpeg.wav"
+        ),
+        createPlanet(
+          5.5,
+          90,
+          "/textures/pluto.jpg",
+          "Pluto",
+          "/sounds/plutoSound.mpeg.wav"
+        ),
       ];
 
       const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
@@ -226,7 +287,7 @@ const SpaceTour = () => {
             camera.position.z -= 5;
           }
           if (milkyWay) {
-            milkyWay.rotation.y += 0.001; 
+            milkyWay.rotation.y += 0.001;
           }
           renderer.render(milkyWayScene, camera);
           break;
@@ -287,7 +348,7 @@ const SpaceTour = () => {
           // Send WebSocket message on hover
           if (ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({ planetName: selectedObject.name }));
-            console.log(`Sent planet name: ${selectedObject.name}`);  
+            console.log(`Sent planet name: ${selectedObject.name}`);
           } else {
             console.error("WebSocket is not open.");
           }
@@ -350,26 +411,39 @@ const SpaceTour = () => {
   return (
     <div>
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+      <div style={{ position: "absolute", top: "10px", left: "10px" }}>
         <button
           style={{
-            backgroundColor: '#61dbfb',
-            color: '#fff',
-            border: 'none',
-            cursor: 'pointer',
-            borderRadius: '5px',
-            padding: '10px',
+            backgroundColor: "#61dbfb",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "5px",
+            padding: "10px",
           }}
         >
-          <FaHome style={{ fontSize: '20px' }} />
+          <FaHome style={{ fontSize: "20px" }} />
         </button>
       </div>
-
-      <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '10px', flexDirection: 'row-reverse' }}>
+      <div
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          display: "flex",
+          gap: "10px",
+          flexDirection: "row-reverse",
+        }}
+      >
         <Select
           value={currentScene}
           onChange={(e) => setCurrentScene(e.target.value)}
-          style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '15px' }}
+          style={{
+            backgroundColor: "#61dbfb",
+            color: "#232323",
+            borderRadius: "5px",
+            fontSize: "15px",
+          }}
         >
           <MenuItem value="milkyWay">Milky Way</MenuItem>
           <MenuItem value="solarSystem">Solar System</MenuItem>
@@ -378,88 +452,101 @@ const SpaceTour = () => {
           <MenuItem value="wormhole">Wormhole</MenuItem>
         </Select>
 
-        {currentScene === 'blackhole' && (
+        {currentScene === "blackhole" && (
           <Button
             onClick={toggleBlackholeSound}
-            style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '12px' }}
+            style={{
+              backgroundColor: "#61dbfb",
+              color: "#232323",
+              borderRadius: "5px",
+              fontSize: "12px",
+            }}
           >
-            {isSoundPlaying ? 'Stop Sound' : 'Play Sound'}
+            {isSoundPlaying ? "Stop Sound" : "Play Sound"}
           </Button>
         )}
 
-        <Button
-          onClick={() => setIsAnimating(!isAnimating)}
-          style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', padding: '5px 10px', fontSize: '12px' }}
-        >
-          {isAnimating ? 'Stop Animation' : 'Start Animation'}
-        </Button>
+        {currentScene === "solarSystem" && (
+          <Button
+            onClick={() => setIsAnimating(!isAnimating)}
+            style={{
+              backgroundColor: "#61dbfb",
+              color: "#232323",
+              borderRadius: "5px",
+              padding: "5px 10px",
+              fontSize: "12px",
+            }}
+          >
+            {isAnimating ? "Stop Animation" : "Start Animation"}
+          </Button>
+        )}
       </div>
+
       {isModalOpen && (
-  <div
-    style={{
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: "#232323", 
-      color: "#fff",
-      padding: "20px",
-      borderRadius: "10px",
-      width: "300px", 
-      textAlign: "center", 
-    }}
-  >
-    <h2>{selectedPlanet?.name}</h2>
-    <p>Do you want to play the sound of this planet?</p>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "#232323",
+            color: "#fff",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "300px",
+            textAlign: "center",
+          }}
+        >
+          <h2>{selectedPlanet?.name}</h2>
+          <p>Do you want to play the sound of this planet?</p>
 
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between", 
-        marginTop: "20px",
-      }}
-    >
-      <button
-        onClick={() => setIsModalOpen(false)}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#f00", 
-          color: "#fff",
-          border: "none",
-          cursor: "pointer",
-          flex: 1,
-          marginRight: "10px", 
-          borderRadius: "5px",
-        }}
-      >
-        Cancel
-      </button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "20px",
+            }}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#f00",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+                flex: 1,
+                marginRight: "10px",
+                borderRadius: "5px",
+              }}
+            >
+              Cancel
+            </button>
 
-      <button
-        onClick={() => {
-          if (isSoundPlaying) {
-            stopPlanetSound();
-          } else {
-            playPlanetSound(); 
-          }
-          setIsModalOpen(false);
-        }}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#61dbfb", 
-          color: "#fff",
-          border: "none",
-          cursor: "pointer",
-          flex: 1, 
-          borderRadius: "5px",
-        }}
-      >
-        {isSoundPlaying ? "Stop Sound" : "Play Sound"}
-      </button>
-    </div>
-  </div>
-)}
-
+            <button
+              onClick={() => {
+                if (isSoundPlaying) {
+                  stopPlanetSound();
+                } else {
+                  playPlanetSound();
+                }
+                setIsModalOpen(false);
+              }}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "#61dbfb",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+                flex: 1,
+                borderRadius: "5px",
+              }}
+            >
+              {isSoundPlaying ? "Stop Sound" : "Play Sound"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
