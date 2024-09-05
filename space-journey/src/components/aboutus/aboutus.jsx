@@ -10,7 +10,7 @@ const AboutUs = () => {
                 autoplay
                 loop
                 src={spaceLottie} 
-                style={{ height: '200px', width: '200px', margin: '0 auto 20px' }} 
+                style={{ height: '250px', width: '250px', margin: '0 auto 20px' }} 
             />
             <h3 className='aboutTitle'>About Us</h3>
             <p className='aboutText'>
