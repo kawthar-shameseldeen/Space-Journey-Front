@@ -351,7 +351,9 @@ const SpaceTour = () => {
     <div>
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <button
         
+        </button>
       </div>
 
       <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '10px', flexDirection: 'row-reverse' }}>
