@@ -372,6 +372,7 @@ const SpaceTour = () => {
           color: "#fff",
           border: "none",
           cursor: "pointer",
+          borderRadius: "5px",
         }}
       >
         {isAnimating ? "Stop Animation" : "Start Animation"}
@@ -380,7 +381,9 @@ const SpaceTour = () => {
       {isModalOpen && (
         <div
           style={{
-            position: "absolute",
+           
+            position:"absolute",
+            
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
