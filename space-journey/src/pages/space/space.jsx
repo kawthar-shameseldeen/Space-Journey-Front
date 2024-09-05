@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
-
+import { Select, MenuItem, Button } from '@mui/material';
 const SpaceTour = () => {
   const mountRef = useRef(null);
   const [currentScene, setCurrentScene] = useState("milkyWay");
@@ -350,7 +350,7 @@ const SpaceTour = () => {
             borderRadius:"5px",
           }}
         >
-          <option value="milkyWay">Milky Way</option>
+          <option value="milkyWay" >Milky Way</option>
           <option value="solarSystem">Solar System</option>
           <option value="blackhole">Black Hole</option>
           <option value="nebula">Nebula</option>
