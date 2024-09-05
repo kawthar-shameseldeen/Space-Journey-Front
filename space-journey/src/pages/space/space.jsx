@@ -3,16 +3,18 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import { Select, MenuItem, Button } from '@mui/material';
+
 const SpaceTour = () => {
   const mountRef = useRef(null);
   const [currentScene, setCurrentScene] = useState("milkyWay");
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [ws, setWs] = useState(null);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [planetSound, setPlanetSound] = useState(null);
   const [isSoundPlaying, setIsSoundPlaying] = useState(false);
   const [blackholeSound, setBlackholeSound] = useState(null);
+
   useEffect(() => {
     const ws = new WebSocket('ws://localhost:4040');
   
@@ -39,7 +41,6 @@ const SpaceTour = () => {
       }
     };
   }, []);
-
 
   useEffect(() => {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -73,16 +74,15 @@ const SpaceTour = () => {
     const NebulaScene = new THREE.Scene();
     const WormHoleScene = new THREE.Scene();
 
+    let milkyWay = null;
     let blackhole = null;
-    let milkyWay=null;
     let nebula = null;
     let wormhole = null;
     let planets = [];
 
-    
     if (currentScene === "milkyWay") {
       loader.load("/milky-way/scene.gltf", (gltf) => {
-        const milkyWay = gltf.scene;
+        milkyWay = gltf.scene;
         milkyWay.scale.set(100, 100, 100);
         milkyWayScene.add(milkyWay);
       });
@@ -284,7 +284,7 @@ const SpaceTour = () => {
         if (selectedObject.name) {
           setSelectedPlanet(selectedObject);
 
-  
+          // Send WebSocket message on hover
           if (ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({ planetName: selectedObject.name }));
             console.log(`Sent planet name: ${selectedObject.name}`);  
@@ -295,10 +295,26 @@ const SpaceTour = () => {
       }
     };
 
+    const onDocumentClick = (event) => {
+      event.preventDefault();
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(planets);
+
+      if (intersects.length > 0) {
+        const selectedObject = intersects[0].object;
+        if (selectedObject.name) {
+          setSelectedPlanet(selectedObject);
+          setIsModalOpen(true);
+        }
+      }
+    };
+
     document.addEventListener("mousemove", onDocumentMouseMove, false);
+    document.addEventListener("mousedown", onDocumentClick, false);
 
     return () => {
-      document.removeEventListener("mousedown", onDocumentMouseMove, false);
+      document.removeEventListener("mousedown", onDocumentClick, false);
+      document.removeEventListener("mousemove", onDocumentMouseMove, false);
       mountRef.current.removeChild(renderer.domElement);
     };
   }, [currentScene, ws, isAnimating]);
@@ -333,44 +349,41 @@ const SpaceTour = () => {
 
   return (
     <div>
-  
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '10px', flexDirection: 'row-reverse' }}>
-  <Select
-    value={currentScene}
-    onChange={(e) => setCurrentScene(e.target.value)}
-    style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px',  fontSize: '15px' }}
-  >
-    <MenuItem value="milkyWay">Milky Way</MenuItem>
-    <MenuItem value="solarSystem">Solar System</MenuItem>
-    <MenuItem value="blackhole">Black Hole</MenuItem>
-    <MenuItem value="nebula">Nebula</MenuItem>
-    <MenuItem value="wormhole">Wormhole</MenuItem>
-  </Select>
+        <Select
+          value={currentScene}
+          onChange={(e) => setCurrentScene(e.target.value)}
+          style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '15px' }}
+        >
+          <MenuItem value="milkyWay">Milky Way</MenuItem>
+          <MenuItem value="solarSystem">Solar System</MenuItem>
+          <MenuItem value="blackhole">Black Hole</MenuItem>
+          <MenuItem value="nebula">Nebula</MenuItem>
+          <MenuItem value="wormhole">Wormhole</MenuItem>
+        </Select>
 
-  {currentScene === 'blackhole' && (
-    <Button
-      onClick={toggleBlackholeSound}
-      style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '12px' }}
-    >
-      {isSoundPlaying ? 'Stop Sound' : 'Play Sound'}
-    </Button>
-  )}
+        {currentScene === 'blackhole' && (
+          <Button
+            onClick={toggleBlackholeSound}
+            style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', fontSize: '12px' }}
+          >
+            {isSoundPlaying ? 'Stop Sound' : 'Play Sound'}
+          </Button>
+        )}
 
-  <Button
-    onClick={() => setIsAnimating(!isAnimating)}
-    style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', padding: '5px 10px', fontSize: '12px' }}
-  >
-    {isAnimating ? 'Stop Animation' : 'Start Animation'}
-  </Button>
-</div>
+        <Button
+          onClick={() => setIsAnimating(!isAnimating)}
+          style={{ backgroundColor: '#61dbfb', color: '#232323', borderRadius: '5px', padding: '5px 10px', fontSize: '12px' }}
+        >
+          {isAnimating ? 'Stop Animation' : 'Start Animation'}
+        </Button>
+      </div>
 
       {isModalOpen && (
         <div
           style={{
-           
             position:"absolute",
-            
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
