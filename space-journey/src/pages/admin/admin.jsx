@@ -199,9 +199,11 @@ const Admin = () => {
           height: "70vh",
           width: "70vw",
           margin: "0 auto",
+          border: "1px solid #232323",
           backgroundColor: "#232323",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          
         }}
       >
         {users && (
@@ -214,6 +216,7 @@ const Admin = () => {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
                 backgroundColor: "white",
+                color:"#232323",
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
@@ -229,6 +232,7 @@ const Admin = () => {
               "& .MuiDataGrid-columnHeader": {
                 fontWeight: "bold",
                 backgroundColor: "#232323",
+                
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
                 backgroundColor: "#232323",
