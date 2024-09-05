@@ -347,6 +347,7 @@ const SpaceTour = () => {
             color: "#fff",
             border: "none",
             cursor: "pointer",
+            borderRadius:"5px",
           }}
         >
           <option value="milkyWay">Milky Way</option>
