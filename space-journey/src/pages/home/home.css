@@ -45,12 +45,16 @@
   height: auto; 
 }
 .planet {
-  width: 100px; 
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
 }
+
 .column {
   display: flex;
   flex-direction: column;

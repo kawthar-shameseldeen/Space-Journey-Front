@@ -135,35 +135,35 @@ const SpaceTour = () => {
         createPlanet(
           1,
           10,
-          "/textures/mercury.jpg",
+          "/models/mercury.jpg",
           "Mercury",
           "/sounds/mercurySound.mpeg.wav"
         ),
         createPlanet(
           1.5,
           20,
-          "/textures/venus.jpg",
+          "/models/venus.jpg",
           "Venus",
           "/sounds/venusSound.mpeg.wav"
         ),
         createPlanet(
           2,
           30,
-          "/textures/earth.jpg",
+          "/models/earth.jpg",
           "Earth",
           "/sounds/earth.mp3"
         ),
         createPlanet(
           2.5,
           40,
-          "/textures/mars.jpg",
+          "/models/mars.jpg",
           "Mars",
           "/sounds/marsSound.mpeg.wav"
         ),
         createPlanet(
           3,
           50,
-          "/models/jupiter/textures/Material_baseColor.jpg",
+          "/models/jupiter.jpg",
           "Jupiter",
           "/sounds/jupiterSound.mpeg.wav"
         ),
@@ -177,7 +177,7 @@ const SpaceTour = () => {
         createPlanet(
           4.5,
           70,
-          "/textures/uranus.jpg",
+          "/models/uranus.jpg",
           "Uranus",
           "/sounds/uranusSound.mpeg.wav"
         ),
