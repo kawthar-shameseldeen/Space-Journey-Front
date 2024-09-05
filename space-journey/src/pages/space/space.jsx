@@ -336,7 +336,7 @@ const SpaceTour = () => {
   
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-        <label htmlFor="scene-select" style={{ marginRight: "10px", color: "#fff" }}>Select Scene:</label>
+       
         <select
           id="scene-select"
           value={currentScene}
