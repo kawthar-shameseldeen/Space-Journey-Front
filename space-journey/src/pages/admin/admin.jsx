@@ -174,7 +174,7 @@ const Admin = () => {
         >
           All Users
         </h1>
-        <button className="btn" onClick={() => setIsPopupOpen(true)}>
+        {/* <button className="btn" onClick={() => setIsPopupOpen(true)}>
           Import
         </button>
         <Modal
@@ -192,7 +192,7 @@ const Admin = () => {
         >
           <h2>Import Users</h2>
           <FileUploadPopup onFileImport={handleFileImport} />
-        </Modal>
+        </Modal> */}
       </div>
       <div
         style={{
