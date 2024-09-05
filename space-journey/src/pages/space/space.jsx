@@ -133,7 +133,7 @@ const SpaceTour = () => {
         createPlanet(3.5, 60, "/textures/saturn.jpg", "Saturn", "/sounds/saturnSound.mpeg.wav"),
         createPlanet(4.5, 70, "/textures/uranus.jpg", "Uranus", "/sounds/uranusSound.mpeg.wav"),
         createPlanet(5, 80, "/textures/neptune.jpg", "Neptune", "/sounds/neptuneSound.mpeg.wav"),
-        createPlanet(5.5, 90, "/textures/pluto.jpg", "pluto", "/sounds/plutoSound.mpeg.wav"),
+        createPlanet(5.5, 90, "/textures/pluto.jpg", "Pluto", "/sounds/plutoSound.mpeg.wav"),
       ];
 
       const createAsteroidBelt = (innerRadius, outerRadius, numAsteroids) => {
