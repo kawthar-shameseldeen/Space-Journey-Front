@@ -361,7 +361,7 @@ const SpaceTour = () => {
             padding: '10px',
           }}
         >
-         
+          <FaHome style={{ fontSize: '20px' }} />
         </button>
       </div>
 
