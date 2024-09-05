@@ -169,7 +169,7 @@ const Admin = () => {
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
-            paddingLeft: "175px",
+            paddingLeft: "180px",
           }}
         >
           All Users
@@ -199,7 +199,6 @@ const Admin = () => {
           height: "70vh",
           width: "70vw",
           margin: "0 auto",
-          
           backgroundColor: "#232323",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -219,7 +218,7 @@ const Admin = () => {
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
                 backgroundColor: "#232323",
-                color: "#fff",
+                color: "white",
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#232323",
@@ -240,6 +239,7 @@ const Admin = () => {
               "& .MuiDataGrid-toolbarContainer": {
                 justifyContent: "flex-end",
                 padding: "10px",
+                color: "white",
               },
               "& .MuiDataGrid-footerContainer": {
                 backgroundColor: "#232323",
