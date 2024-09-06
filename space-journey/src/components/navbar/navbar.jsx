@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode'; 
 import './navbar.css'; 
 import logo from '../../assets/logo.png';
 
@@ -7,6 +8,24 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
     
     const location = useLocation();
     const isAuthPage = location.pathname === '/login' || location.pathname === '/';
+    const [isAdmin, setIsAdmin] = useState(false); 
+
+    useEffect(() => {
+     
+        const token = localStorage.getItem('token'); 
+        if (token) {
+            try {
+                const decoded = jwtDecode(token);
+                if (decoded.role === 'admin') { 
+                    setIsAdmin(true);
+                } else {
+                    setIsAdmin(false);
+                }
+            } catch (error) {
+                console.error("Error decoding token:", error);
+            }
+        }
+    }, [isAuthenticated]);
 
     return (
       <div className='navbarContainer'>
@@ -18,6 +37,9 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
                 <li><a href="/home">Home</a></li>
                 <li><a href="/space">Space</a></li>
                 <li><a href="/iot">IoT</a></li>
+                {isAdmin && ( 
+                  <li><a href="/admin">Dashboard</a></li>
+                )}
             </ul>
             <div className="navbar-buttonsB">
             {!isAuthenticated && !isAuthPage && (
