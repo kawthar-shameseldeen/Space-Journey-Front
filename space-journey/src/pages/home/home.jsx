@@ -33,7 +33,7 @@ const HomePage = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("tourId");
     setIsAuthenticated(false);
-    navigate("/home");
+    navigate("/");
   };
 
   const openModal = (content) => {
