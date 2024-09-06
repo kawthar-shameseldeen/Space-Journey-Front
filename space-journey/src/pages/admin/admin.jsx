@@ -26,14 +26,15 @@ const Admin = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
-    navigate("/home");
+    navigate("/");
   };
 
   useEffect(() => {
     const fetchAllUsers = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
-        navigate("/home");
+        navigate("/");
+
         return;
       }
 
@@ -41,7 +42,7 @@ const Admin = () => {
         const decodedToken = jwtDecode(token);
         if (decodedToken.role !== "admin") {
           alert("You do not have access to this resource.");
-          navigate("/home");
+          navigate("/");
           return;
         }
 
