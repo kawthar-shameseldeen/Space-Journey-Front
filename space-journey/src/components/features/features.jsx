@@ -8,7 +8,7 @@ const featureData = [
   {
     title: "Immersive 3D Space Tours",
     description:
-      "Explore the universe with our interactive 3D space tours. Navigate through detailed planets, stars, and galaxies. Perfect for space enthusiasts and adventurers, offering visual wonders and unforgettable experiences.",
+      "Explore the universe with our interactive 3D space tours. Navigate through detailed planets, stars, and galaxies. Perfect for space explorers and adventurers, offering visual wonders and unforgettable experiences.",
 
     lottieSrc: spaceTourLottie, 
   },
