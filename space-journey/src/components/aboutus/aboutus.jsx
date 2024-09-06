@@ -14,7 +14,8 @@ const AboutUs = () => {
             />
             <h3 className='aboutTitle'>About Us</h3>
             <p className='aboutText'>
-            Welcome to Space Journey, a platform where space enthusiasts can explore a 3D space tour with real-time IoT integration. Experience planets up close as dynamic lighting effects bring them to life, combining immersive visuals with interactive technology.
+            Welcome to Space Journey, a platform where space enthusiasts can explore a 3D space tour with real-time IoT integration.
+             Experience planets up close as dynamic lighting effects bring them to life, combining immersive visuals with interactive technology.
             </p>
         </div>
     );
