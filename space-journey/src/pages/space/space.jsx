@@ -413,7 +413,7 @@ const SpaceTour = () => {
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: "absolute", top: "10px", left: "10px" }}>
       <button
-          onClick={() => window.location.href = "/home"}
+          onClick={() => window.location.href = "/"}
           style={{
             backgroundColor: '#61dbfb',
             color: '#fff',
