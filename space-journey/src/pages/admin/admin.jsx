@@ -248,8 +248,16 @@ const Admin = () => {
                 padding: "10px",
                 color: "white",
               },
+              
               "& .MuiDataGrid-footerContainer": {
                 backgroundColor: "#232323",
+                color: "white",  
+                "& .MuiTablePagination-root": {
+                  color: "white",
+                },
+                "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows, & .MuiTablePagination-select": {
+                  color: "white",  
+                }
               },
               "& .MuiDataGrid-virtualScroller": {
                 "&::-webkit-scrollbar": {
