@@ -34,7 +34,7 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
               <img src={logo} alt="Logo" className="logo-imageB" />
             </div>
             <ul className="navbar-linksB">
-                <li><a href="/home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/space">Space</a></li>
                 <li><a href="/iot">IoT</a></li>
                 {isAdmin && ( 
