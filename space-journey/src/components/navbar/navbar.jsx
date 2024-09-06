@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png';
 const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
     
     const location = useLocation();
-    const isAuthPage = location.pathname === '/login' || location.pathname === '/';
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
     const [isAdmin, setIsAdmin] = useState(false); 
 
     useEffect(() => {
