@@ -169,7 +169,7 @@ const Admin = () => {
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
-            paddingLeft: "200px",
+            paddingLeft: "210px",
           }}
         >
           All Users
