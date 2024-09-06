@@ -169,7 +169,7 @@ const Admin = () => {
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
-            paddingLeft: "180px",
+            paddingLeft: "200px",
           }}
         >
           All Users
@@ -208,30 +208,33 @@ const Admin = () => {
       >
         {users && (
           <DataGrid
-            columns={columns}
-            rows={rows}
-            slots={{ toolbar: GridToolbar }}
-            sx={{
-              "& .MuiDataGrid-root": {
-                border: "none",
-                fontFamily: "Arial, sans-serif",
-                backgroundColor: "white",
-                color:"#232323",
-              },
-              "& .MuiDataGrid-cell": {
-                borderBottom: "none",
-                backgroundColor: "#232323",
-                color: "white",
-              },
+          columns={columns}
+          rows={rows}
+          slots={{ toolbar: GridToolbar }}
+          sx={{
+            "& .MuiDataGrid-root": {
+              border: "none",
+              fontFamily: "Arial, sans-serif",
+              border: "1px solid #232323",
+              backgroundColor: "#232323",
+              color: "white",
+            },
+            "& .MuiDataGrid-cell": {
+              border: "1px solid #232323", 
+              backgroundColor: "#232323",
+              color: "white",
+            },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#232323",
                 color: "white",
                 fontSize: "16px",
                 fontWeight: "bold",
+                border: "1px solid #232323",
               },
               "& .MuiDataGrid-columnHeader": {
                 fontWeight: "bold",
                 backgroundColor: "#232323",
+                border: "1px solid #232323",
                 
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
