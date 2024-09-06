@@ -44,7 +44,7 @@ function App() {
         /> */}
       
        
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/space" element={<SpaceTour />} />
        
 
