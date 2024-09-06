@@ -207,72 +207,74 @@ const Admin = () => {
         }}
       >
         {users && (
-          <DataGrid
-          columns={columns}
-          rows={rows}
-          slots={{ toolbar: GridToolbar }}
-          sx={{
-            "& .MuiDataGrid-root": {
-              border: "none",
-              fontFamily: "Arial, sans-serif",
-              border: "1px solid #232323",
-              backgroundColor: "#232323",
-              color: "white",
-            },
-            "& .MuiDataGrid-cell": {
-              border: "1px solid #232323", 
-              backgroundColor: "#232323",
-              color: "white",
-            },
-              "& .MuiDataGrid-columnHeaders": {
-                backgroundColor: "#232323",
-                color: "white",
-                fontSize: "16px",
-                fontWeight: "bold",
-                border: "1px solid #232323",
-              },
-              "& .MuiDataGrid-columnHeader": {
-                fontWeight: "bold",
-                backgroundColor: "#232323",
-                border: "1px solid #232323",
-                
-              },
-              "& .MuiDataGrid-row:nth-of-type(odd)": {
-                backgroundColor: "#232323",
-              },
-              "& .MuiDataGrid-row:hover": {
-                backgroundColor: "#e0f7fa",
-              },
-              "& .MuiDataGrid-toolbarContainer": {
-                justifyContent: "flex-end",
-                padding: "10px",
-                color: "white",
-              },
-              
-              "& .MuiDataGrid-footerContainer": {
-                backgroundColor: "#232323",
-                color: "white",  
-                "& .MuiTablePagination-root": {
-                  color: "white",
-                },
-                "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows, & .MuiTablePagination-select": {
-                  color: "white",  
-                }
-              },
-              "& .MuiDataGrid-virtualScroller": {
-                "&::-webkit-scrollbar": {
-                  display: "none",
-                },
-                "&::-webkit-scrollbar-thumb": {
-                  backgroundColor: "#888",
-                  borderRadius: "8px",
-                },
-                "&::-webkit-scrollbar-thumb:hover": {
-                  backgroundColor: "#232323",
-                },
-              },
-            }}
-          />
+      <DataGrid
+      columns={columns}
+      rows={rows}
+      slots={{ toolbar: GridToolbar }}
+      sx={{
+        "& .MuiDataGrid-root": {
+          border: "none",
+          fontFamily: "Arial, sans-serif",
+          border: "1px solid #232323",
+          backgroundColor: "#232323",
+          color: "white",
+        },
+        "& .MuiDataGrid-cell": {
+          border: "1px solid #232323", 
+          backgroundColor: "#232323",
+          color: "white",
+        },
+        "& .MuiDataGrid-columnHeaders": {
+          backgroundColor: "#232323",
+          color: "white",
+          fontSize: "16px",
+          fontWeight: "bold",
+          border: "1px solid #232323",
+        },
+        "& .MuiDataGrid-columnHeader": {
+          fontWeight: "bold",
+          backgroundColor: "#232323",
+          border: "1px solid #232323",
+        },
+        "& .MuiDataGrid-row:nth-of-type(odd)": {
+          backgroundColor: "#232323",
+        },
+        "& .MuiDataGrid-row:hover": {
+          backgroundColor: "#e0f7fa",
+        },
+        "& .MuiDataGrid-toolbarContainer": {
+          justifyContent: "flex-end",
+          padding: "10px",
+          color: "#232323", 
+          "& .MuiButtonBase-root": {
+            color: "white", 
+          },
+        },
+        "& .MuiDataGrid-footerContainer": {
+          backgroundColor: "#232323",
+          color: "white",  
+          "& .MuiTablePagination-root": {
+            color: "white",
+          },
+          "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows, & .MuiTablePagination-select": {
+            color: "white",  
+          },
+        },
+        "& .MuiDataGrid-virtualScroller": {
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#888",
+            borderRadius: "8px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "#232323",
+          },
+        },
+      }}
+    />
+    
         )}
       </div>
     </div>
