@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-   
-  };
+  const handleLogin = () => {};
 
   return (
     <View style={styles.container}>
@@ -42,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+      <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
         <Text style={styles.signupText}>Don't Have Account? Sign Up</Text>
       </TouchableOpacity>
     </View>
@@ -52,54 +56,56 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
-    justifyContent: 'center',
-    alignItems:'flex-start',
+    backgroundColor: "#121212",
+    justifyContent: "center",
+
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 32,
-    color: '#fff',
+    color: "#fff",
     marginBottom: 10,
-    fontWeight: 'bold',
+    alignItems: "flex-start",
+    fontWeight: "bold",
   },
   subtitle: {
     fontSize: 16,
-    color: '#aaa',
+    color: "#aaa",
     marginBottom: 30,
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: '#61dbfb',
+    flexDirection: "row",
+    alignItems: "center",
+    borderColor: "#61dbfb",
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 20,
-    width: '100%',
+    width: "100%",
   },
   input: {
     flex: 1,
-    color: '#fff',
+    color: "#fff",
     paddingLeft: 10,
     fontSize: 16,
   },
   loginButton: {
-    backgroundColor: '#61dbfb',
-    borderRadius: 5,
-    width: '50%',
-    padding: 15,
    
-    alignItems: 'center',
+    backgroundColor: "#61dbfb",
+    borderRadius: 5,
+    width: "50%",
+    padding: 15,
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: 10,
   },
   loginButtonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   signupText: {
-    color: '#61dbfb',
+    color: "#61dbfb",
     marginTop: 20,
   },
 });
