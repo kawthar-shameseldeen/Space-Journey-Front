@@ -4,10 +4,12 @@ import LoginScreen from './screens/login.jsx';
 import { createStackNavigator } from '@react-navigation/stack';
 import SignupScreen from './screens/signup.jsx';
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from "react-redux";
 const Stack = createStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
+    <Provider store={store}>
+        <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Login"
@@ -21,6 +23,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
 
