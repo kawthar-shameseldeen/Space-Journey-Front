@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 20,
     width: '100%',
+    height: 50,
   },
   input: {
     flex: 1,
