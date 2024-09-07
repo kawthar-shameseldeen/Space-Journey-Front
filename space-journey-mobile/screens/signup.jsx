@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#61dbfb',
     marginTop: 20,
+    paddingLeft: 40,
   },
 });
 
