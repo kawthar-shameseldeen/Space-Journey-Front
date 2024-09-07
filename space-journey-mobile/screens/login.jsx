@@ -4,3 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LoginScreen = ({ navigation }) => {
   
+});
+
+export default LoginScreen;
