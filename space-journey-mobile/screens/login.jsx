@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     width: "40%",
     padding: 10,
+     
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
   signupText: {
     color: "#61dbfb",
     marginTop: 20,
+    paddingLeft: 40,
   },
 });
 
