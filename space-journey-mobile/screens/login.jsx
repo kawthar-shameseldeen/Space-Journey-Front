@@ -3,7 +3,9 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LoginScreen = ({ navigation }) => {
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
 });
 
 export default LoginScreen;
