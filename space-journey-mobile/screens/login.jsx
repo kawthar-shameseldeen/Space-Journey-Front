@@ -49,6 +49,58 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#121212',
+    justifyContent: 'center',
+    alignItems:'flex-start',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 32,
+    color: '#fff',
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#aaa',
+    marginBottom: 30,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: '#61dbfb',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginBottom: 20,
+    width: '100%',
+  },
+  input: {
+    flex: 1,
+    color: '#fff',
+    paddingLeft: 10,
+    fontSize: 16,
+  },
+  loginButton: {
+    backgroundColor: '#61dbfb',
+    borderRadius: 5,
+    width: '100%',
+    padding: 15,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  loginButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  signupText: {
+    color: '#61dbfb',
+    marginTop: 20,
+  },
 });
 
 export default LoginScreen;
