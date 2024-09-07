@@ -48,9 +48,11 @@ const LoginScreen = ({ navigation }) => {
       </TouchableOpacity>
      </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+     <View style={styles.signupTextContainer}>
+     <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
         <Text style={styles.signupText}>Don't Have Account? Sign Up</Text>
       </TouchableOpacity>
+     </View>
     </View>
   );
 };
@@ -114,10 +116,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  signupTextContainer:{
+   display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+ 
+  },
   signupText: {
+ 
     color: "#61dbfb",
     marginTop: 20,
-    paddingLeft: 40,
+  
+    paddingLeft:10,
   },
 });
 
