@@ -40,6 +40,7 @@
   height: 100vh; 
   text-align: center;
 }
+ 
 
 .parallax-section {
   height: auto; 
@@ -193,4 +194,4 @@
 
 #pluto {
   background-image: url('../../assets/pluto.png');
-}
+} 
