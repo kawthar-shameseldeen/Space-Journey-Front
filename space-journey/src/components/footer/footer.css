@@ -1,5 +1,5 @@
 .footer {
-  background-color: transparent;
+  background-color: #232323;
   color: white;
   text-align: center;
   position: relative;
@@ -22,7 +22,7 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid #61dbfb;
+  
   padding-top: 20px;
   display: flex;
   padding-right: 60px;
