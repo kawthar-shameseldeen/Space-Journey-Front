@@ -1,19 +1,40 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+
+}
+.footerContainer{
+  margin-top: 10px;
+}
+
+#root, .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
 .footer {
   background-color: #232323;
   color: white;
   text-align: center;
-  position: relative;
-  bottom: 0;
   width: 100%;
-  justify-content: center; 
-  align-items: center; 
+  height: fit-content;
+  flex-shrink: 0;
+
+  
+
 }
 
 .footer-top {
   display: flex;
   justify-content: center; 
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .footer-logo h2 {
@@ -21,23 +42,39 @@
   margin: 0;
 }
 
-.footer-bottom {
-  
-  padding-top: 20px;
+.footer-links {
   display: flex;
-  padding-right: 60px;
-  justify-content: center; 
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.footer-links a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #61dbfb;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px 40px;
+  border-top: 1px solid #444;
 }
 
 .social-icons {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .social-icons a {
-  margin: 0 10px;
+  margin: 0 15px;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   text-decoration: none;
 }
 
