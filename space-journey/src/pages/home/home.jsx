@@ -261,15 +261,15 @@ const HomePage = () => {
   </ParallaxLayer>
 
   <ParallaxLayer
-    offset={0.8}
+    offset={0.2}
     speed={0.9}
     style={{
       justifyContent: "flex-start",
       alignItems: "flex-end",
       display: "flex",
-      paddingLeft: "200px", 
+      paddingLeft: "1000px", 
      
-      zIndex: 8,
+      zIndex: 5,
     }}
   >
     <div className="planet" id="pluto"></div>
