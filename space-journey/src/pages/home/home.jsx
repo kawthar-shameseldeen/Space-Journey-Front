@@ -178,7 +178,7 @@ const HomePage = () => {
       justifyContent: "center",
       alignItems: "flex-start",
       display: "flex",
-      paddingTop: "1500px",
+      paddingTop: "1000px",
       zIndex: 2,
       position: "relative",
       
@@ -264,10 +264,11 @@ const HomePage = () => {
     offset={0.8}
     speed={0.9}
     style={{
-      justifyContent: "flex-end",
-      alignItems: "center",
+      justifyContent: "flex-start",
+      alignItems: "flex-end",
       display: "flex",
-      paddingRightt: "500px",
+      paddingLeft: "200px", 
+     
       zIndex: 8,
     }}
   >
