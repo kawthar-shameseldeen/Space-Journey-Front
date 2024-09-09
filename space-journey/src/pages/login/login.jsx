@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { fetchingUsers, loadUsers, errorOccured } from "../../data_store/redux/userSlice/index.js";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
+import logo from '../../assets/logo2.png'; 
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -35,8 +36,6 @@ const Login = ({ onLoginSuccess }) => {
       const decodedToken = jwtDecode(token);
       console.log(decodedToken);
 
-
-
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
         toast.success("Login successful");
         onLoginSuccess();
@@ -51,6 +50,7 @@ const Login = ({ onLoginSuccess }) => {
 
   return (
     <div className="login-container">
+      <img src={logo} alt="Logo" className="login-logo" />
       <form className="login" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <p>Please Enter your Account details</p>
