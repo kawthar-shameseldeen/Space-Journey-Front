@@ -286,10 +286,11 @@ const HomePage = () => {
           <Features />
         </div>
       </section>
-      <Footer />
+      
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         {modalContent}
       </Modal>
+      <Footer />
     </div>
   );
 };
