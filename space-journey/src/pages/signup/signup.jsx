@@ -12,6 +12,7 @@ import {
 import { toast } from "react-toastify";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode"; 
+import logo from '../../assets/logo2.png'; 
 
 const Signup = ({ onSignupSuccess }) => {
   const [username, setUsername] = useState("");
