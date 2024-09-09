@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import { Select, MenuItem, Button } from "@mui/material";
-import { FaHome, FaSoundcloud, FaStop } from "react-icons/fa";
+import { FaHome, FaSoundcloud } from "react-icons/fa";
 import { toast } from "react-toastify";
 const SpaceTour = () => {
   const mountRef = useRef(null);
@@ -482,7 +482,7 @@ const SpaceTour = () => {
             }}
           >
             {isAnimating ? "Stop Animation" : "Start Animation"}
-            <FaStop style={{ fontSize: '20px' }} />
+            
           </Button>
         )}
       </div>
