@@ -1,32 +1,42 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <footer className="footer">
+   <div className="footerContainer" >
+     <footer className="footer">
       <div className="footer-top">
         <div className="footer-logo">
           <h2>SpaceJourney</h2>
         </div>
       </div>
+      <div className="footer-links">
+        <Link to="/contact-us">Contact US</Link>
+        <Link to="/about-us">AboutUs</Link>
+        <Link to="/features">Features</Link>
+        <Link to="/terms-of-use">Terms Of Use</Link>
+      </div>
       <div className="footer-bottom">
         <div className="social-icons">
-          <a href="#facebook">
-            <i className="fab fa-facebook"></i>
+          <a href="#facebook" aria-label="Facebook">
+            <FaFacebook />
           </a>
-          <a href="#instagram">
-            <i className="fab fa-instagram"></i>
+          <a href="#instagram" aria-label="Instagram">
+            <FaInstagram />
           </a>
-          <a href="#twitter">
-            <i className="fab fa-twitter"></i>
+          <a href="#twitter" aria-label="Twitter">
+            <FaTwitter />
           </a>
-          <a href="#whatsapp">
-            <i className="fab fa-whatsapp"></i>
+          <a href="#whatsapp" aria-label="WhatsApp">
+            <FaWhatsapp />
           </a>
         </div>
         <p>&copy; SpaceJourney, Inc. 2024. We love our users!</p>
       </div>
     </footer>
+   </div>
   );
 };
 
