@@ -3,7 +3,8 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import { Select, MenuItem, Button } from "@mui/material";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaSoundcloud, FaStop } from "react-icons/fa";
+import { toast } from "react-toastify";
 const SpaceTour = () => {
   const mountRef = useRef(null);
   const [currentScene, setCurrentScene] = useState("milkyWay");
@@ -20,6 +21,7 @@ const SpaceTour = () => {
 
     ws.onopen = () => {
       console.log("WebSocket connection established");
+      toast.success("Device connected");
       setWs(ws);
     };
 
@@ -345,7 +347,6 @@ const SpaceTour = () => {
         if (selectedObject.name) {
           setSelectedPlanet(selectedObject);
 
-          // Send WebSocket message on hover
           if (ws && ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({ planetName: selectedObject.name }));
             console.log(`Sent planet name: ${selectedObject.name}`);
@@ -441,7 +442,8 @@ const SpaceTour = () => {
           onChange={(e) => setCurrentScene(e.target.value)}
           style={{
             backgroundColor: "#61dbfb",
-            color: "#232323",
+            color: "white",
+            fontWeight:'bold',
             borderRadius: "5px",
             fontSize: "15px",
           }}
@@ -458,7 +460,8 @@ const SpaceTour = () => {
             onClick={toggleBlackholeSound}
             style={{
               backgroundColor: "#61dbfb",
-              color: "#232323",
+              color: "white",
+              fontWeight:'bolder',
               borderRadius: "5px",
               fontSize: "12px",
             }}
@@ -479,6 +482,7 @@ const SpaceTour = () => {
             }}
           >
             {isAnimating ? "Stop Animation" : "Start Animation"}
+            <FaStop style={{ fontSize: '20px' }} />
           </Button>
         )}
       </div>
