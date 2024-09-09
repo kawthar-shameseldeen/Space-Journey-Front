@@ -36,7 +36,7 @@ const Navbar = ({ isAuthenticated, onLogout, onLoginClick, onSignupClick }) => {
             <ul className="navbar-linksB">
                 <li><a href="/">Home</a></li>
                 <li><a href="/space">Space</a></li>
-                <li><a href="/iot">IoT</a></li>
+                {/* <li><a href="/iot">IoT</a></li> */}
                 {isAdmin && ( 
                   <li><a href="/admin">Dashboard</a></li>
                 )}
