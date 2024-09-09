@@ -219,10 +219,10 @@ const HomePage = () => {
     offset={0.5}
     speed={0.5}
     style={{
-      justifyContent: "flex-end",
-      alignItems: "flex-start",
+      justifyContent: "flex-start",
+      alignItems: "flex-end",
       display: "flex",
-      padding:"600px 10px",
+      paddingLeft: "1000px", 
       zIndex: 5,
       overflow: "visible",
     }}
