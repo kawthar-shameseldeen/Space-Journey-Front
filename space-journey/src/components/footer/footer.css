@@ -1,21 +1,19 @@
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-
-}
-.footerContainer{
-  margin-top: 10px;
+  padding: 0;
 }
 
-#root, .wrapper {
+#root,
+.wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensures the wrapper takes full height of the viewport */
 }
 
 .main-content {
-  flex: 1;
+  flex: 1; /* Takes up the remaining space between the header and footer */
 }
 
 .footer {
@@ -23,16 +21,15 @@ html, body {
   color: white;
   text-align: center;
   width: 100%;
-  height: fit-content;
-  flex-shrink: 0;
-
-  
-
+  padding-top: 20px;
+  position: relative; /* Ensure it's relative within the flow */
+  bottom: 0;
+  flex-shrink: 0; /* Prevent it from shrinking */
 }
 
 .footer-top {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   margin-bottom: 40px;
 }

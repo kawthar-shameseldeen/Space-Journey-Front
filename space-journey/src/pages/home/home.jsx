@@ -156,125 +156,132 @@ const HomePage = () => {
           <h1>Hello Universe</h1>
         </div>
       </section>
-      <Parallax pages={2} style={{ top: "100px", left: "0", position: "absolute", zIndex:0 }}>
-  <ParallaxLayer
-    offset={0.1}
-    speed={0.5}
-    style={{
-      justifyContent: "flex-start",
-      alignItems: "flex-end",
-      display: "flex",
-      paddingLeft: "600px", 
-      zIndex: -1,
-    }}
-  >
-    <div className="planet" id="mercury"></div>
-  </ParallaxLayer>
+      <Parallax
+        pages={2}
+        style={{
+          top: "100px",
+          left: "0",
+          position: "absolute",
+          zIndex: 0,
+          overflow: "hidden", 
+          height: "100vh",
+        }}
+      >
+        <ParallaxLayer
+          offset={0.1}
+          speed={0.5}
+          style={{
+            justifyContent: "flex-start",
+            alignItems: "flex-end",
+            display: "flex",
+            paddingLeft: "600px",
+            zIndex: -1,
+          }}
+        >
+          <div className="planet" id="mercury"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.2}
-    speed={0.8}
-    style={{
-      justifyContent: "center",
-      alignItems: "flex-start",
-      display: "flex",
-      paddingTop: "1000px",
-      zIndex: 2,
-      position: "relative",
-      
-    }}
-  >
-    <div className="planet" id="venus"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.2}
+          speed={0.8}
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-start",
+            display: "flex",
+            paddingTop: "1000px",
+            zIndex: 2,
+            position: "relative",
+          }}
+        >
+          <div className="planet" id="venus"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.3}
-    speed={0.6}
-    style={{
-      justifyContent: "flex-start",
-      alignItems: "flex-end",
-      display: "flex",
-      paddingLeft: "400px", 
-      zIndex: 3,
-    }}
-  >
-    <div className="planet" id="earth"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.3}
+          speed={0.6}
+          style={{
+            justifyContent: "flex-start",
+            alignItems: "flex-end",
+            display: "flex",
+            paddingLeft: "400px",
+            zIndex: 3,
+          }}
+        >
+          <div className="planet" id="earth"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.4}
-    speed={0.7}
-    style={{
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      paddingTop: "60px",
-      zIndex: 4,
-    }}
-  >
-    <div className="planet" id="mars"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.4}
+          speed={0.7}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            paddingTop: "60px",
+            zIndex: 4,
+          }}
+        >
+          <div className="planet" id="mars"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.5}
-    speed={0.5}
-    style={{
-      justifyContent: "flex-start",
-      alignItems: "flex-end",
-      display: "flex",
-      paddingLeft: "1200px", 
-      zIndex: 5,
-      overflow: "visible",
-    }}
-  >
-    <div className="planet" id="jupiter"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.5}
+          speed={0.5}
+          style={{
+            justifyContent: "flex-start",
+            alignItems: "flex-end",
+            display: "flex",
+            paddingLeft: "1200px",
+            zIndex: 5,
+            overflow: "visible",
+          }}
+        >
+          <div className="planet" id="jupiter"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.6}
-    speed={0.6}
-    style={{
-      justifyContent: "flex-start",
-      alignItems: "center",
-      display: "flex",
-      paddingLeft: "60px", 
-      zIndex: 6,
-     
-      
-    }}
-  >
-    <div className="planet" id="saturn"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.6}
+          speed={0.6}
+          style={{
+            justifyContent: "flex-start",
+            alignItems: "center",
+            display: "flex",
+            paddingLeft: "60px",
+            zIndex: 6,
+          }}
+        >
+          <div className="planet" id="saturn"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.7}
-    speed={0.8}
-    style={{
-      justifyContent: "center",
-      alignItems: "flex-end",
-      display: "flex",
-      paddingBottom: "80px", 
-      zIndex: 7,
-    }}
-  >
-    <div className="planet" id="uranus"></div>
-  </ParallaxLayer>
+        <ParallaxLayer
+          offset={0.7}
+          speed={0.8}
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-end",
+            display: "flex",
+            paddingBottom: "80px",
+            zIndex: 7,
+          }}
+        >
+          <div className="planet" id="uranus"></div>
+        </ParallaxLayer>
 
-  <ParallaxLayer
-    offset={0.2}
-    speed={0.9}
-    style={{
-      justifyContent: "flex-start",
-      alignItems: "flex-end",
-      display: "flex",
-      paddingLeft: "1000px", 
-     
-      zIndex: 5,
-    }}
-  >
-    <div className="planet" id="pluto"></div>
-  </ParallaxLayer>
-</Parallax>
+        <ParallaxLayer
+          offset={0.2}
+          speed={0.9}
+          style={{
+            justifyContent: "flex-start",
+            alignItems: "flex-end",
+            display: "flex",
+            paddingLeft: "1000px",
+
+            zIndex: 5,
+          }}
+        >
+          <div className="planet" id="pluto"></div>
+        </ParallaxLayer>
+      </Parallax>
 
       <section className="about-us-section full-page-section">
         <div className="content">
@@ -286,7 +293,7 @@ const HomePage = () => {
           <Features />
         </div>
       </section>
-      
+
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         {modalContent}
       </Modal>
