@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   View,
@@ -6,20 +5,65 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = () => {
-    navigation.navigate("Tabs"); // Use navigation to navigate to the Home screen
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const API_URL = process.env.API_URL 
+
+  const handleLogin = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.post(`${API_URL}/api/login`, { email, password }); 
+      setLoading(false);
+
+      if (response.data && response.data.token) {
+       
+        console.log("Login successful, token:", response.data.token);
+        await AsyncStorage.setItem("token", response.data.token);
+        
+       
+        navigation.navigate("Tabs");
+      } else {
+        console.log("Login response did not contain token:", response.data);
+      }
+    } catch (err) {
+      setLoading(false);
+      
+    
+      console.error("Login failed:", err);
+      if (err.response) {
+        console.error("Error response data:", err.response.data);
+        console.error("Error status:", err.response.status);
+        console.error("Error headers:", err.response.headers);
+      } else if (err.request) {
+        console.error("Request made but no response received:", err.request);
+      } else {
+        console.error("Error message:", err.message);
+      }
+      
+      
+      console.error("Error details:", err.message || "Unknown error");
+
+      setError(err.message || "Login failed. Please try again.");
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>Enter your Account details</Text>
+
+      {error && <Text style={styles.error}>{error}</Text>}
 
       <View style={styles.inputContainer}>
         <Icon name="envelope" size={20} color="#61dbfb" />
@@ -45,8 +89,12 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.LoginbuttonContainer}>
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Login</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={handleLogin} disabled={loading}>
+          {loading ? (
+            <ActivityIndicator size="small" color="#fff" />
+          ) : (
+            <Text style={styles.loginButtonText}>Login</Text>
+          )}
         </TouchableOpacity>
       </View>
 
@@ -64,7 +112,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#121212",
     justifyContent: "center",
-
     paddingHorizontal: 20,
   },
   title: {
@@ -106,7 +153,6 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     width: "40%",
     padding: 10,
-
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
@@ -116,6 +162,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  error: {
+    color: "red",
+    marginBottom: 10,
+  },
   signupTextContainer: {
     display: "flex",
     alignItems: "center",
@@ -124,7 +174,6 @@ const styles = StyleSheet.create({
   signupText: {
     color: "#61dbfb",
     marginTop: 20,
-
     paddingLeft: 10,
   },
 });
