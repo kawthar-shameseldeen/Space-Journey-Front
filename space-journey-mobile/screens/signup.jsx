@@ -1,15 +1,45 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { API_URL } from '@env';  
 
 const SignupScreen = ({ navigation }) => {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [location, setLocation] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+  
+      const response = await axios.post(`${API_URL}/api/register`, {
+        username,
+        email,
+        password,
+        location,
+      });
+
+      const { token } = response.data; 
+
    
+      await AsyncStorage.setItem('token', token);
+      navigation.navigate('Tabs');
+    } catch (error) {
+      console.error('Signup failed:', error);
+      setError(error.response?.data?.message || 'Signup failed. Please try again.');
+
+      
+      Alert.alert('Signup Error', error.response?.data?.message || 'Signup failed.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -17,19 +47,21 @@ const SignupScreen = ({ navigation }) => {
       <Text style={styles.title}>Register</Text>
       <Text style={styles.subtitle}>Enter your Account details</Text>
 
+      {error && <Text style={styles.errorText}>{error}</Text>}
+
       <View style={styles.inputContainer}>
-        <Icon name="user" size={20} color="#61dbfb" />
+        <Icon username="user" size={20} color="#61dbfb" />
         <TextInput
           style={styles.input}
-          placeholder="Name"
+          placeholder="Username"
           placeholderTextColor="#aaa"
-          value={name}
+          value={username}
           onChangeText={setName}
         />
       </View>
 
       <View style={styles.inputContainer}>
-        <Icon name="envelope" size={20} color="#61dbfb" />
+        <Icon username="envelope" size={20} color="#61dbfb" />
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -40,7 +72,7 @@ const SignupScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Icon name="lock" size={20} color="#61dbfb" />
+        <Icon username="lock" size={20} color="#61dbfb" />
         <TextInput
           style={styles.input}
           placeholder="Password"
@@ -52,7 +84,7 @@ const SignupScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Icon name="map-marker" size={20} color="#61dbfb" />
+        <Icon username="map-marker" size={20} color="#61dbfb" />
         <TextInput
           style={styles.input}
           placeholder="Location"
@@ -62,11 +94,11 @@ const SignupScreen = ({ navigation }) => {
         />
       </View>
 
-     <View style={styles.SignupbuttonContainer}>
-     <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
-        <Text style={styles.signupButtonText}>Sign up</Text>
-      </TouchableOpacity>
-     </View>
+      <View style={styles.SignupbuttonContainer}>
+        <TouchableOpacity style={styles.signupButton} onPress={handleSignup} disabled={loading}>
+          <Text style={styles.signupButtonText}>{loading ? 'Signing up...' : 'Sign up'}</Text>
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.loginText}>Already Have Account? Login</Text>
@@ -110,10 +142,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 16,
   },
-  SignupbuttonContainer:{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  SignupbuttonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   signupButton: {
     backgroundColor: '#61dbfb',
@@ -133,6 +165,10 @@ const styles = StyleSheet.create({
     color: '#61dbfb',
     marginTop: 20,
     paddingLeft: 60,
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
   },
 });
 
