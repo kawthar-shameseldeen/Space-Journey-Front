@@ -148,13 +148,7 @@ const SpaceTour = () => {
           "Venus",
           "/sounds/venusSound.mpeg.wav"
         ),
-        createPlanet(
-          2,
-          30,
-          "/models/earth.jpg",
-          "Earth",
-          "/sounds/earth.mp3"
-        ),
+        createPlanet(2, 30, "/models/earth.jpg", "Earth", "/sounds/earth.mp3"),
         createPlanet(
           2.5,
           40,
@@ -413,18 +407,18 @@ const SpaceTour = () => {
     <div>
       <div ref={mountRef} style={{ width: "100%", height: "100vh" }} />
       <div style={{ position: "absolute", top: "10px", left: "10px" }}>
-      <button
-          onClick={() => window.location.href = "/"}
+        <button
+          onClick={() => (window.location.href = "/")}
           style={{
-            backgroundColor: '#61dbfb',
-            color: '#fff',
-            border: 'none',
-            cursor: 'pointer',
-            borderRadius: '5px',
-            padding: '10px',
+            backgroundColor: "#61dbfb",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "5px",
+            padding: "10px",
           }}
         >
-          <FaHome style={{ fontSize: '20px' }} />
+          <FaHome style={{ fontSize: "20px" }} />
         </button>
       </div>
       <div
@@ -443,8 +437,16 @@ const SpaceTour = () => {
           style={{
             backgroundColor: "#61dbfb",
             color: "white",
-            fontWeight:'bold',
-            borderRadius: "5px",
+            width: "150px",
+            fontWeight: "bold",
+            borderRadposition: "absolute",
+            marginLeft: "10px",
+            right: "10px",
+            ius: "5px",
+            display: "flex",
+            justifyContent: "flex-end", 
+            gap: "10px",
+            flexDirection: "row-reverse",
             fontSize: "15px",
           }}
         >
@@ -461,7 +463,7 @@ const SpaceTour = () => {
             style={{
               backgroundColor: "#61dbfb",
               color: "white",
-              fontWeight:'bolder',
+              fontWeight: "bolder",
               borderRadius: "5px",
               fontSize: "12px",
             }}
@@ -482,7 +484,6 @@ const SpaceTour = () => {
             }}
           >
             {isAnimating ? "Stop Animation" : "Start Animation"}
-            
           </Button>
         )}
       </div>
