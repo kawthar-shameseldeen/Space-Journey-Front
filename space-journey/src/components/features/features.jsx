@@ -33,7 +33,7 @@ const Features = () => {
               style={{ height: "200px", width: "200px" }}
             />
             <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
+            <p className="features-description">{feature.description}</p>
           </div>
         ))}
       </div>
