@@ -163,7 +163,7 @@ const HomePage = () => {
           left: "0",
           position: "absolute",
           zIndex: 0,
-          overflow: "hidden", 
+          width: "100%",
           height: "100vh",
         }}
       >
