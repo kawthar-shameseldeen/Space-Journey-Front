@@ -28,3 +28,13 @@
     font-size: 20px;
     color: #61dbfb; 
 }
+
+.aboutText{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #aaa;
+  
+    text-align: justify !important;
+    width: 90%;
+    margin: 0 auto;
+}
