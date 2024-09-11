@@ -1,59 +1,68 @@
 .features-section {
-    margin: 40px auto;
-    text-align: center;
-    max-width: 1200px;
-    padding: 10px;
-    justify-content: space-evenly; 
+  margin: 40px auto;
+  text-align: center;
+  max-width: 1200px;
+  padding: 10px;
+  justify-content: space-evenly;
 }
 
 .features-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    flex-wrap: wrap;  
-    gap: 100px; 
-    max-width: 1200px;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  max-width: 1200px;
+  padding: 10px;
 }
 
 .features-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    padding: 20px;
-    border-radius: 20px;
-    color: white;
-    width: 30%;
-    min-width: 250px;
-    margin: 5px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  width: 30%;
+  min-width: 250px;
+  margin: 5px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .features-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .features-card h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #61dbfb; 
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #61dbfb;
 }
 
 .features-card p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #aaa;
-  
-    text-align: justify; 
-    width: 90%; 
-    margin: 0 auto; 
+  font-size: 16px;
+  line-height: 1.5;
+  color: #aaa;
+
+  text-align: justify;
+  width: 90%;
+  margin: 0 auto;
+}
+.features-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #aaa;
+
+  text-align: justify !important;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .lottie-container {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 15px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
 }
