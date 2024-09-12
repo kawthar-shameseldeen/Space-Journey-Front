@@ -11,7 +11,7 @@ const EventDetailsScreen = ({ route, navigation }) => {
   const cameraRef = useRef(null);
   const [videoUri, setVideoUri] = useState(null);
 
-  // Request Camera Permissions
+ 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
@@ -19,7 +19,7 @@ const EventDetailsScreen = ({ route, navigation }) => {
     })();
   }, []);
 
-  // Start live streaming (or recording) function
+
   const startLive = async () => {
     setIsLive(true);
     if (cameraRef.current && !isRecording) {
@@ -59,14 +59,14 @@ const EventDetailsScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        {eventName ? eventName : "Event Name Not Available"}{" "}
-        {/* Ternary for eventName */}
+        {eventName ? eventName : "Event Name Not Available"}
       </Text>
 
       <View style={styles.rectangle}>
         <Text style={styles.description}>
-          {eventDescription ? eventDescription : "Description Not Available"}{" "}
-          {/* Ternary for eventDescription */}
+          {eventDescription
+            ? eventDescription
+            : "Description Not Available"}
         </Text>
       </View>
 
@@ -87,7 +87,7 @@ const EventDetailsScreen = ({ route, navigation }) => {
         </TouchableOpacity>
       )}
 
-      {/* Show the recorded video */}
+     
       {videoUri ? (
         <Video
           source={{ uri: videoUri }}
@@ -96,7 +96,7 @@ const EventDetailsScreen = ({ route, navigation }) => {
           resizeMode="contain"
         />
       ) : (
-        <Text>No video recorded</Text> // Ternary for videoUri
+        <Text>No video recorded</Text> 
       )}
     </View>
   );

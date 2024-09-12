@@ -5,14 +5,19 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  Image,
+  Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { API_URL } from "@env";
+import Logo from "../assets/logo.png"
 const events = [
   { id: "1", date: "May 18", title: "Solar eruptions" },
   { id: "2", date: "May 22", title: "Lunar eclipse" },
+  { id: "3", date: "May 22", title: "Lunar eclipse" },
+  { id: "4", date: "May 22", title: "Lunar eclipse" },
+  { id: "5", date: "May 22", title: "Lunar eclipse" },
 ];
 
 const EventCard = ({ event, navigation }) => {
@@ -23,7 +28,6 @@ const EventCard = ({ event, navigation }) => {
       <TouchableOpacity
         onPress={() => {
           console.log(API_URL);
-
           navigation.navigate("Event", {
             eventName: event.title,
             eventDescription: `Detailed description about the ${event.title} event.`,
@@ -37,12 +41,40 @@ const EventCard = ({ event, navigation }) => {
 };
 
 const HomeScreen = ({ user }) => {
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
+
+  const handleLogout = async () => {
+
+    Alert.alert(
+      "Logout",
+      "Are you sure you want to logout?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Logout",
+          onPress: async () => {
+            try {
+
+              await AsyncStorage.clear();
+              console.log("Storage cleared, logging out.");
+
+              navigation.replace("Login");
+            } catch (error) {
+              console.error("Error clearing storage:", error);
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-      
         <View style={styles.welcomeContainer}>
           <Text style={styles.welcomeText}>Welcome Back!</Text>
           <Text style={styles.userName}>{user?.name ? user.name : "User"}</Text>
@@ -55,10 +87,8 @@ const HomeScreen = ({ user }) => {
         />
       </View>
 
- 
       <Text style={styles.flakeEventsTitle}>Flake Events</Text>
 
-    
       <FlatList
         data={events}
         renderItem={({ item }) => (
@@ -67,6 +97,10 @@ const HomeScreen = ({ user }) => {
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.eventsList}
       />
+
+<TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+  <Icon name="sign-out" size={24} color="#fff" />  
+</TouchableOpacity>
     </View>
   );
 };
@@ -83,11 +117,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 20,
-  },
-  logo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
   },
   welcomeText: {
     fontSize: 18,
@@ -140,6 +169,18 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+  },
+  logoutButton: {
+    backgroundColor: " #61dbfb",  
+    
+    width:"40px",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  logoutButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
