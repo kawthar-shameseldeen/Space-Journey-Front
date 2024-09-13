@@ -15,7 +15,6 @@ import {jwtDecode} from "jwt-decode";
 import axios from "axios";  
 import { API_URL } from '@env';  
 
-
 const NewEventScreen = () => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date());

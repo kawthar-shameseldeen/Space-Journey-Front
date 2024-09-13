@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import { StatusBar } from "expo-status-bar";
+
 import { Provider } from "react-redux";
-////
+
 import store from "./data_store/redux/store"; 
 import LoginScreen from "./screens/login";
 import SignupScreen from "./screens/signup";
@@ -17,14 +17,14 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    
-   <Provider store={store}>
-    {/* <LinearGradient colors={["#f3cfd6", "#90c2d8"]} style={{ flex: 1 }}>  */}
+    <Provider store={store}>
+  
+  
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
         screenOptions={{
-          headerShown: false, // If you want to hide the header by default
+          headerShown: false,
         }}
       >
         <Stack.Screen name="Login" component={LoginScreen} />
@@ -37,7 +37,7 @@ export default function App() {
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
-    {/* </LinearGradient> */}
+   
     </Provider> 
   );
 }

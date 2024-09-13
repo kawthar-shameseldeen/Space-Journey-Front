@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Camera } from "expo-camera"; // Correct import from expo-camera
-import { Video } from "expo-av";
+
 
 const EventDetailsScreen = ({ route, navigation }) => {
   const { eventName, eventDescription } = route.params || {}; // Ternary for safe access to route.params
