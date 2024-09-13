@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import { Select, MenuItem, Button } from "@mui/material";
-import { FaHome, FaSoundcloud } from "react-icons/fa";
+import { FaHome,FaSoundcloud, FaStop,FaPlay, FaPause } from "react-icons/fa";
 import { toast } from "react-toastify";
 const SpaceTour = () => {
   const mountRef = useRef(null);
@@ -454,22 +454,23 @@ const SpaceTour = () => {
           <MenuItem value="solarSystem">Solar System</MenuItem>
           <MenuItem value="blackhole">Black Hole</MenuItem>
           <MenuItem value="nebula">Nebula</MenuItem>
-          <MenuItem value="wormhole">Wormhole</MenuItem>
+          {/* <MenuItem value="wormhole">Wormhole</MenuItem> */}
         </Select>
 
         {currentScene === "blackhole" && (
           <Button
-            onClick={toggleBlackholeSound}
-            style={{
-              backgroundColor: "#61dbfb",
-              color: "white",
-              fontWeight: "bolder",
-              borderRadius: "5px",
-              fontSize: "12px",
-            }}
-          >
-            {isSoundPlaying ? "Stop Sound" : "Play Sound"}
-          </Button>
+          onClick={toggleBlackholeSound}
+          style={{
+            backgroundColor: "#61dbfb",
+            color: "white",
+            fontWeight: "bolder",
+            borderRadius: "5px",
+            fontSize: "12px",
+            padding: "10px",
+          }}
+        >
+         {isSoundPlaying ? <FaPause /> : <FaPlay />}
+        </Button>
         )}
 
         {currentScene === "solarSystem" && (
@@ -477,13 +478,14 @@ const SpaceTour = () => {
             onClick={() => setIsAnimating(!isAnimating)}
             style={{
               backgroundColor: "#61dbfb",
-              color: "#232323",
+              color: "white",
+              fontWeight: "bolder",
               borderRadius: "5px",
-              padding: "5px 10px",
               fontSize: "12px",
+              padding: "10px",
             }}
           >
-            {isAnimating ? "Stop Animation" : "Start Animation"}
+            {isAnimating ?  <FaPause /> : <FaPlay />}
           </Button>
         )}
       </div>

@@ -10,8 +10,8 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { API_URL } from "@env";
-import Logo from "../assets/logo.png"
+import { API_URL } from '@env';
+// import Logo from "../assets/logo.png"
 const events = [
   { id: "1", date: "May 18", title: "Solar eruptions" },
   { id: "2", date: "May 22", title: "Lunar eclipse" },

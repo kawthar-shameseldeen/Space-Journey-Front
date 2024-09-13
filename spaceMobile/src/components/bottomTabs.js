@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/home";
 import Icon from "react-native-vector-icons/FontAwesome";
 import EventDetailsScreen from "../screens/event";
-import LiveStreamScreen from "../screens/liveStream.jsx";
-import NewEventScreen from "../screens/addEvent.jsx";
+// import LiveStreamScreen from "../screens/liveStream.js";
+import NewEventScreen from "../screens/addEvent.js";
 const Tab = createBottomTabNavigator();
 export default function BottomTabs() {
   return (

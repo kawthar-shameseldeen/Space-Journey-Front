@@ -164,7 +164,7 @@ const HomePage = () => {
           position: "absolute",
           zIndex: 0,
           width: "100%",
-          height: "100vh",
+          height: "250vh",
         }}
       >
         <ParallaxLayer
@@ -218,6 +218,7 @@ const HomePage = () => {
             alignItems: "center",
             display: "flex",
             paddingTop: "60px",
+            paddingLeft: "300px",
             zIndex: 4,
           }}
         >

@@ -10,7 +10,7 @@ import SignupScreen from "./screens/signup";
 import HomeScreen from "./screens/home";
 import NewEventScreen from "./screens/addEvent";
 import EventDetailsScreen from "./screens/event";
-import LiveStreamScreen from "./screens/liveStream";
+// import LiveStreamScreen from "./screens/liveStream";
 import BottomTabs from "./components/bottomTabs";
 import { API_URL } from '@env';
 const Stack = createNativeStackNavigator();

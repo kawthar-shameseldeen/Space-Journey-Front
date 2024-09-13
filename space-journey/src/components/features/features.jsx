@@ -2,7 +2,7 @@ import React from "react";
 import "./features.css";
 import { Player } from "@lottiefiles/react-lottie-player";
 import spaceTourLottie from "../../assets/spaceTel.json";
-import planetInfoLottie from "../../assets/iot.json";
+import planetInfoLottie from "../../assets/LEDBalance.json";
 
 const featureData = [
   {

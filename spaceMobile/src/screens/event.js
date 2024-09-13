@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 
 const EventDetailsScreen = ({ route, navigation }) => {
-  const { eventName, eventDescription } = route.params || {}; // Ternary for safe access to route.params
+  const { eventName, eventDescription } = route.params || {}; 
   const [hasPermission, setHasPermission] = useState(null);
   const [isLive, setIsLive] = useState(false);
   const [isRecording, setIsRecording] = useState(false);

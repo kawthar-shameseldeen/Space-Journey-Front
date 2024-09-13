@@ -161,13 +161,14 @@ const Admin = () => {
     : [];
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div  className="adminContainer">
+      <div style={{ padding: "20px"  }}>
       <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       <div className="containerA">
         <h1
           style={{
             marginBottom: "20px",
-            color: "#fff",
+            // color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
             paddingLeft: "210px",
@@ -195,7 +196,7 @@ const Admin = () => {
           <FileUploadPopup onFileImport={handleFileImport} />
         </Modal> */}
       </div>
-      <div
+      <div  className="adminTable"
         style={{
           height: "70vh",
           width: "70vw",
@@ -279,7 +280,8 @@ const Admin = () => {
         )}
       </div>
     </div>
-  );
+    </div>
+    );
 };
 
 export default Admin;
