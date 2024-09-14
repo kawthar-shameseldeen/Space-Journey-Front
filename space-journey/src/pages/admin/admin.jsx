@@ -46,12 +46,12 @@ const Admin = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:4040/api/user/all", {
+        const response = await axios.get("http://localhost:4040/api/all", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-
+   
         if (response.data) {
           setUsers(
             Array.isArray(response.data) ? response.data : response.data[0]
@@ -150,16 +150,21 @@ const Admin = () => {
     },
   ];
 
-  const rows = Array.isArray(users)
-    ? users.map((user, index) => ({
-        id: user._id || index,
-        name: user.username,
-        email: user.email,
-        created_at: user.timeStamp,
-        iotDevices: user.iotDevices,
-      }))
-    : [];
 
+  const rows = Array.isArray(users)
+  ? users.map((user, index) => ({
+      id: user._id || index,
+      name: user.username || "N/A",
+      email: user.email || "N/A",
+      created_at: user.timeStamp || "N/A",
+      iotDevices: Array.isArray(user.iotDevices) && user.iotDevices.length > 0
+        ? user.iotDevices
+            .filter(device => device && device.deviceName)
+            .map(device => `${device.deviceName || "Unknown"}: ${device.status || "Unknown"}`)
+            .join(", ") 
+        : "No devices",
+    }))
+  : [];
   return (
     <div  className="adminContainer">
       <div style={{ padding: "20px"  }}>
