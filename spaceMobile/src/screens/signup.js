@@ -12,7 +12,7 @@ const SignupScreen = ({ navigation }) => {
   const [location, setLocation] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const API_URL=`http://192.168.1.101:4040`;
   const handleSignup = async () => {
     setLoading(true);
     setError(null);

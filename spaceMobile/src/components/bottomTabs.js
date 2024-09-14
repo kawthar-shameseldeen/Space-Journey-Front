@@ -36,7 +36,7 @@ export default function BottomTabs() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Event" component={EventDetailsScreen} />
-      <Tab.Screen name="Live" component={LiveStreamScreen} />
+      {/* <Tab.Screen name="Live" component={LiveStreamScreen} /> */}
       <Tab.Screen name="AddEvent" component={NewEventScreen} />
     </Tab.Navigator>
   );

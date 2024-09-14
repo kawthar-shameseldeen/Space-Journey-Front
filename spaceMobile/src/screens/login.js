@@ -10,36 +10,36 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_URL } from '@env';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const API_URL = process.env.API_URL 
-
+  const API_URL=`http://192.168.1.101:4040`;
   const handleLogin = async () => {
+    console.log("Email:", email); 
+    console.log("Password:", password); 
     setLoading(true);
     setError(null);
+    
     try {
-      const response = await axios.post(`${API_URL}/api/login`, { email, password }); 
+      console.log("API_URL:", API_URL);
+      const response = await axios.post(`${API_URL}/api/login`, { email, password });
+      console.log("API_URL:", API_URL); 
+      console.log("Response from API:", response.data); 
       setLoading(false);
-
+      
       if (response.data && response.data.token) {
-       
         console.log("Login successful, token:", response.data.token);
         await AsyncStorage.setItem("token", response.data.token);
-        
-       
         navigation.navigate("Tabs");
       } else {
         console.log("Login response did not contain token:", response.data);
       }
     } catch (err) {
       setLoading(false);
-      
-    
       console.error("Login failed:", err);
       if (err.response) {
         console.error("Error response data:", err.response.data);
@@ -51,13 +51,10 @@ const LoginScreen = ({ navigation }) => {
         console.error("Error message:", err.message);
       }
       
-      
-      console.error("Error details:", err.message || "Unknown error");
-
       setError(err.message || "Login failed. Please try again.");
     }
   };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>

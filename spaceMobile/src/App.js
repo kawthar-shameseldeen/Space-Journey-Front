@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Provider } from "react-redux";
+import { StatusBar } from 'react-native';
 
 import store from "./data_store/redux/store"; 
 import LoginScreen from "./screens/login";
@@ -32,7 +33,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Event" component={EventDetailsScreen} />
         <Stack.Screen name="AddEvent" component={NewEventScreen} />
-        <Stack.Screen name="LiveStream" component={LiveStreamScreen} />
+        {/* <Stack.Screen name="LiveStream" component={LiveStreamScreen} /> */}
         <Stack.Screen name="Tabs" component={BottomTabs} />
       </Stack.Navigator>
       <StatusBar style="auto" />

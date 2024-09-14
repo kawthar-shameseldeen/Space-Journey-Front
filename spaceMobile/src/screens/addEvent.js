@@ -23,8 +23,9 @@ const NewEventScreen = () => {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [userId, setUserId] = useState(null); 
+  const API_URL=`http://192.168.1.101:4040`;
   const fetchUserId = async () => {
-    try {
+    try {  
       const token = await AsyncStorage.getItem("token"); 
       if (token) {
         const decodedToken = jwtDecode(token); 
