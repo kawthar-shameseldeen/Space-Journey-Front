@@ -157,6 +157,7 @@ const HomePage = () => {
         </div>
       </section>
       <Parallax
+      className="parallax-layer"
         pages={2}
         style={{
           top: "100px",
@@ -168,6 +169,7 @@ const HomePage = () => {
         }}
       >
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.1}
           speed={0.5}
           style={{
@@ -182,6 +184,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.2}
           speed={0.8}
           style={{
@@ -197,6 +200,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.3}
           speed={0.6}
           style={{
@@ -211,6 +215,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.4}
           speed={0.7}
           style={{
@@ -226,6 +231,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.5}
           speed={0.5}
           style={{
@@ -241,6 +247,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.6}
           speed={0.6}
           style={{
@@ -255,6 +262,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.7}
           speed={0.8}
           style={{
@@ -269,6 +277,7 @@ const HomePage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
+        className="parallax-layer"
           offset={0.2}
           speed={0.9}
           style={{

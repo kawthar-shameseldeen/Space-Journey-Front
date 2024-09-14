@@ -13,10 +13,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-links">
-        <Link to="/contact-us">Contact US</Link>
-        <Link to="/about-us">AboutUs</Link>
-        <Link to="/features">Features</Link>
-        <Link to="/terms-of-use">Terms Of Use</Link>
+        <Link to="/">Contact US</Link>
+        <Link to="/">AboutUs</Link>
+        <Link to="/">Features</Link>
+        <Link to="/">Terms Of Use</Link>
       </div>
       <div className="footer-bottom">
         <div className="social-icons">

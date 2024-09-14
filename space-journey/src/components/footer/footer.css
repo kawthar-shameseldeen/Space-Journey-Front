@@ -1,30 +1,12 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#root,
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures the wrapper takes full height of the viewport */
-}
-
-.main-content {
-  flex: 1; /* Takes up the remaining space between the header and footer */
-}
-
 .footer {
   background-color: #232323;
   color: white;
   text-align: center;
   width: 100%;
   padding-top: 20px;
-  position: relative; /* Ensure it's relative within the flow */
+  position: relative;
   bottom: 0;
-  flex-shrink: 0; /* Prevent it from shrinking */
+  flex-shrink: 0;
 }
 
 .footer-top {
@@ -82,4 +64,64 @@ body {
 .footer-bottom p {
   margin: 0;
   font-size: 12px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-links {
+    width: 80%;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-bottom p {
+    margin-top: 10px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .footer-logo h2 {
+    font-size: 18px;
+  }
+
+  .footer-links {
+    width: 100%;
+    padding: 0 10px;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .footer-bottom {
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
 }

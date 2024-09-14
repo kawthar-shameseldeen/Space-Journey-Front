@@ -11,7 +11,7 @@ import SignupScreen from "./screens/signup";
 import HomeScreen from "./screens/home";
 import NewEventScreen from "./screens/addEvent";
 import EventDetailsScreen from "./screens/event";
-// import LiveStreamScreen from "./screens/liveStream";
+import LiveStreamScreen from "./screens/liveStream";
 import BottomTabs from "./components/bottomTabs";
 import { API_URL } from '@env';
 const Stack = createNativeStackNavigator();
@@ -33,7 +33,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Event" component={EventDetailsScreen} />
         <Stack.Screen name="AddEvent" component={NewEventScreen} />
-        {/* <Stack.Screen name="LiveStream" component={LiveStreamScreen} /> */}
+        <Stack.Screen name="LiveStream" component={LiveStreamScreen} />
         <Stack.Screen name="Tabs" component={BottomTabs} />
       </Stack.Navigator>
       <StatusBar style="auto" />

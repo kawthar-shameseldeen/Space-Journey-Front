@@ -6,11 +6,10 @@
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
-    text-align: center; 
+    text-align: center;
 }
 
 .about-card h3 {
-  
     font-size: 24px;
 }
 
@@ -18,24 +17,68 @@
     font-size: 18px;
     line-height: 1.5;
     color: #aaa;
-    text-align: justify; 
-    width: 90%; 
-    margin: 0 auto; 
+    text-align: justify;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .aboutTitle {
-   
-    font-size: 20px; 
-    color: #61dbfb; 
-    
+    font-size: 20px;
+    color: #61dbfb;
 }
 
-.aboutText{
+.aboutText {
     font-size: 16px;
     line-height: 1.5;
     color: #aaa;
-  
     text-align: justify !important;
     width: 90%;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        width: 90%; 
+        padding: 15px;
+    }
+
+    .about-card h3 {
+        font-size: 22px; 
+    }
+
+    .about-card p {
+        font-size: 16px;
+    }
+
+    .aboutTitle {
+        font-size: 18px; 
+    }
+
+    .aboutText {
+        font-size: 15px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .about-card {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .about-card h3 {
+        font-size: 20px;
+    }
+
+    .about-card p {
+        font-size: 14px; 
+    }
+
+    .aboutTitle {
+        font-size: 16px; 
+    }
+
+    .aboutText {
+        font-size: 14px; 
+    }
 }

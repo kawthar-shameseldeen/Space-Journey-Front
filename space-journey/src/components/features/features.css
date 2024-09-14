@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 50px; 
   max-width: 1200px;
   padding: 10px;
 }
@@ -46,16 +46,15 @@
   font-size: 16px;
   line-height: 1.5;
   color: #aaa;
-
   text-align: justify;
   width: 90%;
   margin: 0 auto;
 }
+
 .features-description {
   font-size: 16px;
   line-height: 1.5;
   color: #aaa;
-
   text-align: justify !important;
   width: 90%;
   margin: 0 auto;
@@ -66,3 +65,55 @@
   height: 150px;
   margin-bottom: 15px;
 }
+
+
+@media (max-width: 768px) {
+  .features-container {
+    gap: 30px; 
+    padding: 10px;
+  }
+
+  .features-card {
+    width: 45%;
+  }
+
+  .features-card h3 {
+    font-size: 18px;
+  }
+
+  .features-description {
+    font-size: 14px; 
+  }
+
+  .lottie-container {
+    width: 130px; 
+    height: 130px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .features-container {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+
+  .features-card {
+    width: 90%;
+    min-width: unset; 
+  }
+
+  .features-card h3 {
+    font-size: 16px;
+  }
+
+  .features-description {
+    font-size: 14px; 
+  }
+
+  .lottie-container {
+    width: 100px;
+    height: 100px;
+  }
+}
+

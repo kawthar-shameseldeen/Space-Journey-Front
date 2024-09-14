@@ -11,7 +11,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { API_URL } from '@env';
-// import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.png"
 const events = [
   { id: "1", date: "May 18", title: "Solar eruptions" },
   { id: "2", date: "May 22", title: "Lunar eclipse" },
@@ -76,6 +76,7 @@ const HomeScreen = ({ user }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.welcomeContainer}>
+        
           <Text style={styles.welcomeText}>Welcome Back!</Text>
           <Text style={styles.userName}>{user?.name ? user.name : "User"}</Text>
         </View>
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 40,
   },
+ 
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
