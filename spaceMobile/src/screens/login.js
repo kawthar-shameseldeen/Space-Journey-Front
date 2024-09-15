@@ -1,178 +1,127 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  ActivityIndicator,
-} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { API_URL } from '@env';
+import React, { Component } from 'react';
+import { Platform, Text, TouchableOpacity, View } from 'react-native';
+import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode } from 'react-native-agora';
+import requestCameraAndAudioPermission from '../components/permission';
+import styles from '../components/style.js';
 
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const API_URL=`http://192.168.1.101:4040`;
-  const handleLogin = async () => {
-    console.log("Email:", email); 
-    console.log("Password:", password); 
-    setLoading(true);
-    setError(null);
-    
+const appId = '5d738bf6b7934aeda2aa620986395bda'; // Replace with your Agora App ID
+const channelName = 'sapcelive'; // Replace with your Agora channel name
+
+export default class Livestream extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      joinSucceed: false,
+      peerIds: [],
+    };
+
+    if (Platform.OS === 'android') {
+      requestCameraAndAudioPermission().then(() => {
+        console.log('Requested!');
+      });
+    }
+  }
+
+  componentDidMount() {
+    this.init();
+  }
+
+  init = async () => {
     try {
-      console.log("API_URL:", API_URL);
-      const response = await axios.post(`${API_URL}/api/login`, { email, password });
-      console.log("API_URL:", API_URL); 
-      console.log("Response from API:", response.data); 
-      setLoading(false);
-      
-      if (response.data && response.data.token) {
-        console.log("Login successful, token:", response.data.token);
-        await AsyncStorage.setItem("token", response.data.token);
-        navigation.navigate("Tabs");
-      } else {
-        console.log("Login response did not contain token:", response.data);
-      }
-    } catch (err) {
-      setLoading(false);
-      console.error("Login failed:", err);
-      if (err.response) {
-        console.error("Error response data:", err.response.data);
-        console.error("Error status:", err.response.status);
-        console.error("Error headers:", err.response.headers);
-      } else if (err.request) {
-        console.error("Request made but no response received:", err.request);
-      } else {
-        console.error("Error message:", err.message);
-      }
-      
-      setError(err.message || "Login failed. Please try again.");
+      this._engine = await RtcEngine.create(appId);
+      await this._engine.enableVideo();
+
+      this._engine.addListener('Warning', (warn) => {
+        console.log('Warning', warn);
+      });
+
+      this._engine.addListener('Error', (err) => {
+        console.log('Error', err);
+      });
+
+      this._engine.addListener('UserJoined', (uid) => {
+        console.log('UserJoined', uid);
+        const { peerIds } = this.state;
+        if (peerIds.indexOf(uid) === -1) {
+          this.setState({
+            peerIds: [...peerIds, uid],
+          });
+        }
+      });
+
+      this._engine.addListener('UserOffline', (uid) => {
+        console.log('UserOffline', uid);
+        const { peerIds } = this.state;
+        this.setState({
+          peerIds: peerIds.filter((id) => id !== uid),
+        });
+      });
+
+      this._engine.addListener('JoinChannelSuccess', (channel, uid) => {
+        console.log('JoinChannelSuccess', channel, uid);
+        this.setState({
+          joinSucceed: true,
+        });
+      });
+    } catch (error) {
+      console.error('Error initializing Agora: ', error);
     }
   };
-  
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <Text style={styles.subtitle}>Enter your Account details</Text>
 
-      {error && <Text style={styles.error}>{error}</Text>}
+  startCall = async () => {
+    try {
+      console.log('Starting call...');
+      await this._engine.joinChannel(null, channelName, null, 0);
+    } catch (error) {
+      console.error('Error joining the channel: ', error);
+    }
+  };
 
-      <View style={styles.inputContainer}>
-        <Icon name="envelope" size={20} color="#61dbfb" />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#aaa"
-          value={email}
-          onChangeText={setEmail}
-        />
+  endCall = async () => {
+    try {
+      console.log('Ending call...');
+      await this._engine.leaveChannel();
+      this.setState({ peerIds: [], joinSucceed: false });
+    } catch (error) {
+      console.error('Error leaving the channel: ', error);
+    }
+  };
+
+  render() {
+    return (
+      <View style={styles.max}>
+        <Text style={styles.roleText}>You are live in the stream</Text>
+        <View style={styles.buttonHolder}>
+          <TouchableOpacity onPress={this.startCall} style={styles.button}>
+            <Text style={styles.buttonText}> Start Call </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.endCall} style={styles.button}>
+            <Text style={styles.buttonText}> End Call </Text>
+          </TouchableOpacity>
+        </View>
+        {this._renderVideos()}
       </View>
+    );
+  }
 
-      <View style={styles.inputContainer}>
-        <Icon name="lock" size={20} color="#61dbfb" />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="#aaa"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+  _renderVideos = () => {
+    const { joinSucceed } = this.state;
+    return joinSucceed ? (
+      <View style={styles.fullView}>
+        <RtcLocalView.SurfaceView style={styles.max} channelId={channelName} renderMode={VideoRenderMode.Hidden} />
+        {this._renderRemoteVideos()}
       </View>
+    ) : null;
+  };
 
-      <View style={styles.LoginbuttonContainer}>
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin} disabled={loading}>
-          {loading ? (
-            <ActivityIndicator size="small" color="#fff" />
-          ) : (
-            <Text style={styles.loginButtonText}>Login</Text>
-          )}
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.signupTextContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-          <Text style={styles.signupText}>Don't Have Account? Sign Up</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#121212",
-    justifyContent: "center",
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 32,
-    color: "#fff",
-    marginBottom: 10,
-    alignItems: "flex-start",
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#aaa",
-    marginBottom: 30,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderColor: "#61dbfb",
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginBottom: 20,
-    width: "100%",
-    height: 50,
-  },
-  input: {
-    flex: 1,
-    color: "#fff",
-    paddingLeft: 10,
-    fontSize: 16,
-  },
-  LoginbuttonContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  loginButton: {
-    backgroundColor: "#61dbfb",
-    borderRadius: 60,
-    width: "40%",
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 10,
-  },
-  loginButtonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  error: {
-    color: "red",
-    marginBottom: 10,
-  },
-  signupTextContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  signupText: {
-    color: "#61dbfb",
-    marginTop: 20,
-    paddingLeft: 10,
-  },
-});
-
-export default LoginScreen;
+  _renderRemoteVideos = () => {
+    const { peerIds } = this.state;
+    return (
+      <ScrollView style={styles.remoteContainer} contentContainerStyle={styles.remoteContainerContent} horizontal>
+        {peerIds.map((value) => (
+          <RtcRemoteView.SurfaceView key={value} style={styles.remote} uid={value} channelId={channelName} renderMode={VideoRenderMode.Hidden} />
+        ))}
+      </ScrollView>
+    );
+  };
+}
