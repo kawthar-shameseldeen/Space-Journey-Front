@@ -14,7 +14,10 @@ form {
   flex-direction: column !important;
   width: 300px !important;
 }
-.signup-titleB,
+.signup-titleB{
+  align-self: center;
+}
+
 .signup-subtitleB {
   text-align: left !important;
   font-family: "Inter", sans-serif !important;
