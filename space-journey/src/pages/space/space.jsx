@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useRef, useState, useEffect } from "react";
 import { Select, MenuItem, Button } from "@mui/material";
-import { FaHome,FaSoundcloud, FaStop,FaPlay, FaPause } from "react-icons/fa";
+import { FaHome, FaSoundcloud, FaStop, FaPlay, FaPause } from "react-icons/fa";
 import { toast } from "react-toastify";
 const SpaceTour = () => {
   const mountRef = useRef(null);
@@ -17,7 +17,7 @@ const SpaceTour = () => {
   const [blackholeSound, setBlackholeSound] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:4040");
+    const ws = new WebSocket("ws://15.236.224.49");
 
     ws.onopen = () => {
       console.log("WebSocket connection established");
@@ -444,7 +444,7 @@ const SpaceTour = () => {
             right: "10px",
             ius: "5px",
             display: "flex",
-            justifyContent: "flex-end", 
+            justifyContent: "flex-end",
             gap: "10px",
             flexDirection: "row-reverse",
             fontSize: "15px",
@@ -459,18 +459,18 @@ const SpaceTour = () => {
 
         {currentScene === "blackhole" && (
           <Button
-          onClick={toggleBlackholeSound}
-          style={{
-            backgroundColor: "#61dbfb",
-            color: "white",
-            fontWeight: "bolder",
-            borderRadius: "5px",
-            fontSize: "12px",
-            padding: "10px",
-          }}
-        >
-         {isSoundPlaying ? <FaPause /> : <FaPlay />}
-        </Button>
+            onClick={toggleBlackholeSound}
+            style={{
+              backgroundColor: "#61dbfb",
+              color: "white",
+              fontWeight: "bolder",
+              borderRadius: "5px",
+              fontSize: "12px",
+              padding: "10px",
+            }}
+          >
+            {isSoundPlaying ? <FaPause /> : <FaPlay />}
+          </Button>
         )}
 
         {currentScene === "solarSystem" && (
@@ -485,7 +485,7 @@ const SpaceTour = () => {
               padding: "10px",
             }}
           >
-            {isAnimating ?  <FaPause /> : <FaPlay />}
+            {isAnimating ? <FaPause /> : <FaPlay />}
           </Button>
         )}
       </div>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import "./signup.css";
@@ -11,8 +10,8 @@ import {
 } from "../../data_store/redux/userSlice/index.js";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode"; 
-import logo from '../../assets/logo2.png'; 
+import { jwtDecode } from "jwt-decode";
+import logo from "../../assets/logo2.png";
 
 const Signup = ({ onSignupSuccess }) => {
   const [username, setUsername] = useState("");
@@ -26,19 +25,18 @@ const Signup = ({ onSignupSuccess }) => {
     dispatch(registerUserStart());
 
     try {
-      const response = await axios.post("http://localhost:4040/api/register", {
+      const response = await axios.post("http://15.236.224.49/api/register", {
         username,
         email,
         password,
       });
-      
 
       dispatch(registerUserSuccess(response.data));
 
       const token = response.data.token;
       localStorage.setItem("token", token);
       toast.success("Signup successful");
-      onSignupSuccess();  
+      onSignupSuccess();
     } catch (error) {
       dispatch(registerUserFail(error.response.data));
       toast.error("Error signing up");
@@ -100,4 +98,3 @@ const Signup = ({ onSignupSuccess }) => {
 };
 
 export default Signup;
-

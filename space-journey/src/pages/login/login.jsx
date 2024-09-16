@@ -4,9 +4,13 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { fetchingUsers, loadUsers, errorOccured } from "../../data_store/redux/userSlice/index.js";
+import {
+  fetchingUsers,
+  loadUsers,
+  errorOccured,
+} from "../../data_store/redux/userSlice/index.js";
 import { jwtDecode } from "jwt-decode";
-import logo from '../../assets/logo2.png'; 
+import logo from "../../assets/logo2.png";
 
 const Login = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -24,7 +28,7 @@ const Login = ({ onLoginSuccess }) => {
         return;
       }
       dispatch(fetchingUsers());
-      const { data } = await axios.post("http://localhost:4040/api/login", {
+      const { data } = await axios.post("http://15.236.224.49/api/login", {
         email,
         password,
       });

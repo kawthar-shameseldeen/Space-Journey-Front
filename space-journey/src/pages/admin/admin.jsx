@@ -46,12 +46,12 @@ const Admin = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:4040/api/all", {
+        const response = await axios.get("http://15.236.224.49/api/all", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-   
+
         if (response.data) {
           setUsers(
             Array.isArray(response.data) ? response.data : response.data[0]
@@ -150,38 +150,44 @@ const Admin = () => {
     },
   ];
 
-
   const rows = Array.isArray(users)
-  ? users.map((user, index) => ({
-      id: user._id || index,
-      name: user.username || "N/A",
-      email: user.email || "N/A",
-      created_at: user.timeStamp || "N/A",
-      iotDevices: Array.isArray(user.iotDevices) && user.iotDevices.length > 0
-        ? user.iotDevices
-            .filter(device => device && device.deviceName)
-            .map(device => `${device.deviceName || "Unknown"}: ${device.status || "Unknown"}`)
-            .join(", ") 
-        : "No devices",
-    }))
-  : [];
+    ? users.map((user, index) => ({
+        id: user._id || index,
+        name: user.username || "N/A",
+        email: user.email || "N/A",
+        created_at: user.timeStamp || "N/A",
+        iotDevices:
+          Array.isArray(user.iotDevices) && user.iotDevices.length > 0
+            ? user.iotDevices
+                .filter((device) => device && device.deviceName)
+                .map(
+                  (device) =>
+                    `${device.deviceName || "Unknown"}: ${
+                      device.status || "Unknown"
+                    }`
+                )
+                .join(", ")
+            : "No devices",
+      }))
+    : [];
   return (
-    <div  className="adminContainer">
-      <div style={{ padding: "20px"  }}>
-      <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-      <div className="containerA">
-        <h1
-          style={{
-            marginBottom: "20px",
-            // color: "#fff",
-            fontSize: "36px",
-            fontWeight: "bold",
-            paddingLeft: "210px",
-          }}
-        >
-          All Users
-        </h1>
-        {/* <button className="btn" onClick={() => setIsPopupOpen(true)}>
+    <div className="adminContainer">
+      <div style={{ padding: "20px" }}>
+        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+        <div className="alignContainer">
+          <div className="containerA">
+            <h1
+              style={{
+                marginBottom: "20px",
+                // color: "#fff",
+                fontSize: "36px",
+                fontWeight: "bold",
+                alignSelf: "flex-start",
+              }}
+            >
+              All Users
+            </h1>
+            {/* <button className="btn" onClick={() => setIsPopupOpen(true)}>
           Import
         </button>
         <Modal
@@ -200,93 +206,98 @@ const Admin = () => {
           <h2>Import Users</h2>
           <FileUploadPopup onFileImport={handleFileImport} />
         </Modal> */}
-      </div>
-      <div  className="adminTable"
-        style={{
-          height: "70vh",
-          width: "70vw",
-          margin: "0 auto",
-          border: "1px solid #232323",
-          backgroundColor: "#232323",
-          borderRadius: "8px",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          
-        }}
-      >
-        {users && (
-      <DataGrid
-      columns={columns}
-      rows={rows}
-      slots={{ toolbar: GridToolbar }}
-      sx={{
-        "& .MuiDataGrid-root": {
-          border: "none",
-          fontFamily: "Arial, sans-serif",
-          border: "1px solid #232323",
-          backgroundColor: "#232323",
-          color: "white",
-        },
-        "& .MuiDataGrid-cell": {
-          border: "1px solid #232323", 
-          backgroundColor: "#232323",
-          color: "white",
-        },
-        "& .MuiDataGrid-columnHeaders": {
-          backgroundColor: "#232323",
-          color: "white",
-          fontSize: "16px",
-          fontWeight: "bold",
-          border: "1px solid #232323",
-        },
-        "& .MuiDataGrid-columnHeader": {
-          fontWeight: "bold",
-          backgroundColor: "#232323",
-          border: "1px solid #232323",
-        },
-        "& .MuiDataGrid-row:nth-of-type(odd)": {
-          backgroundColor: "#232323",
-        },
-        "& .MuiDataGrid-row:hover": {
-          backgroundColor: "#e0f7fa",
-        },
-        "& .MuiDataGrid-toolbarContainer": {
-          justifyContent: "flex-end",
-          padding: "10px",
-          color: "#232323", 
-          "& .MuiButtonBase-root": {
-            color: "white", 
-          },
-        },
-        "& .MuiDataGrid-footerContainer": {
-          backgroundColor: "#232323",
-          color: "white",  
-          "& .MuiTablePagination-root": {
-            color: "white",
-          },
-          "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows, & .MuiTablePagination-select": {
-            color: "white",  
-          },
-        },
-        "& .MuiDataGrid-virtualScroller": {
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#888",
-            borderRadius: "8px",
-          },
-          "&::-webkit-scrollbar-thumb:hover": {
-            backgroundColor: "#232323",
-          },
-        },
-      }}
-    />
-    
-        )}
+          </div>
+          <div
+            className="adminTable"
+            style={{
+              height: "70vh",
+              width: "70vw",
+              margin: "0 auto",
+              border: "1px solid #232323",
+              backgroundColor: "#232323",
+              borderRadius: "8px",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            }}
+          >
+            {users && (
+              <DataGrid
+                columns={columns}
+                rows={rows}
+                slots={{ toolbar: GridToolbar }}
+                sx={{
+                  border: "1px solid #232323", 
+                  "& .MuiDataGrid-root": {
+                    borderColor: "#232323",
+                  },
+                  "& .MuiDataGrid-root": {
+                    border: "none",
+                    fontFamily: "Arial, sans-serif",
+                    border: "1px solid #232323 !important", 
+                    backgroundColor: "#232323 !important",
+                    color: "white",
+                  },
+                  "& .MuiDataGrid-cell": {
+                    border: "1px solid #232323 !important", 
+                    backgroundColor: "#232323 !important",
+                    color: "white",
+                  },
+                  "& .MuiDataGrid-columnHeaders": {
+                    backgroundColor: "#232323",
+                    color: "white",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    border: "1px solid #232323",
+                  },
+                  "& .MuiDataGrid-columnHeader": {
+                    fontWeight: "bold",
+                    backgroundColor: "#232323",
+                    border: "1px solid #232323",
+                  },
+                  "& .MuiDataGrid-row:nth-of-type(odd)": {
+                    backgroundColor: "#232323",
+                  },
+                  "& .MuiDataGrid-row:hover": {
+                    backgroundColor: "#e0f7fa",
+                  },
+                  "& .MuiDataGrid-toolbarContainer": {
+                    justifyContent: "flex-end",
+                    padding: "10px",
+                    color: "#232323",
+                    "& .MuiButtonBase-root": {
+                      color: "white",
+                    },
+                  },
+                  "& .MuiDataGrid-footerContainer": {
+                    backgroundColor: "#232323",
+                    color: "white",
+                    "& .MuiTablePagination-root": {
+                      color: "white",
+                    },
+                    "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows, & .MuiTablePagination-select":
+                      {
+                        color: "white",
+                      },
+                  },
+                  "& .MuiDataGrid-virtualScroller": {
+                    "&::-webkit-scrollbar": {
+                      display: "none",
+                    },
+                    "&::-webkit-scrollbar-thumb": {
+                      backgroundColor: "#888",
+                      borderRadius: "8px",
+                    },
+                    "&::-webkit-scrollbar-thumb:hover": {
+                      backgroundColor: "#232323",
+                    },
+                  },
+                }}
+              />
+            )}
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    );
+  );
 };
 
 export default Admin;

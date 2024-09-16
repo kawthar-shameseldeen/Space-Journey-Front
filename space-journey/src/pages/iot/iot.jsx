@@ -1,9 +1,8 @@
-
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './iot.css'; 
-import deviceImage from '../../assets/iotImage.png';
-import Navbar from '../../components/navbar/navbar.jsx';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./iot.css";
+import deviceImage from "../../assets/iotImage.png";
+import Navbar from "../../components/navbar/navbar.jsx";
 
 const IoTPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,33 +24,33 @@ const IoTPage = () => {
   };
 
   const handleConnect = () => {
-    const socket = new WebSocket('ws://localhost:4040');
+    const socket = new WebSocket("ws://15.236.224.49");
     setWs(socket);
 
     socket.onopen = () => {
-      console.log('WebSocket connection established');
+      console.log("WebSocket connection established");
       setConnected(true);
       socket.send("Client connected to IoT");
     };
 
     socket.onmessage = (event) => {
-      console.log('Message from server:', event.data);
+      console.log("Message from server:", event.data);
     };
 
     socket.onclose = () => {
-      console.log('WebSocket connection closed');
+      console.log("WebSocket connection closed");
       setConnected(false);
     };
 
     socket.onerror = (error) => {
-      console.error('WebSocket error:', error);
+      console.error("WebSocket error:", error);
       setConnected(false);
     };
   };
 
   const handleDisconnect = () => {
     if (ws) {
-      ws.close(); 
+      ws.close();
     }
   };
 
@@ -67,17 +66,11 @@ const IoTPage = () => {
               featuring real-time updates and seamless control.
             </p>
             {!connected ? (
-              <button 
-                className="connect-button"
-                onClick={handleConnect}
-              >
+              <button className="connect-button" onClick={handleConnect}>
                 Connect
               </button>
             ) : (
-              <button 
-                className="disconnect-button"
-                onClick={handleDisconnect}
-              >
+              <button className="disconnect-button" onClick={handleDisconnect}>
                 Disconnect
               </button>
             )}
@@ -92,5 +85,3 @@ const IoTPage = () => {
 };
 
 export default IoTPage;
-
-
