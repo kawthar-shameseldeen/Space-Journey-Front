@@ -42,7 +42,7 @@ const Login = ({ onLoginSuccess }) => {
       console.log(decodedToken);
 
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
-        toast.success("Login successful");
+        // toast.success("Login successful");
         navigate("/users");  // Use navigate here to redirect
         onLoginSuccess();
       } else {

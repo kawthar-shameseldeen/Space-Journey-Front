@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-
+import Sidebar from "../../components/sidebar/sidebar";
 import { jwtDecode } from "jwt-decode";
 
 
@@ -172,6 +172,7 @@ const Admin = () => {
     : [];
   return (
     <div className="adminContainer">
+        <Sidebar />
       <div style={{ padding: "20px" }}>
         
         <div className="alignContainer">
