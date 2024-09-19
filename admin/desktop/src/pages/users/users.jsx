@@ -143,11 +143,7 @@ const Admin = () => {
         return isNaN(date) ? "" : format(date, "yyyy-MM-dd");
       },
     },
-    {
-      field: "iotDevices",
-      headerName: "Devices",
-      flex: 1,
-    },
+   
   ];
 
   const rows = Array.isArray(users)
@@ -156,18 +152,7 @@ const Admin = () => {
         name: user.username || "N/A",
         email: user.email || "N/A",
         created_at: user.timeStamp || "N/A",
-        iotDevices:
-          Array.isArray(user.iotDevices) && user.iotDevices.length > 0
-            ? user.iotDevices
-                .filter((device) => device && device.deviceName)
-                .map(
-                  (device) =>
-                    `${device.deviceName || "Unknown"}: ${
-                      device.status || "Unknown"
-                    }`
-                )
-                .join(", ")
-            : "No devices",
+       
       }))
     : [];
   return (

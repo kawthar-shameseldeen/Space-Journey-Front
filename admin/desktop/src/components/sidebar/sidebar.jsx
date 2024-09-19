@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar.css'; 
-import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../../assets/logo2.png';
+import { FaBars, FaTimes ,FaUsers, FaMicrochip  } from 'react-icons/fa';
+
+
 import DeviceStatus from '../../pages/devices/devices.jsx';
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,16 +23,25 @@ const Sidebar = () => {
     
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
-          <img src="../../assets/logo2.png"  />
+        <img src={logo} />
         </div>
         <h2 className="sidebar-title">Space Journey</h2>
         <nav className="sidebar-nav">
-          <ul>
-            <li><Link to="/users">Users</Link></li>
-            <li><Link to="/devices">Devices</Link></li>
-            
-          </ul>
-        </nav>
+  <ul>
+    <li>
+      <Link to="/users">
+        <FaUsers size={20} />
+        <span className="icon-label">Users</span> 
+      </Link>
+    </li>
+    <li>
+      <Link to="/devices">
+        <FaMicrochip size={20} />
+        <span className="icon-label">Devices</span>
+      </Link>
+    </li>
+  </ul>
+</nav>
       </div>
     </>
   );
