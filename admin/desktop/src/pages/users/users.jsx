@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import "./admin.css";
+import "./users.css";
 import axios from "axios";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import FileUploadPopup from "../../components/fileuploader/fileuploader.jsx";
-import Navbar from "../../components/navbar/navbar.jsx";
+
+import Sidebar from "../../components/sidebar/sidebar";
 import { jwtDecode } from "jwt-decode";
-import Modal from "../../components/modal/modal.jsx";
+
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
@@ -131,23 +131,19 @@ const Admin = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 1 },
+    
     { field: "name", headerName: "Name", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
     {
       field: "created_at",
-      headerName: "Registered At",
+      headerName: "Registered On",
       flex: 1,
       renderCell: (params) => {
         const date = new Date(params.row.created_at);
         return isNaN(date) ? "" : format(date, "yyyy-MM-dd");
       },
     },
-    {
-      field: "iotDevices",
-      headerName: "Devices",
-      flex: 1,
-    },
+   
   ];
 
   const rows = Array.isArray(users)
@@ -156,24 +152,14 @@ const Admin = () => {
         name: user.username || "N/A",
         email: user.email || "N/A",
         created_at: user.timeStamp || "N/A",
-        iotDevices:
-          Array.isArray(user.iotDevices) && user.iotDevices.length > 0
-            ? user.iotDevices
-                .filter((device) => device && device.deviceName)
-                .map(
-                  (device) =>
-                    `${device.deviceName || "Unknown"}: ${
-                      device.status || "Unknown"
-                    }`
-                )
-                .join(", ")
-            : "No devices",
+       
       }))
     : [];
   return (
     <div className="adminContainer">
+        <Sidebar />
       <div style={{ padding: "20px" }}>
-        <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+        
         <div className="alignContainer">
           <div className="containerA">
             <h1

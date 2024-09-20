@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import store from './data_store/redux/store.js';
 import ProtectedRoute from './components/protectedRoutes/protect.jsx';
-import Admin from './pages/admin/admin.jsx';
+
 import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './pages/home/home.jsx';
 import IoTPage from './pages/iot/iot.jsx'
@@ -18,14 +18,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
+       
            <Route
           path="/iot"
           element={

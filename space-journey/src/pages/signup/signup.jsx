@@ -53,10 +53,10 @@ const Signup = ({ onSignupSuccess }) => {
 
   return (
     <div className="signup-container">
-      <img src={logo} alt="Logo" className="login-logo" />
+      <img src={logo} alt="Logo" className="signup-logo" />
       <form onSubmit={handleSubmit}>
         <h1 className="signup-titleB">Register</h1>
-        <p className="signup-subtitleB">Please Enter your Account details</p>
+        <p className="signup-subtitleB">Please enter your account details</p>
 
         <div className="input-groupB">
           <FaUser />

@@ -1,0 +1,24 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+"start-electron": "electron .",
+    "start-desktop-dev": "cd desktop && npm run dev",
+    "start": "concurrently \"npm run start-desktop-dev\" \"npm run start-electron\""  },
+  "keywords": [
+    "electron",
+    "reactjs",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron": "^32.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

@@ -4,7 +4,7 @@
   justify-content: center !important;
   align-items: center !important;
   max-width: 320px;
-  margin: 100px auto;
+  margin: 20px auto;
 
   border-radius: 10px;
   padding: 20px;
@@ -16,6 +16,8 @@ form {
 }
 .signup-titleB{
   align-self: center;
+  margin: 0%;
+
 }
 
 .signup-subtitleB {
@@ -90,4 +92,11 @@ form {
 }
 .login-textB a:hover {
   text-decoration: underline !important;
+}
+
+.signup-logo{
+  width:100px;
+  height: auto;
+ 
+
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import axios from "axios";
 import {
   fetchingUsers,
@@ -11,11 +11,12 @@ import {
 } from "../../data_store/redux/userSlice/index.js";
 import { jwtDecode } from "jwt-decode";
 import logo from "../../assets/logo2.png";
-
-const Login = ({ onLoginSuccess }) => {
+import {useNavigate, Navigate } from "react-router-dom";
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();  // Use the useNavigate hook
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -24,7 +25,7 @@ const Login = ({ onLoginSuccess }) => {
     e.preventDefault();
     try {
       if (!email || !password) {
-        toast.error("Please enter both email and password");
+        // toast.error("Please enter both email and password");
         return;
       }
       dispatch(fetchingUsers());
@@ -41,23 +42,25 @@ const Login = ({ onLoginSuccess }) => {
       console.log(decodedToken);
 
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
-        toast.success("Login successful");
-        onLoginSuccess();
+        // toast.success("Login successful");
+        navigate("/users");  
+       
       } else {
-        toast.error("Unknown role");
+        // toast.error("Unknown role");
       }
     } catch (error) {
       dispatch(errorOccured(error?.message));
-      toast.error("Error logging in");
+      // toast.error("Error logging in");
     }
   };
 
   return (
-    <div className="login-container">
+  <div className="login-page">
+      <div className="login-container">
       <img src={logo} alt="Logo" className="login-logo" />
       <form className="login" onSubmit={handleSubmit}>
         <h1 className="title">Login</h1>
-        <p className="loginText">Please enter your account details</p>
+        <p>Please Enter your Account details</p>
         <div className="input-group">
           <FaEnvelope className="icon" />
           <input
@@ -85,7 +88,7 @@ const Login = ({ onLoginSuccess }) => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
-
 export default Login;

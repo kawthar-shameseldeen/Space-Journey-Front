@@ -36,8 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* app.css */
-::-webkit-scrollbar {
-  display: none;
-}
