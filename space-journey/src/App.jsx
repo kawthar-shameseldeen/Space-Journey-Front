@@ -18,14 +18,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
+       
            <Route
           path="/iot"
           element={

@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh; 
   text-align: center;
+
 }
 
 .hero-section h1 {
@@ -21,6 +22,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   color: white;
+  overflow: hidden; 
 }
 
 .full-page-section {
@@ -56,6 +58,7 @@
   z-index: 10;
   position: relative;
   font-size: 25px;
+  color: white;
 }
 
 .navbar {
@@ -102,7 +105,9 @@
   display: flex;
   align-items: center;
 }
-
+::-webkit-scrollbar{
+  display: none;
+}
 .btn-login, .btn-signup {
   padding: 5px 15px;
   border: 1px solid #61dbfb;
@@ -374,3 +379,9 @@
     padding-left: 200px !important;
   }
 }
+
+
+home-container::-webkit-scrollbar {
+  display: none; 
+}
+

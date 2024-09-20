@@ -38,3 +38,6 @@
 }
 
 /* app.css */
+::-webkit-scrollbar {
+  display: none;
+}

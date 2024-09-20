@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import axios from "axios";
 import {
   fetchingUsers,
@@ -12,7 +12,7 @@ import {
 import { jwtDecode } from "jwt-decode";
 import logo from "../../assets/logo2.png";
 import {useNavigate, Navigate } from "react-router-dom";
-const Login = ({ onLoginSuccess }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Login = ({ onLoginSuccess }) => {
     e.preventDefault();
     try {
       if (!email || !password) {
-        toast.error("Please enter both email and password");
+        // toast.error("Please enter both email and password");
         return;
       }
       dispatch(fetchingUsers());
@@ -43,19 +43,20 @@ const Login = ({ onLoginSuccess }) => {
 
       if (decodedToken.role === "admin" || decodedToken.role === "user") {
         // toast.success("Login successful");
-        navigate("/users");  // Use navigate here to redirect
-        onLoginSuccess();
+        navigate("/users");  
+       
       } else {
-        toast.error("Unknown role");
+        // toast.error("Unknown role");
       }
     } catch (error) {
       dispatch(errorOccured(error?.message));
-      toast.error("Error logging in");
+      // toast.error("Error logging in");
     }
   };
 
   return (
-    <div className="login-container">
+  <div className="login-page">
+      <div className="login-container">
       <img src={logo} alt="Logo" className="login-logo" />
       <form className="login" onSubmit={handleSubmit}>
         <h1 className="title">Login</h1>
@@ -87,6 +88,7 @@ const Login = ({ onLoginSuccess }) => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
 export default Login;

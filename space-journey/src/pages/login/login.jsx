@@ -57,7 +57,7 @@ const Login = ({ onLoginSuccess }) => {
       <img src={logo} alt="Logo" className="login-logo" />
       <form className="login" onSubmit={handleSubmit}>
         <h1 className="title">Login</h1>
-        <p>Please Enter your Account details</p>
+        <p className="loginText">Please enter your account details</p>
         <div className="input-group">
           <FaEnvelope className="icon" />
           <input
